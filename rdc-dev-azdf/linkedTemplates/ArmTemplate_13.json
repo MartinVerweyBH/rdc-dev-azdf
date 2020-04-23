@@ -53,6 +53,720 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/xCAMP_BIA_GL_LINES_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_dwStageOAC",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Destination xCAMP"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "JE_HEADER_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "JE_LINE_NUM",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "LEDGER_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "CODE_COMBINATION_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "PERIOD_NAME",
+						"type": "varchar"
+					},
+					{
+						"name": "STATUS",
+						"type": "varchar"
+					},
+					{
+						"name": "ENTERED_DR",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "ENTERED_CR",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "ACCOUNTED_DR",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "ACCOUNTED_CR",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "DESCRIPTION",
+						"type": "varchar"
+					},
+					{
+						"name": "REFERENCE_1",
+						"type": "varchar"
+					},
+					{
+						"name": "REFERENCE_2",
+						"type": "varchar"
+					},
+					{
+						"name": "REFERENCE_3",
+						"type": "varchar"
+					},
+					{
+						"name": "REFERENCE_4",
+						"type": "varchar"
+					},
+					{
+						"name": "PARTY_NAME",
+						"type": "varchar"
+					},
+					{
+						"name": "PARTY_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "DSYS_INSTANCE_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "VENDOR_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "DSYS_PROCESS_ID",
+						"type": "decimal",
+						"precision": 12,
+						"scale": 0
+					},
+					{
+						"name": "INVOICE_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "DSYS_BATCH_ID",
+						"type": "decimal",
+						"precision": 30,
+						"scale": 0
+					},
+					{
+						"name": "LAST_UPDATE_DATE",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "JE_BATCH_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"schema": "xCAMP",
+					"table": "BIA_GL_LINES_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/xCAMP_BIA_ORGANIZATIONS_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_dwStageOAC",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Destination xCAMP"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "ORGANIZATION_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "BUSINESS_GROUP_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "LOCATION_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "LOCATION_CODE",
+						"type": "varchar"
+					},
+					{
+						"name": "COUNTRY",
+						"type": "varchar"
+					},
+					{
+						"name": "ADDRESS_LINE_1",
+						"type": "varchar"
+					},
+					{
+						"name": "ADDRESS_LINE_2",
+						"type": "varchar"
+					},
+					{
+						"name": "ADDRESS_LINE_3",
+						"type": "varchar"
+					},
+					{
+						"name": "REGION_1",
+						"type": "varchar"
+					},
+					{
+						"name": "REGION_2",
+						"type": "varchar"
+					},
+					{
+						"name": "REGION_3",
+						"type": "varchar"
+					},
+					{
+						"name": "POSTAL_CODE",
+						"type": "varchar"
+					},
+					{
+						"name": "TOWN_OR_CITY",
+						"type": "varchar"
+					},
+					{
+						"name": "DATE_FROM",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "NAME",
+						"type": "varchar"
+					},
+					{
+						"name": "DATE_TO",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "LAST_UPDATE_DATE",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "OBJECT_VERSION_NUMBER",
+						"type": "decimal",
+						"precision": 9,
+						"scale": 0
+					},
+					{
+						"name": "DSYS_INSTANCE_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "DSYS_PROCESS_ID",
+						"type": "decimal",
+						"precision": 12,
+						"scale": 0
+					},
+					{
+						"name": "DSYS_BATCH_ID",
+						"type": "decimal",
+						"precision": 30,
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"schema": "xCAMP",
+					"table": "BIA_ORGANIZATIONS_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/xCAMP_BIA_POWER_KW_CONTRACT_LINE_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_dwStageOAC",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Destination xCAMP"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "PERIOD_MONTH",
+						"type": "varchar"
+					},
+					{
+						"name": "DSYS_INSTANCE_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "DSYS_PROCESS_ID",
+						"type": "decimal",
+						"precision": 12,
+						"scale": 0
+					},
+					{
+						"name": "PERIOD_NAME",
+						"type": "varchar"
+					},
+					{
+						"name": "DSYS_BATCH_ID",
+						"type": "decimal",
+						"precision": 30,
+						"scale": 0
+					},
+					{
+						"name": "OFIN_CUSTOMER_NUMBER",
+						"type": "varchar"
+					},
+					{
+						"name": "SITE_USE_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "OFIN_CUSTOMER_NAME",
+						"type": "varchar"
+					},
+					{
+						"name": "SERVICE_CONTRACT_NUMBER",
+						"type": "varchar"
+					},
+					{
+						"name": "ORDER_LINE_NUMBER",
+						"type": "varchar"
+					},
+					{
+						"name": "BILL_CONTRACT_LINE_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "ITEM_CODE",
+						"type": "varchar"
+					},
+					{
+						"name": "INVENTORY_ITEM_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "BUILDING_LOCATION",
+						"type": "varchar"
+					},
+					{
+						"name": "ENCLOSURE_LOCATION_LIST",
+						"type": "varchar"
+					},
+					{
+						"name": "CURRENT_MAX_KW",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "FINAL_MAX_KW",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "KW_USED",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "KWH_SMOOTHED",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "KWH_ACTUAL",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "SF_CONTRACTED",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "SF_BUILT",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "ORGANIZATION_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "LOCATION_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "BCL_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "BILL_TYPE",
+						"type": "varchar"
+					},
+					{
+						"name": "RUN_DATE",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "PCT_ALLOCATION",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "CURRENT_MRC",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "FINAL_MRC",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "etlMerge",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "xCAMP",
+					"table": "BIA_POWER_KW_CONTRACT_LINE_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/xCAMP_BIA_POWER_KW_ENCL_MONTH_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_dwStageOAC",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Destination xCAMP"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "PERIOD_MONTH",
+						"type": "nvarchar"
+					},
+					{
+						"name": "CLIENT_NAME",
+						"type": "nvarchar"
+					},
+					{
+						"name": "LOC_PATH",
+						"type": "nvarchar"
+					},
+					{
+						"name": "AVG_SQUARE_FEET_INUSE",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "IIC_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "BILL_CONTRACT_LINE_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "OFIN_CUSTOMER_NUMBER",
+						"type": "nvarchar"
+					},
+					{
+						"name": "DSYS_INSTANCE_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "AVG_KW_READING_VALUE",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "KWH",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "DSYS_PROCESS_ID",
+						"type": "decimal",
+						"precision": 12,
+						"scale": 0
+					},
+					{
+						"name": "BILL_TYPE",
+						"type": "nvarchar"
+					},
+					{
+						"name": "DSYS_BATCH_ID",
+						"type": "decimal",
+						"precision": 30,
+						"scale": 0
+					},
+					{
+						"name": "WAREHOUSE",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SF_BUILT",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "ROOM",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ENCLOSURE",
+						"type": "nvarchar"
+					},
+					{
+						"name": "TOTAL_AVG_KW",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "PCT_AVG_KW",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "TOTAL_KWH",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "PCT_KWH",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "TOTAL_SQFT",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "TOTAL_SQFT_PCT",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "BILL_TYPE_REPORTING",
+						"type": "nvarchar"
+					},
+					{
+						"name": "TOTAL_SQFT_OFFICE",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "TOTAL_SQFT_OFFICE_PCT",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					}
+				],
+				"typeProperties": {
+					"schema": "xCAMP",
+					"table": "BIA_POWER_KW_ENCL_MONTH_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/xCAMP_stage_BIA_GL_HEADERS_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_dwStageOAC",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Destination xCAMP"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "StageID",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "JE_HEADER_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "JE_CATEGORY",
+						"type": "varchar"
+					},
+					{
+						"name": "PERIOD_NAME",
+						"type": "varchar"
+					},
+					{
+						"name": "NAME",
+						"type": "varchar"
+					},
+					{
+						"name": "STATUS",
+						"type": "varchar"
+					},
+					{
+						"name": "ACTUAL_FLAG",
+						"type": "varchar"
+					},
+					{
+						"name": "JE_BATCH_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "DESCRIPTION",
+						"type": "varchar"
+					},
+					{
+						"name": "RUNNING_TOTAL_DR",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "RUNNING_TOTAL_CR",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "RUNNING_TOTAL_ACCOUNTED_DR",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "RUNNING_TOTAL_ACCOUNTED_CR",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "LAST_UPDATE_DATE",
+						"type": "datetime2",
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"schema": "xCAMP",
+					"table": "stage_BIA_GL_HEADERS_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/xCAMP_stage_BIA_GL_LINES_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1135,6 +1849,114 @@
 				],
 				"folder": {
 					"name": "Pipe SalesOrders"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BIA_SF_BUILT_TMP')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy BIA_SF_BUILT_TMP",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "AzureSqlSource",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_SF_BUILT_TMP",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "PERIOD_MONTH",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PERIOD_MONTH",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OFIN_CUSTOMER_NUMBER",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OFIN_CUSTOMER_NUMBER",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "BUILDING_LOCATION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BUILDING_LOCATION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "BILL_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BILL_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "TOT_SF_BUILT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "TOT_SF_BUILT",
+											"type": "Double"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "aoac_BIA_SF_BUILT_TMP",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BIA_SF_BUILT_TMP",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "Pipe OnceOffs"
 				},
 				"annotations": []
 			},
@@ -2271,1603 +3093,6 @@
 				],
 				"folder": {
 					"name": "Pipe Customers"
-				},
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipe_oac_to_aoac_BIA_GL_CAMP_ENCL_BILLING_V')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "NOTE: Will sunc from OAC untill ES changed the Source ETL (Postgress changes) - Show Stopper! \nSource: OAC\nDestination: Azure OAC\nBIA_GL_CAMP_ENCL_BILLING_V",
-				"activities": [
-					{
-						"name": "Copy BIA_GL_CAMP_ENCL_BILLING_V",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "OracleSource",
-								"partitionOption": "None",
-								"queryTimeout": "02:00:00"
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_GL_CAMP_ENCL_BILLING_V",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "PERIOD_MONTH",
-											"type": "String"
-										},
-										"sink": {
-											"name": "PERIOD_MONTH",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "OFIN_CUSTOMER_NUMBER",
-											"type": "String"
-										},
-										"sink": {
-											"name": "OFIN_CUSTOMER_NUMBER",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "WAREHOUSE",
-											"type": "String"
-										},
-										"sink": {
-											"name": "WAREHOUSE",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "ROOM",
-											"type": "String"
-										},
-										"sink": {
-											"name": "ROOM",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "ENCLOSURE",
-											"type": "String"
-										},
-										"sink": {
-											"name": "ENCLOSURE",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "LOC_PATH",
-											"type": "String"
-										},
-										"sink": {
-											"name": "LOC_PATH",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "AVG_SQUARE_FEET_INUSE",
-											"type": "String"
-										},
-										"sink": {
-											"name": "AVG_SQUARE_FEET_INUSE",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "AVG_KW_READING_VALUE",
-											"type": "String"
-										},
-										"sink": {
-											"name": "AVG_KW_READING_VALUE",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "KWH",
-											"type": "String"
-										},
-										"sink": {
-											"name": "KWH",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "TOTAL_AVG_KW",
-											"type": "String"
-										},
-										"sink": {
-											"name": "TOTAL_AVG_KW",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "PCT_AVG_KW",
-											"type": "String"
-										},
-										"sink": {
-											"name": "PCT_AVG_KW",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "TOTAL_KWH",
-											"type": "String"
-										},
-										"sink": {
-											"name": "TOTAL_KWH",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "PCT_KWH",
-											"type": "String"
-										},
-										"sink": {
-											"name": "PCT_KWH",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "AMT_61110",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "AMT_61110",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "AMT_61111",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "AMT_61111",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "AMT_61113",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "AMT_61113",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "AMT_61210",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "AMT_61210",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "AMT_61310",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "AMT_61310",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "AMT_61312",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "AMT_61312",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "AMT_61510",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "AMT_61510",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "AMT_61710",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "AMT_61710",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "AMT_61720",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "AMT_61720",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "AMT_62220",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "AMT_62220",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "AMT_69105",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "AMT_69105",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "AMT_69110",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "AMT_69110",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "AS_BUILT",
-											"type": "String"
-										},
-										"sink": {
-											"name": "AS_BUILT",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "BILL_TYPE_REPORTING",
-											"type": "String"
-										},
-										"sink": {
-											"name": "BILL_TYPE_REPORTING",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "TOTAL_SQFT",
-											"type": "String"
-										},
-										"sink": {
-											"name": "TOTAL_SQFT",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "TOTAL_SQFT_PCT",
-											"type": "String"
-										},
-										"sink": {
-											"name": "TOTAL_SQFT_PCT",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "TOTAL_61111",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "TOTAL_61111",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "PERIOD_NAME",
-											"type": "String"
-										},
-										"sink": {
-											"name": "PERIOD_NAME",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "CURRENT_MAX_KW",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "CURRENT_MAX_KW",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "FINAL_MAX_KW",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "FINAL_MAX_KW",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "SF_BUILT",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "SF_BUILT",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "BILL_TYPE",
-											"type": "String"
-										},
-										"sink": {
-											"name": "BILL_TYPE",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "TOTAL_SQFT_OFFICE",
-											"type": "String"
-										},
-										"sink": {
-											"name": "TOTAL_SQFT_OFFICE",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "TOTAL_SQFT_OFFICE_PCT",
-											"type": "String"
-										},
-										"sink": {
-											"name": "TOTAL_SQFT_OFFICE_PCT",
-											"type": "Decimal"
-										}
-									}
-								]
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "oac_BIA_GL_CAMP_ENCL_BILLING_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "aoac_BIA_GL_CAMP_ENCL_BILLING_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					},
-					{
-						"name": "sp_audit_BIA_GL_CAMP_ENCL_BILLING_V",
-						"description": "Trigger Stored Procedure\ndbo.audit_BIA_GL_CAMP_ENCL_BILLING_V",
-						"type": "SqlServerStoredProcedure",
-						"dependsOn": [
-							{
-								"activity": "Copy BIA_GL_CAMP_ENCL_BILLING_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"storedProcedureName": "[[dbo].[Audi_Pipe_BIA_GL_CAMP_ENCL_BILLING_V]"
-						},
-						"linkedServiceName": {
-							"referenceName": "ls_dwStageOAC",
-							"type": "LinkedServiceReference"
-						}
-					}
-				],
-				"folder": {
-					"name": "Pipe CAMP"
-				},
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipe_oac_to_aoac_BIA_GL_LINES_V')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Pipeline to copy oac to aoac - BIA_GL_LINES_V",
-				"activities": [
-					{
-						"name": "Copy oac to aoac BIA_GL_LINES_V",
-						"description": "Copy oac BIA_GL_LINES_V to aoac BIA_GL_LINES_V",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "OracleSource",
-								"partitionOption": "None",
-								"queryTimeout": "02:00:00"
-							},
-							"sink": {
-								"type": "AzureSqlSink"
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "JE_HEADER_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "JE_HEADER_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "JE_LINE_NUM",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "JE_LINE_NUM",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "LEDGER_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "LEDGER_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "CODE_COMBINATION_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "CODE_COMBINATION_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "PERIOD_NAME",
-											"type": "String"
-										},
-										"sink": {
-											"name": "PERIOD_NAME",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "STATUS",
-											"type": "String"
-										},
-										"sink": {
-											"name": "STATUS",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "ENTERED_DR",
-											"type": "String"
-										},
-										"sink": {
-											"name": "ENTERED_DR",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "ENTERED_CR",
-											"type": "String"
-										},
-										"sink": {
-											"name": "ENTERED_CR",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "ACCOUNTED_DR",
-											"type": "String"
-										},
-										"sink": {
-											"name": "ACCOUNTED_DR",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "ACCOUNTED_CR",
-											"type": "String"
-										},
-										"sink": {
-											"name": "ACCOUNTED_CR",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "DESCRIPTION",
-											"type": "String"
-										},
-										"sink": {
-											"name": "DESCRIPTION",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "REFERENCE_1",
-											"type": "String"
-										},
-										"sink": {
-											"name": "REFERENCE_1",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "REFERENCE_2",
-											"type": "String"
-										},
-										"sink": {
-											"name": "REFERENCE_2",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "REFERENCE_3",
-											"type": "String"
-										},
-										"sink": {
-											"name": "REFERENCE_3",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "REFERENCE_4",
-											"type": "String"
-										},
-										"sink": {
-											"name": "REFERENCE_4",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "PARTY_NAME",
-											"type": "String"
-										},
-										"sink": {
-											"name": "PARTY_NAME",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "PARTY_ID",
-											"type": "String"
-										},
-										"sink": {
-											"name": "PARTY_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "DSYS_INSTANCE_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "DSYS_INSTANCE_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "VENDOR_ID",
-											"type": "String"
-										},
-										"sink": {
-											"name": "VENDOR_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "DSYS_PROCESS_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "DSYS_PROCESS_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "INVOICE_ID",
-											"type": "String"
-										},
-										"sink": {
-											"name": "INVOICE_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "DSYS_BATCH_ID",
-											"type": "String"
-										},
-										"sink": {
-											"name": "DSYS_BATCH_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "JE_BATCH_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "JE_BATCH_ID",
-											"type": "Decimal"
-										}
-									}
-								]
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "oac_BIA_GL_LINES_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "aoac_BIA_GL_LINES_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"folder": {
-					"name": "pipe GeneralLedger"
-				},
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipe_oac_to_aoac_BIA_MRTG_BILLING_V')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: MRTG\nDestination: Azure EBS\nVIEW: BIA_MRTG_BILLING_V",
-				"activities": [
-					{
-						"name": "Copy BIA_MRTG_BILLING_V",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "OracleSource",
-								"partitionOption": "None",
-								"queryTimeout": "02:00:00"
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_MRTG_BILLING_V2",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "MRTG_ID",
-											"type": "String"
-										},
-										"sink": {
-											"name": "MRTG_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "CUSTOMER_ID",
-											"type": "String"
-										},
-										"sink": {
-											"name": "CUSTOMER_ID",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "ROUTER_ID",
-											"type": "String"
-										},
-										"sink": {
-											"name": "ROUTER_ID",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "INTERFACE_ID",
-											"type": "String"
-										},
-										"sink": {
-											"name": "INTERFACE_ID",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "CAMPUS",
-											"type": "String"
-										},
-										"sink": {
-											"name": "CAMPUS",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "PRODUCT_LINE",
-											"type": "String"
-										},
-										"sink": {
-											"name": "PRODUCT_LINE",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "PERIOD_NAME",
-											"type": "String"
-										},
-										"sink": {
-											"name": "PERIOD_NAME",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "BILLING_USAGE_IN",
-											"type": "String"
-										},
-										"sink": {
-											"name": "BILLING_USAGE_IN",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "BILLING_USAGE_OUT",
-											"type": "String"
-										},
-										"sink": {
-											"name": "BILLING_USAGE_OUT",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "DSYS_INSTANCE_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "DSYS_INSTANCE_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "DSYS_PROCESS_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "DSYS_PROCESS_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "DSYS_BATCH_ID",
-											"type": "String"
-										},
-										"sink": {
-											"name": "DSYS_BATCH_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "BILLING_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "BILLING_DATE",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "CAL_BILLING_USAGE_IN",
-											"type": "String"
-										},
-										"sink": {
-											"name": "CAL_BILLING_USAGE_IN",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "CAL_BILLING_USAGE_OUT",
-											"type": "String"
-										},
-										"sink": {
-											"name": "CAL_BILLING_USAGE_OUT",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "CALENDAR_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "CALENDAR_DATE",
-											"type": "DateTime"
-										}
-									}
-								]
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "oac_BIA_MRTG_BILLING_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "aoac_BIA_MRTG_BILLING_V2",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"folder": {
-					"name": "pipe MRTG"
-				},
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipe_oac_to_aoac_BIA_POWER_CONTRACT_LINES')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC\nDestination: Azure OAC",
-				"activities": [
-					{
-						"name": "Copy BIA_POWER_CONTRACT_LINES",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "OracleSource",
-								"partitionOption": "None",
-								"queryTimeout": "02:00:00"
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_POWER_CONTRACT_LINES",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false
-						},
-						"inputs": [
-							{
-								"referenceName": "oac_BIA_POWER_CONTRACT_LINES",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "aoac_BIA_POWER_CONTRACT_LINES",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"folder": {
-					"name": "Pipe CAMP"
-				},
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipe_oac_to_aoac_BIA_POWER_KW_CAGE_MON_V')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy BIA_POWER_KW_CAGE_MON_V",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "OracleSource",
-								"partitionOption": "None",
-								"queryTimeout": "02:00:00"
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_POWER_KW_CAGE_MON_V",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "MATRIX_PERIOD_MONTH",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "MATRIX_PERIOD_MONTH",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "GL_PERIOD_NAME",
-											"type": "String"
-										},
-										"sink": {
-											"name": "GL_PERIOD_NAME",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "OFIN_CUSTOMER_NUMBER",
-											"type": "String"
-										},
-										"sink": {
-											"name": "OFIN_CUSTOMER_NUMBER",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "BUILDING_LOCATION",
-											"type": "String"
-										},
-										"sink": {
-											"name": "BUILDING_LOCATION",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "SF_BUILT",
-											"type": "String"
-										},
-										"sink": {
-											"name": "SF_BUILT",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "SF_CONTRACTED",
-											"type": "String"
-										},
-										"sink": {
-											"name": "SF_CONTRACTED",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "MAX_KW",
-											"type": "String"
-										},
-										"sink": {
-											"name": "MAX_KW",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "KWH",
-											"type": "String"
-										},
-										"sink": {
-											"name": "KWH",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "DSYS_INSTANCE_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "DSYS_INSTANCE_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "DSYS_PROCESS_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "DSYS_PROCESS_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "DSYS_BATCH_ID",
-											"type": "String"
-										},
-										"sink": {
-											"name": "DSYS_BATCH_ID",
-											"type": "Decimal"
-										}
-									}
-								]
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "oac_BIA_POWER_KW_CAGE_MON_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "aoac_BIA_POWER_KW_CAGE_MON_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"folder": {
-					"name": "Pipe CAMP"
-				},
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipe_oac_to_aoac_BIA_POWER_KW_CONTRACT_LINE_V')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy BIA_POWER_KW_CONTRACT_LINE_V",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "OracleSource",
-								"partitionOption": "None",
-								"queryTimeout": "02:00:00"
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_POWER_KW_CONTRACT_LINE_V",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "PERIOD_MONTH",
-											"type": "String"
-										},
-										"sink": {
-											"name": "PERIOD_MONTH",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "DSYS_INSTANCE_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "DSYS_INSTANCE_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "DSYS_PROCESS_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "DSYS_PROCESS_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "PERIOD_NAME",
-											"type": "String"
-										},
-										"sink": {
-											"name": "PERIOD_NAME",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "DSYS_BATCH_ID",
-											"type": "String"
-										},
-										"sink": {
-											"name": "DSYS_BATCH_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "OFIN_CUSTOMER_NUMBER",
-											"type": "String"
-										},
-										"sink": {
-											"name": "OFIN_CUSTOMER_NUMBER",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "SITE_USE_ID",
-											"type": "String"
-										},
-										"sink": {
-											"name": "SITE_USE_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "OFIN_CUSTOMER_NAME",
-											"type": "String"
-										},
-										"sink": {
-											"name": "OFIN_CUSTOMER_NAME",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "SERVICE_CONTRACT_NUMBER",
-											"type": "String"
-										},
-										"sink": {
-											"name": "SERVICE_CONTRACT_NUMBER",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "ORDER_LINE_NUMBER",
-											"type": "String"
-										},
-										"sink": {
-											"name": "ORDER_LINE_NUMBER",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "BILL_CONTRACT_LINE_ID",
-											"type": "String"
-										},
-										"sink": {
-											"name": "BILL_CONTRACT_LINE_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "ITEM_CODE",
-											"type": "String"
-										},
-										"sink": {
-											"name": "ITEM_CODE",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "INVENTORY_ITEM_ID",
-											"type": "String"
-										},
-										"sink": {
-											"name": "INVENTORY_ITEM_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "BUILDING_LOCATION",
-											"type": "String"
-										},
-										"sink": {
-											"name": "BUILDING_LOCATION",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "ENCLOSURE_LOCATION_LIST",
-											"type": "String"
-										},
-										"sink": {
-											"name": "ENCLOSURE_LOCATION_LIST",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "CURRENT_MAX_KW",
-											"type": "String"
-										},
-										"sink": {
-											"name": "CURRENT_MAX_KW",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "FINAL_MAX_KW",
-											"type": "String"
-										},
-										"sink": {
-											"name": "FINAL_MAX_KW",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "KW_USED",
-											"type": "String"
-										},
-										"sink": {
-											"name": "KW_USED",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "KWH_SMOOTHED",
-											"type": "String"
-										},
-										"sink": {
-											"name": "KWH_SMOOTHED",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "KWH_ACTUAL",
-											"type": "String"
-										},
-										"sink": {
-											"name": "KWH_ACTUAL",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "SF_CONTRACTED",
-											"type": "String"
-										},
-										"sink": {
-											"name": "SF_CONTRACTED",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "SF_BUILT",
-											"type": "String"
-										},
-										"sink": {
-											"name": "SF_BUILT",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "ORGANIZATION_ID",
-											"type": "String"
-										},
-										"sink": {
-											"name": "ORGANIZATION_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "LOCATION_ID",
-											"type": "String"
-										},
-										"sink": {
-											"name": "LOCATION_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "BCL_ID",
-											"type": "String"
-										},
-										"sink": {
-											"name": "BCL_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "BILL_TYPE",
-											"type": "String"
-										},
-										"sink": {
-											"name": "BILL_TYPE",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "RUN_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "RUN_DATE",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "PCT_ALLOCATION",
-											"type": "String"
-										},
-										"sink": {
-											"name": "PCT_ALLOCATION",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "CURRENT_MRC",
-											"type": "String"
-										},
-										"sink": {
-											"name": "CURRENT_MRC",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "FINAL_MRC",
-											"type": "String"
-										},
-										"sink": {
-											"name": "FINAL_MRC",
-											"type": "Decimal"
-										}
-									}
-								]
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "oac_BIA_POWER_KW_CONTRACT_LINE_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "aoac_BIA_POWER_KW_CONTRACT_LINE_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					},
-					{
-						"name": "Audit_Pipe_BIA_POWER_KW_CONTRACT_LINE_V",
-						"type": "SqlServerStoredProcedure",
-						"dependsOn": [
-							{
-								"activity": "Copy BIA_POWER_KW_CONTRACT_LINE_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"storedProcedureName": "[[dbo].[Audit_Pipe_BIA_POWER_KW_CONTRACT_LINE_V]"
-						},
-						"linkedServiceName": {
-							"referenceName": "ls_dwStageOAC",
-							"type": "LinkedServiceReference"
-						}
-					}
-				],
-				"folder": {
-					"name": "Pipe CAMP"
 				},
 				"annotations": []
 			},

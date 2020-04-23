@@ -1279,6 +1279,115 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/aoac_CMP3_dolar_101769')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Destination: Azure OAC\nTable: OACPROD.CMP3$101769",
+				"linkedServiceName": {
+					"referenceName": "ls_dwStageOAC",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Destinations - AOAC"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "JE_HEADER_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "JE_LINE_NUM",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "CUSTOMER_TRX_DIST_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "CODE_COMBINATION_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "PERIOD_NAME",
+						"type": "varchar"
+					},
+					{
+						"name": "ACCOUNTED_DR",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "ACCOUNTED_CR",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "DESCRIPTION",
+						"type": "varchar"
+					},
+					{
+						"name": "REFERENCE_2",
+						"type": "varchar"
+					},
+					{
+						"name": "INVENTORY_ITEM_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "ACCOUNT_CLASS",
+						"type": "varchar"
+					},
+					{
+						"name": "RECORD_TYPE",
+						"type": "varchar"
+					},
+					{
+						"name": "LAST_UPDATE_DATE",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "DSYS_INSTANCE_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "DSYS_PROCESS_ID",
+						"type": "decimal",
+						"precision": 12,
+						"scale": 0
+					},
+					{
+						"name": "DSYS_BATCH_ID",
+						"type": "decimal",
+						"precision": 30,
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "CMP3$101769"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/aoac_MRTG_BILLING')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -2515,79 +2624,6 @@
 				"typeProperties": {
 					"schema": "OACPROD",
 					"table": "W_PROJ_TASK_BOARD_APRVD_BGT_F"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/aoac_W_PROJ_TASK_BUDGET_F')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Destination: Azure OAC\nSchema: OACPROD\nTable: W_PROJ_TASK_BUDGET_F",
-				"linkedServiceName": {
-					"referenceName": "ls_dwStageOAC",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "Destinations - AOAC"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "TASK_ID",
-						"type": "decimal",
-						"precision": 22,
-						"scale": 0
-					},
-					{
-						"name": "TASK_NUMBER",
-						"type": "varchar"
-					},
-					{
-						"name": "DESCRIPTION",
-						"type": "varchar"
-					},
-					{
-						"name": "LAST_UPDATE_DATE",
-						"type": "datetime2",
-						"scale": 0
-					},
-					{
-						"name": "LABOR_BUDGET",
-						"type": "decimal",
-						"precision": 22,
-						"scale": 2
-					},
-					{
-						"name": "EQUIPMENT_MATERIAL_BUDGET",
-						"type": "decimal",
-						"precision": 22,
-						"scale": 2
-					},
-					{
-						"name": "DSYS_INSTANCE_ID",
-						"type": "decimal",
-						"precision": 15,
-						"scale": 0
-					},
-					{
-						"name": "DSYS_PROCESS_ID",
-						"type": "decimal",
-						"precision": 12,
-						"scale": 0
-					},
-					{
-						"name": "DSYS_BATCH_ID",
-						"type": "decimal",
-						"precision": 30,
-						"scale": 0
-					}
-				],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "W_PROJ_TASK_BUDGET_F"
 				}
 			},
 			"dependsOn": []
