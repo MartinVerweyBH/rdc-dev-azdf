@@ -13,335 +13,6 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/pipe_BIA_PO_REQUISITION_LINE_V')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy BIA_PO_REQUISITION_LINE_V",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "OracleSource",
-								"partitionOption": "None",
-								"queryTimeout": "02:00:00"
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_PO_REQUISITION_LINE_V",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "REQUISITION_LINE_ID",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "REQUISITION_LINE_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "REQUISITION_HEADER_ID",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "REQUISITION_HEADER_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "LINE_NUM",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "LINE_NUM",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "ITEM_DESCRIPTION",
-											"type": "String"
-										},
-										"sink": {
-											"name": "ITEM_DESCRIPTION",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "CREATION_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "CREATION_DATE",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "ENCUMBERED_FLAG",
-											"type": "String"
-										},
-										"sink": {
-											"name": "ENCUMBERED_FLAG",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "RFQ_REQUIRED_FLAG",
-											"type": "String"
-										},
-										"sink": {
-											"name": "RFQ_REQUIRED_FLAG",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "NEED_BY_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "NEED_BY_DATE",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "JUSTIFICATION",
-											"type": "String"
-										},
-										"sink": {
-											"name": "JUSTIFICATION",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "NOTE_TO_AGENT",
-											"type": "String"
-										},
-										"sink": {
-											"name": "NOTE_TO_AGENT",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "NOTE_TO_RECEIVER",
-											"type": "String"
-										},
-										"sink": {
-											"name": "NOTE_TO_RECEIVER",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "SUGGESTED_VENDOR_NAME",
-											"type": "String"
-										},
-										"sink": {
-											"name": "SUGGESTED_VENDOR_NAME",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "SUGGESTED_VENDOR_LOCATION",
-											"type": "String"
-										},
-										"sink": {
-											"name": "SUGGESTED_VENDOR_LOCATION",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "SUGGESTED_VENDOR_CONTACT",
-											"type": "String"
-										},
-										"sink": {
-											"name": "SUGGESTED_VENDOR_CONTACT",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "SUGGESTED_VENDOR_PHONE",
-											"type": "String"
-										},
-										"sink": {
-											"name": "SUGGESTED_VENDOR_PHONE",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "SUGGESTED_VENDOR_PRODUCT_CODE",
-											"type": "String"
-										},
-										"sink": {
-											"name": "SUGGESTED_VENDOR_PRODUCT_CODE",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "URGENT_FLAG",
-											"type": "String"
-										},
-										"sink": {
-											"name": "URGENT_FLAG",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "CANCEL_FLAG",
-											"type": "String"
-										},
-										"sink": {
-											"name": "CANCEL_FLAG",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "CANCEL_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "CANCEL_DATE",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "CANCEL_REASON",
-											"type": "String"
-										},
-										"sink": {
-											"name": "CANCEL_REASON",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "CLOSED_CODE",
-											"type": "String"
-										},
-										"sink": {
-											"name": "CLOSED_CODE",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "AGENT_RETURN_NOTE",
-											"type": "String"
-										},
-										"sink": {
-											"name": "AGENT_RETURN_NOTE",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "CHANGED_AFTER_RESEARCH_FLAG",
-											"type": "String"
-										},
-										"sink": {
-											"name": "CHANGED_AFTER_RESEARCH_FLAG",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "CLOSED_REASON",
-											"type": "String"
-										},
-										"sink": {
-											"name": "CLOSED_REASON",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "CLOSED_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "CLOSED_DATE",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "ORG_ID",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "ORG_ID",
-											"type": "Decimal"
-										}
-									}
-								]
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "ebs_BIA_PO_REQUISITION_LINE_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "aoac_BIA_PO_REQUISITION_LINE_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
-				},
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/pipe_BIA_PO_SHIPMENTS_V')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -7455,6 +7126,307 @@
 						"outputs": [
 							{
 								"referenceName": "aoac_BIA_SYSTEM_ITEMS_ORG_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "Pipe OnceOffs"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BIA_SYSTEM_ITEMS_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "pipe_BIA_SYSTEM_ITEMS_V",
+				"activities": [
+					{
+						"name": "Copy BIA_SYSTEM_ITEMS_V",
+						"description": "Copy BIA_SYSTEM_ITEMS_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_SYSTEM_ITEMS_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "INVENTORY_ITEM_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "INVENTORY_ITEM_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ORGANIZATION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ORGANIZATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ITEM_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ITEM_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PRIMARY_UNIT_OF_MEASURE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PRIMARY_UNIT_OF_MEASURE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SALES_ACCOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "SALES_ACCOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "REV_SORT_ORDER",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "REV_SORT_ORDER",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "REV_CATEGORY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "REV_CATEGORY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ITEM_CATEGORY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ITEM_CATEGORY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEGMENT1",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEGMENT1",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEG1_DESC",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEG1_DESC",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEGMENT2",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEGMENT2",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEG2_DESC",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEG2_DESC",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEGMENT3",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEGMENT3",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEG3_DESC",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEG3_DESC",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEGMENT4",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEGMENT4",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEG4_DESC",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEG4_DESC",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEGMENT5",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEGMENT5",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEG5_DESC",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEG5_DESC",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEGMENT6",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEGMENT6",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEG6_DESC",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEG6_DESC",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEGMENT7",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEGMENT7",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "SEG7_DESC",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEG7_DESC",
+											"type": "String"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_SYSTEM_ITEMS_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BIA_SYSTEM_ITEMS_V",
 								"type": "DatasetReference",
 								"parameters": {}
 							}

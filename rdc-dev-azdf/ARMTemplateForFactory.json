@@ -109283,18 +109283,28 @@
 				"description": "stage_trigger_min20_schedule",
 				"annotations": [],
 				"runtimeState": "Stopped",
-				"pipelines": [],
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_GeneralLedger",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
 				"type": "ScheduleTrigger",
 				"typeProperties": {
 					"recurrence": {
 						"frequency": "Minute",
 						"interval": 20,
-						"startTime": "2020-02-05T06:15:00Z",
+						"startTime": "2020-02-05T06:00:00.000Z",
 						"timeZone": "UTC"
 					}
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_GeneralLedger')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/stage_trigger_min60_schedule')]",
