@@ -42,6 +42,9 @@
 				}
 			}
 		],
+		"folder": {
+			"name": "Pipe Receivables/pipe_Receivables"
+		},
 		"annotations": []
 	}
 }
