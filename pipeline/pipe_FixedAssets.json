@@ -1,0 +1,100 @@
+{
+	"name": "pipe_FixedAssets",
+	"properties": {
+		"activities": [
+			{
+				"name": "pipe_BIA_FA_DESCRIPTION_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BIA_FA_DESCRIPTION_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_BICS_FA_DESCRIPTION_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BICS_FA_DESCRIPTION_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_BIA_FA_DEPRN_PERIODS_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pipe_BIA_FA_DESCRIPTION_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "pipe_BICS_FA_DESCRIPTION_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BIA_FA_DEPRN_PERIODS_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_PBI_DEPRECIATION_COST_F",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pipe_BIA_FA_DEPRN_PERIODS_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_PBI_DEPRECIATION_COST_F",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_BIA_FA_DEPRN_SUMMARY_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pipe_BIA_FA_DEPRN_PERIODS_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BIA_FA_DEPRN_SUMMARY_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": []
+	}
+}
