@@ -1,5 +1,5 @@
 {
-	"name": "pipe_PurchaseOrders2",
+	"name": "pipe_PurchaseOrdersBICS",
 	"properties": {
 		"activities": [
 			{
@@ -17,7 +17,7 @@
 			}
 		],
 		"folder": {
-			"name": "pipe PurchaseOrders/pipe_PurchaseOrders2"
+			"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 		},
 		"annotations": []
 	}
