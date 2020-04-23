@@ -38,7 +38,14 @@
 			{
 				"name": "pipe_BIA_AR_CUSTOMER_TRX_HDR_V",
 				"type": "ExecutePipeline",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "pipe_BIA_CUST_SITES_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
@@ -53,7 +60,7 @@
 				"type": "ExecutePipeline",
 				"dependsOn": [
 					{
-						"activity": "pipe_BIA_AR_CUSTOMER_TRX_HDR_V",
+						"activity": "pipe_BIA_AR_CUSTOMER_TRX_V",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -73,7 +80,19 @@
 				"type": "ExecutePipeline",
 				"dependsOn": [
 					{
-						"activity": "pipe_BIA_AR_CUSTOMER_TRX_HDR_V",
+						"activity": "pipe_BIA_AR_CUSTOMER_INVOICE_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "pipe_BIA_AR_CUSTOMER_RECEIPTS_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "pipe_stage_BIA_CUSTOMER_REV_V",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -93,7 +112,7 @@
 				"type": "ExecutePipeline",
 				"dependsOn": [
 					{
-						"activity": "pipe_BIA_AR_CUSTOMER_TRX_HDR_V",
+						"activity": "pipe_BIA_AR_CUSTOMER_TRX_LINES_V",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -103,6 +122,66 @@
 				"typeProperties": {
 					"pipeline": {
 						"referenceName": "pipe_BIA_AR_CUSTOMER_INVOICE_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_BIA_AR_CUSTOMER_RECEIPTS_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pipe_BIA_AR_CUSTOMER_TRX_LINES_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BIA_AR_CUSTOMER_RECEIPTS_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_BIA_AR_CUSTOMER_TRX_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pipe_BIA_AR_CUSTOMER_TRX_HDR_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BIA_AR_CUSTOMER_TRX_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_stage_BIA_CUSTOMER_REV_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pipe_BIA_AR_CUSTOMER_TRX_LINES_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_stage_BIA_CUSTOMER_REV_V",
 						"type": "PipelineReference"
 					},
 					"waitOnCompletion": true
