@@ -6066,7 +6066,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Customers"
+					"name": "Pipe Customers/pipe_Customers"
 				},
 				"annotations": []
 			},
@@ -6388,7 +6388,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Customers"
+					"name": "Pipe Customers/pipe_Customers"
 				},
 				"annotations": []
 			},
@@ -6700,7 +6700,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Customers"
+					"name": "Pipe Customers/pipe_Customers"
 				},
 				"annotations": []
 			},
@@ -7372,7 +7372,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Customers"
+					"name": "Pipe Customers/pipe_Customers"
 				},
 				"annotations": []
 			},
@@ -7684,7 +7684,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Customers"
+					"name": "Pipe Customers/pipe_Customers"
 				},
 				"annotations": []
 			},
@@ -7866,7 +7866,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Customers"
+					"name": "Pipe Customers/pipe_Customers"
 				},
 				"annotations": []
 			},
@@ -8844,7 +8844,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Customers"
+					"name": "Pipe Customers/pipe_Customers"
 				},
 				"annotations": []
 			},
@@ -9187,7 +9187,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Customers"
+					"name": "Pipe Customers/pipe_Customers_Seed"
 				},
 				"annotations": []
 			},
@@ -9581,7 +9581,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Customers"
+					"name": "Pipe Customers/pipe_Customers"
 				},
 				"annotations": []
 			},
@@ -53619,7 +53619,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Customers"
+					"name": "Pipe Customers/pipe_Customers_FromOAC"
 				},
 				"annotations": []
 			},
@@ -61160,7 +61160,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Customers"
+					"name": "Pipe Customers/pipe_Customers"
 				},
 				"annotations": []
 			},
@@ -109134,6 +109134,15 @@
 			"properties": {
 				"type": "SelfHosted",
 				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": []
 			},
 			"dependsOn": []
 		}
