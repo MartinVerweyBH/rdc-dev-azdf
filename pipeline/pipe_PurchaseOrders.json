@@ -267,6 +267,26 @@
 					},
 					"waitOnCompletion": true
 				}
+			},
+			{
+				"name": "pipe_BIA_LINK_PO_REQ_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pipe_BIA_PO_ACTION_HISTORY_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BIA_LINK_PO_REQ_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
 			}
 		],
 		"folder": {
