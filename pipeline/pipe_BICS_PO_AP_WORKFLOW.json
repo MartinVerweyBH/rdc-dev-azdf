@@ -25,7 +25,108 @@
 						"preCopyScript": "TRUNCATE TABLE OACPROD.BICS_PO_AP_WORKFLOW",
 						"disableMetricsCollection": false
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"sink": {
+									"name": "ROWNUM",
+									"type": "Decimal"
+								}
+							},
+							{
+								"sink": {
+									"name": "VENDOR_NAME",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "REQ_NUM",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "PO_NUM",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "PO_STATUS",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "PO_WAYS",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "PO_DATE",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "BUYER_NAME",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "BEGIN_DATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "BEGIN_DATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ACTIVITY",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ACTIVITY",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "START_DATE",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "STATUS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "STATUS",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "ASSIGNED_USER",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "REQ_TYPE",
+									"type": "String"
+								}
+							}
+						]
+					}
 				},
 				"inputs": [
 					{
@@ -42,7 +143,7 @@
 			}
 		],
 		"folder": {
-			"name": "OAC Pipelines/Once off load from OAC"
+			"name": "Pipe HasErrors"
 		},
 		"annotations": []
 	},
