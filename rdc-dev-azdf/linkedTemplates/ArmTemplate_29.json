@@ -4950,7 +4950,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Projects"
+					"name": "Pipe Projects/pipe_Projects"
 				},
 				"annotations": []
 			},
@@ -6168,7 +6168,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Projects"
+					"name": "Pipe Projects/pipe_Projects_Seed"
 				},
 				"annotations": []
 			},
@@ -7782,7 +7782,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pipe_Projects')]",
+			"name": "[concat(parameters('factoryName'), '/pipe_Projects_CompareOAC')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -10245,7 +10245,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Projects"
+					"name": "Pipe Projects/pipe_Projects_CompareOAC"
 				},
 				"annotations": []
 			},
@@ -10424,7 +10424,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Projects"
+					"name": "Pipe Projects/pipe_Projects_W"
 				},
 				"annotations": []
 			},
