@@ -1,0 +1,18 @@
+{
+	"name": "trigger_once_off_load_from_oac",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2020-01-01T09:40:00Z",
+				"endTime": "2020-01-01T09:40:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}
