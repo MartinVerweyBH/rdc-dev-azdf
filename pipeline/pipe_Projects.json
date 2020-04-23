@@ -18,7 +18,14 @@
 			{
 				"name": "pipe_BIA_PA_BUDGET_VERSIONS_V",
 				"type": "ExecutePipeline",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "pipe_BIA_PA_PROJECT_CUSTOMERS",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
@@ -31,7 +38,14 @@
 			{
 				"name": "pipe_BIA_PA_TASKS_V",
 				"type": "ExecutePipeline",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "pipe_BIA_PA_PROJECT_CUSTOMERS",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
@@ -45,12 +59,6 @@
 				"name": "pipe_BIA_EXPENDITURE_ACCUM_V",
 				"type": "ExecutePipeline",
 				"dependsOn": [
-					{
-						"activity": "pipe_BIA_PROJECTS_V",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					},
 					{
 						"activity": "pipe_BIA_PA_BUDGET_VERSIONS_V",
 						"dependencyConditions": [
@@ -68,6 +76,45 @@
 				"typeProperties": {
 					"pipeline": {
 						"referenceName": "pipe_BIA_EXPENDITURE_ACCUM_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_BIA_PROJECTS_CIP_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BIA_PROJECTS_CIP_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_BIA_PA_PROJECT_CUSTOMERS",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pipe_BIA_PROJECTS_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "pipe_BIA_PROJECTS_CIP_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BIA_PA_PROJECT_CUSTOMERS",
 						"type": "PipelineReference"
 					},
 					"waitOnCompletion": true
