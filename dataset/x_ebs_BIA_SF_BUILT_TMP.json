@@ -1,0 +1,21 @@
+{
+	"name": "x_ebs_BIA_SF_BUILT_TMP",
+	"properties": {
+		"description": "Source: EBS\nView: BIA_SF_BUILT_TMP",
+		"linkedServiceName": {
+			"referenceName": "lsEBS",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "OAC - Source On Prem - EBS"
+		},
+		"annotations": [],
+		"type": "OracleTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "APPS",
+			"table": "BIA_SF_BUILT_TMP"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
