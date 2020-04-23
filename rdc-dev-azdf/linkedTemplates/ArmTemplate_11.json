@@ -423,11 +423,11 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/oac_BICS_PO_AP_RECEIVING_V')]",
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_XLA_AE_LINES_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: OAC\nView: BICS_PO_AP_RECEIVING_V",
+				"description": "Source: OAC\nSchema: OACPROD\nTable: BIA_XLA_AE_LINES_V",
 				"linkedServiceName": {
 					"referenceName": "lsOACPROD",
 					"type": "LinkedServiceReference"
@@ -440,17 +440,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "OACPROD",
-					"table": "BICS_PO_AP_RECEIVING_V"
+					"table": "BIA_XLA_AE_LINES_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/oac_W_PROJECTED_DEPRN_F')]",
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_XLA_AE_LINK_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: OAC\nView: W_PROJECTED_DEPRN_F",
+				"description": "Source: OAC\nSchema: OACPROD\nTable: BIA_XLA_AE_LINK_V",
 				"linkedServiceName": {
 					"referenceName": "lsOACPROD",
 					"type": "LinkedServiceReference"
@@ -463,7 +463,7 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "OACPROD",
-					"table": "W_PROJECTED_DEPRN_F"
+					"table": "BIA_XLA_AE_LINK_V"
 				}
 			},
 			"dependsOn": []

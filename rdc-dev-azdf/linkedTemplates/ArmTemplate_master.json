@@ -357,18 +357,6 @@
 					},
 					"lsMRTG_Postgres_connectionString": {
 						"value": "[parameters('lsMRTG_Postgres_connectionString')]"
-					},
-					"lsSFDC_password": {
-						"value": "[parameters('lsSFDC_password')]"
-					},
-					"lsSFDC_securityToken": {
-						"value": "[parameters('lsSFDC_securityToken')]"
-					},
-					"lsSFDC_properties_typeProperties_environmentUrl": {
-						"value": "[parameters('lsSFDC_properties_typeProperties_environmentUrl')]"
-					},
-					"lsSFDC_properties_typeProperties_username": {
-						"value": "[parameters('lsSFDC_properties_typeProperties_username')]"
 					}
 				}
 			},
@@ -389,6 +377,18 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"lsSFDC_password": {
+						"value": "[parameters('lsSFDC_password')]"
+					},
+					"lsSFDC_securityToken": {
+						"value": "[parameters('lsSFDC_securityToken')]"
+					},
+					"lsSFDC_properties_typeProperties_environmentUrl": {
+						"value": "[parameters('lsSFDC_properties_typeProperties_environmentUrl')]"
+					},
+					"lsSFDC_properties_typeProperties_username": {
+						"value": "[parameters('lsSFDC_properties_typeProperties_username')]"
 					}
 				}
 			},
@@ -634,6 +634,26 @@
 			},
 			"dependsOn": [
 				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_24')]"
+			]
+		},
+		{
+			"name": "ArmTemplate_26",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_26.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_25')]"
 			]
 		}
 	]
