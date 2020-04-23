@@ -166,6 +166,9 @@
 				]
 			}
 		],
+		"folder": {
+			"name": "Pipe FixedAssets"
+		},
 		"annotations": []
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
