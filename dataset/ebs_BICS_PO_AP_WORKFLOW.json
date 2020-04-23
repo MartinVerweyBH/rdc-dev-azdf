@@ -5,6 +5,9 @@
 			"referenceName": "lsEBS",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "Dataset HasErrors"
+		},
 		"annotations": [],
 		"type": "OracleTable",
 		"schema": [],
