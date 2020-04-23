@@ -1463,7 +1463,7 @@
 					}
 				],
 				"folder": {
-					"name": "OAC Pipelines"
+					"name": "Pipe Customers"
 				},
 				"annotations": []
 			},
@@ -1785,7 +1785,7 @@
 					}
 				],
 				"folder": {
-					"name": "OAC Pipelines"
+					"name": "Pipe Customers"
 				},
 				"annotations": []
 			},
@@ -2097,7 +2097,7 @@
 					}
 				],
 				"folder": {
-					"name": "OAC Pipelines"
+					"name": "Pipe Customers"
 				},
 				"annotations": []
 			},
@@ -2769,7 +2769,7 @@
 					}
 				],
 				"folder": {
-					"name": "OAC Pipelines"
+					"name": "Pipe Customers"
 				},
 				"annotations": []
 			},
@@ -3081,7 +3081,7 @@
 					}
 				],
 				"folder": {
-					"name": "OAC Pipelines"
+					"name": "Pipe Customers"
 				},
 				"annotations": []
 			},
@@ -3263,7 +3263,7 @@
 					}
 				],
 				"folder": {
-					"name": "OAC Pipelines"
+					"name": "Pipe Customers"
 				},
 				"annotations": []
 			},
@@ -3757,7 +3757,7 @@
 					}
 				],
 				"folder": {
-					"name": "OAC Pipelines"
+					"name": "Pipe Customers"
 				},
 				"annotations": []
 			},
@@ -4100,7 +4100,7 @@
 					}
 				],
 				"folder": {
-					"name": "OAC Pipelines"
+					"name": "Pipe Customers"
 				},
 				"annotations": []
 			},
@@ -4494,7 +4494,7 @@
 					}
 				],
 				"folder": {
-					"name": "OAC Pipelines"
+					"name": "Pipe Customers"
 				},
 				"annotations": []
 			},
@@ -29516,7 +29516,7 @@
 					}
 				],
 				"folder": {
-					"name": "OAC Pipelines/OAC Pipeline - FROM OAC"
+					"name": "Pipe Customers"
 				},
 				"annotations": []
 			},
@@ -33929,7 +33929,7 @@
 					}
 				],
 				"folder": {
-					"name": "EBS 2 AzureOAC Pipelines - Stage"
+					"name": "Pipe Customers"
 				},
 				"annotations": []
 			},
