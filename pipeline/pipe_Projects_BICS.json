@@ -1,34 +1,6 @@
 {
 	"name": "pipe_Projects_BICS",
 	"properties": {
-		"activities": [
-			{
-				"name": "pipe_BICS_PROJECT_CLASSES_V",
-				"type": "ExecutePipeline",
-				"dependsOn": [],
-				"userProperties": [],
-				"typeProperties": {
-					"pipeline": {
-						"referenceName": "pipe_BICS_PROJECT_CLASSES_V",
-						"type": "PipelineReference"
-					},
-					"waitOnCompletion": true
-				}
-			},
-			{
-				"name": "pipe_stage_BICS_REQUISITION_PROJECTS",
-				"type": "ExecutePipeline",
-				"dependsOn": [],
-				"userProperties": [],
-				"typeProperties": {
-					"pipeline": {
-						"referenceName": "pipe_stage_BICS_REQUISITION_PROJECTS",
-						"type": "PipelineReference"
-					},
-					"waitOnCompletion": true
-				}
-			}
-		],
 		"folder": {
 			"name": "Pipe Projects/pipe_Projects_BICS"
 		},
