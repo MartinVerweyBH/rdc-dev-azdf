@@ -739,7 +739,7 @@
 			}
 		],
 		"folder": {
-			"name": "pipe PurchaseOrders/pipe_PurchaseOrders2"
+			"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 		},
 		"annotations": []
 	},
