@@ -5,11 +5,104 @@
 			{
 				"name": "pipe_BIA_CUST_SITES_V",
 				"type": "ExecutePipeline",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "pipe_BIA_CUSTOMER_ACCOUNTS_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
 						"referenceName": "pipe_BIA_CUST_SITES_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_BIA_CUSTOMER_ACCOUNTS_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BIA_CUSTOMER_ACCOUNTS_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_BIA_AR_CUSTOMER_TRX_HDR_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BIA_AR_CUSTOMER_TRX_HDR_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_BIA_AR_CUSTOMER_TRX_LINES_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pipe_BIA_AR_CUSTOMER_TRX_HDR_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BIA_AR_CUSTOMER_TRX_LINES_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_BIA_AR_CUSTOMER_TRX_DIST_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pipe_BIA_AR_CUSTOMER_TRX_HDR_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BIA_AR_CUSTOMER_TRX_DIST_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_BIA_AR_CUSTOMER_INVOICE_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pipe_BIA_AR_CUSTOMER_TRX_HDR_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BIA_AR_CUSTOMER_INVOICE_V",
 						"type": "PipelineReference"
 					},
 					"waitOnCompletion": true
