@@ -1,0 +1,21 @@
+{
+	"name": "pipe_Customers",
+	"properties": {
+		"activities": [
+			{
+				"name": "pipe_BIA_CUST_SITES_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BIA_CUST_SITES_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": []
+	}
+}
