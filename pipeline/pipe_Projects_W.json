@@ -70,7 +70,14 @@
 			{
 				"name": "pipe_W_PBI_PROJ_TASK_ACTUAL_COST_F",
 				"type": "ExecutePipeline",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "pipe_W_DEPRICIATION_COST_F",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
@@ -83,7 +90,14 @@
 			{
 				"name": "pipe_W_PBI_PROJ_TASK_AMT_PAID_F",
 				"type": "ExecutePipeline",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "pipe_W_PBI_DEPRECIATION_COST_F",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
@@ -96,7 +110,14 @@
 			{
 				"name": "pipe_W_PBI_PROJ_TASK_BGT_CHANGES_F",
 				"type": "ExecutePipeline",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "pipe_W_PBI_PROJ_COMMITED_COST_F",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
@@ -109,7 +130,14 @@
 			{
 				"name": "pipe_W_PBI_PROJ_TASK_BOARD_APRVD_BGT",
 				"type": "ExecutePipeline",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "pipe_W_PBI_PROJ_COST_DETAIL_F",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
@@ -122,7 +150,14 @@
 			{
 				"name": "pipe_W_PBI_PROJ_TASK_BOARD_APRVD_BGT_F",
 				"type": "ExecutePipeline",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "pipe_W_PBI_PROJ_COST_MJE_F",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
@@ -135,7 +170,14 @@
 			{
 				"name": "pipe_W_PBI_PROJ_TASK_BUDGET_F",
 				"type": "ExecutePipeline",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "pipe_W_PBI_PROJ_TASK_ACTUAL_COST_F",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
@@ -148,7 +190,14 @@
 			{
 				"name": "pipe_W_PBI_PROJ_TASK_CURRENT_BUDGET_F",
 				"type": "ExecutePipeline",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "pipe_W_PBI_PROJ_TASK_AMT_PAID_F",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
@@ -161,7 +210,14 @@
 			{
 				"name": "pipe_W_PBI_PROJ_TASK_D",
 				"type": "ExecutePipeline",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "pipe_W_PBI_PROJ_TASK_BGT_CHANGES_F",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
@@ -174,7 +230,14 @@
 			{
 				"name": "pipe_W_PBI_PROJ_TASK_LABOR_SPENT_F",
 				"type": "ExecutePipeline",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "pipe_W_PBI_PROJ_TASK_BOARD_APRVD_BGT",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
@@ -187,7 +250,14 @@
 			{
 				"name": "pipe_W_PROJ_COST_DETAIL_F",
 				"type": "ExecutePipeline",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "pipe_W_PBI_PROJ_TASK_BOARD_APRVD_BGT_F",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
@@ -200,7 +270,14 @@
 			{
 				"name": "pipe_W_PROJ_COST_MJE_F",
 				"type": "ExecutePipeline",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "pipe_W_PBI_PROJ_TASK_BUDGET_F",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
@@ -213,7 +290,14 @@
 			{
 				"name": "pipe_W_PROJECTED_DEPRN_F",
 				"type": "ExecutePipeline",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "pipe_W_PBI_PROJ_TASK_CURRENT_BUDGET_F",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
