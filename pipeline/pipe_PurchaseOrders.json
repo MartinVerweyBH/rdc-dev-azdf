@@ -193,7 +193,7 @@
 				"type": "ExecutePipeline",
 				"dependsOn": [
 					{
-						"activity": "pipe_BIA_PO_LINES_ARCHIVE_V",
+						"activity": "pipe_BIA_ORDER_LINE_TYPE_V",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -243,6 +243,26 @@
 				"typeProperties": {
 					"pipeline": {
 						"referenceName": "pipe_BIA_PO_REQUISITION_LINE_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_BIA_ORDER_LINE_TYPE_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pipe_BIA_PO_LINES_ARCHIVE_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BIA_ORDER_LINE_TYPE_V",
 						"type": "PipelineReference"
 					},
 					"waitOnCompletion": true
