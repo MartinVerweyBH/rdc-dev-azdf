@@ -49200,7 +49200,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pipePurchaseOrdersBICS')]",
+			"name": "[concat(parameters('factoryName'), '/pipe_PurchaseOrders_BICS')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -49208,11 +49208,178 @@
 					{
 						"name": "pipe_BICS_PO_CONV_V",
 						"type": "ExecutePipeline",
-						"dependsOn": [],
+						"dependsOn": [
+							{
+								"activity": "pipe_BICS_PO_AP_RECEIVING_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
 						"userProperties": [],
 						"typeProperties": {
 							"pipeline": {
 								"referenceName": "pipe_BICS_PO_CONV_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BICS_PO_PROJECTS",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BICS_PO_PROJECTS",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BICS_PO_PROJECTS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BICS_PO_PROJECTS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BICS_PO_AP_WORKFLOW",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BICS_PO_PROJECTS",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "pipe_BICS_PO_PROJECTS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BICS_PO_AP_WORKFLOW",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BICS_PO_AP_TOTALS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BICS_PO_AP_WORKFLOW",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BICS_PO_AP_TOTALS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BICS_PO_AP_RECEIVING_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BICS_PO_AP_WORKFLOW",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BICS_PO_AP_RECEIVING_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BICS_PO_AP_DETAILS",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BICS_PO_REQUISITIONS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BICS_PO_AP_DETAILS",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BICS_WF_STATUS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BICS_PO_AP_TOTALS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BICS_WF_STATUS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BICS_PO_REQUISITIONS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BICS_PO_AP_WORKFLOW",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BICS_PO_REQUISITIONS_V",
 								"type": "PipelineReference"
 							},
 							"waitOnCompletion": true,
@@ -49226,7 +49393,211 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_PO_CONV_V')]"
+				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_PO_CONV_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_PO_PROJECTS')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_PO_PROJECTS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_PO_AP_WORKFLOW')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_PO_AP_TOTALS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_PO_AP_RECEIVING_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_PO_AP_DETAILS')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_WF_STATUS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_PO_REQUISITIONS_V')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_SubLedgers')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "pipe_BIA_XLA_AE_HEADERS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_XLA_AE_HEADERS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_XLA_AE_APPS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_XLA_AE_HEADERS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_XLA_AE_APPS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_XLA_AE_EVENTS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_XLA_AE_HEADERS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_XLA_AE_EVENTS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_XLA_AE_LINK_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_XLA_AE_HEADERS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_XLA_AE_LINK_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_stage_BIA_XLA_AE_LINES_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_XLA_GL_AR_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_stage_BIA_XLA_AE_LINES_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_stage_BIA_XLA_AE_TRANS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_XLA_GL_AR_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_stage_BIA_XLA_AE_TRANS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_XLA_GL_AP_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_XLA_AE_EVENTS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "pipe_BIA_XLA_AE_LINK_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "pipe_BIA_XLA_AE_APPS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_XLA_GL_AP_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_XLA_GL_AR_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_XLA_GL_AP_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_XLA_GL_AR_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"folder": {
+					"name": "pipe SubLedger"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_XLA_AE_HEADERS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_XLA_AE_APPS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_XLA_AE_EVENTS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_XLA_AE_LINK_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_stage_BIA_XLA_AE_LINES_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_stage_BIA_XLA_AE_TRANS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_XLA_GL_AP_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_XLA_GL_AR_V')]"
 			]
 		},
 		{
