@@ -551,7 +551,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe ServiceContracts"
+					"name": "Pipe ServiceContracts/pipe_ServiceContracts"
 				},
 				"annotations": []
 			},
@@ -27831,7 +27831,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe ServiceContracts"
+					"name": "Pipe ServiceContracts/pipe_ServiceContracts"
 				},
 				"annotations": []
 			},
@@ -28523,7 +28523,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe ServiceContracts"
+					"name": "Pipe ServiceContracts/pipe_ServiceContracts"
 				},
 				"annotations": []
 			},
@@ -29305,7 +29305,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe ServiceContracts"
+					"name": "Pipe ServiceContracts/pipe_ServiceContracts"
 				},
 				"annotations": []
 			},
@@ -29507,7 +29507,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe ServiceContracts"
+					"name": "Pipe ServiceContracts/pipe_ServiceContracts"
 				},
 				"annotations": []
 			},
@@ -36259,7 +36259,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe ServiceContracts"
+					"name": "Pipe ServiceContracts/pipe_ServiceContracts"
 				},
 				"annotations": []
 			},
@@ -110471,6 +110471,205 @@
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_SALES_ORDER_TYPES_V')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_SALES_TRANS_TYPES_V')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_SALES_ORDER_LINES_V')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_ServiceContracts')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "pipe_BIA_SERVICE_CONTRACTS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_SERVICE_CONTRACTS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BICS_CONTRACT_DETAILS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_SERVICE_CONTRACTS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BICS_CONTRACT_DETAILS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_SERVICE_CONTRACT_LINES_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BICS_CONTRACT_DETAILS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_SERVICE_CONTRACT_LINES_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BICS_CONTRACT_DETAILS_V1",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BICS_CONTRACT_DETAILS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_ANALYTICS_CONTRACTS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_ANALYTICS_CONTRACTS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_SERVICE_CONTRACT_STRMS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_SERVICE_CONTRACT_LINES_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_SERVICE_CONTRACT_STRMS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_SERVICE_CONTRACT_STRM1_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_SERVICE_CONTRACT_LINES_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_SERVICE_CONTRACT_STRM1_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"folder": {
+					"name": "Pipe ServiceContracts/pipe_ServiceContracts"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_SERVICE_CONTRACTS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_CONTRACT_DETAILS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_SERVICE_CONTRACT_LINES_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_ANALYTICS_CONTRACTS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_SERVICE_CONTRACT_STRMS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_SERVICE_CONTRACT_STRM1_V')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_Vendors')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "pipe_BIA_VENDORS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_VENDORS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_VENDOR_SITES_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_VENDORS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_VENDOR_SITES_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"folder": {
+					"name": "Pipe Vendors/pipe_Vendors"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_VENDORS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_VENDOR_SITES_V')]"
 			]
 		}
 	]
