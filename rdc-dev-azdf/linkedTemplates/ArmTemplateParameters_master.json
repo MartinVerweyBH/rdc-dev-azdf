@@ -1,0 +1,57 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "rdc-dev-azdf"
+		},
+		"lsEBS_connectionString": {
+			"value": ""
+		},
+		"lsEBS_PROD_connectionString": {
+			"value": ""
+		},
+		"lsEBS_UAT_connectionString": {
+			"value": ""
+		},
+		"lsMATRIX_Postgres_connectionString": {
+			"value": ""
+		},
+		"lsMRTG_connectionString": {
+			"value": ""
+		},
+		"lsMRTG_Postgres_connectionString": {
+			"value": ""
+		},
+		"lsOACPROD_connectionString": {
+			"value": ""
+		},
+		"lsSFDC_password": {
+			"value": ""
+		},
+		"lsSFDC_securityToken": {
+			"value": ""
+		},
+		"ls_dwStageOAC_connectionString": {
+			"value": ""
+		},
+		"RestService1_properties_typeProperties_url": {
+			"value": "https://graph.microsoft.com/"
+		},
+		"RestService1_properties_typeProperties_aadResourceId": {
+			"value": "https://management.core.windows.net"
+		},
+		"lsSFDC_properties_typeProperties_environmentUrl": {
+			"value": "https://ragingwire.my.salesforce.com"
+		},
+		"lsSFDC_properties_typeProperties_username": {
+			"value": "svc_powerbisfdc@ragingwire.com"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
