@@ -35137,7 +35137,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe BudgetForecast"
+					"name": "Pipe BudgetForecast/pipe_BudgetForecast_Seed"
 				},
 				"annotations": []
 			},
@@ -44552,20 +44552,6 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "pipe_BICS_BILLING_FORECAST_MV",
-						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BICS_BILLING_FORECAST_MV",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
 						"name": "pipe_stage_BICS_BILLING_FORECAST_MV",
 						"type": "ExecutePipeline",
 						"dependsOn": [],
@@ -44581,12 +44567,11 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe BudgetForecast"
+					"name": "Pipe BudgetForecast/pipe_BudgetForecast"
 				},
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_BILLING_FORECAST_MV')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_stage_BICS_BILLING_FORECAST_MV')]"
 			]
 		},
@@ -64245,7 +64230,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe BudgetForecast"
+					"name": "Pipe BudgetForecast/pipe_BudgetForecast"
 				},
 				"annotations": []
 			},

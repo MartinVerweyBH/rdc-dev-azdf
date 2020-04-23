@@ -3040,7 +3040,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe BudgetForecast"
+					"name": "Pipe BudgetForecast/pipe_BudgetForecast"
 				},
 				"annotations": []
 			},
@@ -6387,20 +6387,6 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "pipe_BICS_BILLING_FORECAST_MV",
-						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BICS_BILLING_FORECAST_MV",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
 						"name": "pipe_stage_BICS_BILLING_FORECAST_MV",
 						"type": "ExecutePipeline",
 						"dependsOn": [],
@@ -6416,7 +6402,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe BudgetForecast"
+					"name": "Pipe BudgetForecast/pipe_BudgetForecast"
 				},
 				"annotations": []
 			},
