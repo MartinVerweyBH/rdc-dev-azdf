@@ -1,6 +1,9 @@
 {
 	"name": "pipe_PurchaseOrders2",
 	"properties": {
+		"folder": {
+			"name": "pipe PurchaseOrders"
+		},
 		"annotations": []
 	}
 }
