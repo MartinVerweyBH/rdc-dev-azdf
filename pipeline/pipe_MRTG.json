@@ -1,0 +1,21 @@
+{
+	"name": "pipe_MRTG",
+	"properties": {
+		"activities": [
+			{
+				"name": "pipe_stage_MRTG_BILLING",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_stage_MRTG_BILLING",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": []
+	}
+}
