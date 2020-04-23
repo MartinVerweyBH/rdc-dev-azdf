@@ -24563,7 +24563,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Quotes"
+					"name": "Pipe Quotes/pipe_Quotes"
 				},
 				"annotations": []
 			},
@@ -25255,7 +25255,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Quotes"
+					"name": "Pipe Quotes/pipe_Quotes"
 				},
 				"annotations": []
 			},
@@ -25667,7 +25667,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Quotes"
+					"name": "Pipe Quotes/pipe_Quotes"
 				},
 				"annotations": []
 			},
@@ -43562,7 +43562,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Quotes"
+					"name": "Pipe Quotes/pipe_Quotes_Seed"
 				},
 				"annotations": []
 			},
@@ -59483,7 +59483,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Receivables"
+					"name": "Pipe Receivables/pipe_Receivables_FromOAC"
 				},
 				"annotations": []
 			},
@@ -65969,7 +65969,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Quotes"
+					"name": "Pipe Quotes/pipe_Quotes"
 				},
 				"annotations": []
 			},
@@ -110145,6 +110145,117 @@
 				"[concat(variables('factoryId'), '/pipelines/pipe_stage_BIA_AP_INVOICE_DIST_V')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_stage_BIA_OAC_PAYABLES_V')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_Quotes')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "pipe_BIA_QUOTE_HEADERS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_QUOTE_HEADERS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_QUOTE_LINES_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_QUOTE_HEADERS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_QUOTE_LINES_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_QUOTE_LINES_V2",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_QUOTE_HEADERS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_QUOTE_LINES_V2",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_stage_BICS_QUOTE_DETAIL_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_QUOTE_LINES_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "pipe_BIA_QUOTE_LINES_V2",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_stage_BICS_QUOTE_DETAIL_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"folder": {
+					"name": "Pipe Quotes/pipe_Quotes"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_QUOTE_HEADERS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_QUOTE_LINES_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_QUOTE_LINES_V2')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_stage_BICS_QUOTE_DETAIL_V')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": []
+			},
+			"dependsOn": []
 		}
 	]
 }

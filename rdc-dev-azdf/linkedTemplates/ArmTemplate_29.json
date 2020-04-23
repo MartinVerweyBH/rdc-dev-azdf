@@ -13,6 +13,297 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BICS_GL_JOURNALS_LINE_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "pipe_BICS_GL_JOURNALS_LINE_V\nSource: EBS\nDestination: Azure OAC",
+				"activities": [
+					{
+						"name": "Copy BICS_GL_JOURNALS_LINE_V",
+						"description": "Copy BICS_GL_JOURNALS_LINE_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BICS_GL_JOURNALS_LINE_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "JE_HEADER_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "JE_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "JE_LINE_NUM",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "JE_LINE_NUM",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "COMPANY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "COMPANY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DEPARTMENT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DEPARTMENT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCOUNT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ACCOUNT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INTERCOMPANY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INTERCOMPANY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CUSTOMER",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CUSTOMER",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PROJECT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PROJECT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PRODUCT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PRODUCT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ENTERED_DR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ENTERED_DR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ENTERED_CR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ENTERED_CR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCOUNT_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ACCOUNT_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ATTRIBUTE1",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ATTRIBUTE1",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ATTRIBUTE2",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ATTRIBUTE2",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ATTRIBUTE3",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ATTRIBUTE3",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ATTRIBUTE4",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ATTRIBUTE4",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ATTRIBUTE5",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ATTRIBUTE5",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PARTY_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "REFERENCE_6",
+											"type": "String"
+										},
+										"sink": {
+											"name": "REFERENCE_6",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DATE_CREATED",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "DATE_CREATED",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "DATE_UPDATED",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "DATE_UPDATED",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BICS_GL_JOURNALS_LINE_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BICS_GL_JOURNALS_LINE_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "pipe GeneralLedger/pipe_GeneralLedger_Seed"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/pipe_BICS_GL_JOURNALS_V')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -5559,7 +5850,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Quotes"
+					"name": "Pipe Quotes/pipe_Quotes_Seed"
 				},
 				"annotations": []
 			},
@@ -10238,185 +10529,6 @@
 						"outputs": [
 							{
 								"referenceName": "aoac_oac_BIA_EXPENDITURE_ACCUM_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"folder": {
-					"name": "Pipe Projects"
-				},
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipe_W_DEPRICIATION_COST_F')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy W_DEPRICIATION_COST_F",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "OracleSource",
-								"partitionOption": "None",
-								"queryTimeout": "02:00:00"
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE OACPROD.W_DEPRICIATION_COST_F\n\n",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "ASSET_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "ASSET_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "BOOK_TYPE_CODE",
-											"type": "String"
-										},
-										"sink": {
-											"name": "BOOK_TYPE_CODE",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "ASSET_NUMBER",
-											"type": "String"
-										},
-										"sink": {
-											"name": "ASSET_NUMBER",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "CATEGORY",
-											"type": "String"
-										},
-										"sink": {
-											"name": "CATEGORY",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "PERIOD_NAME",
-											"type": "String"
-										},
-										"sink": {
-											"name": "PERIOD_NAME",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "CODE_COMBINATION_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "CODE_COMBINATION_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "LOCATION",
-											"type": "String"
-										},
-										"sink": {
-											"name": "LOCATION",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "DEPRICATION_EXPENSE_ACCOUNT",
-											"type": "String"
-										},
-										"sink": {
-											"name": "DEPRICATION_EXPENSE_ACCOUNT",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "DEPRN_EXP_ACCOUNT_NEW",
-											"type": "String"
-										},
-										"sink": {
-											"name": "DEPRN_EXP_ACCOUNT_NEW",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "PERIOD_COUNTER",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "PERIOD_COUNTER",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "DEPRN_AMOUNT",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "DEPRN_AMOUNT",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										}
-									}
-								]
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "ebs_W_DEPRICIATION_COST_F",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "aoac_W_DEPRICIATION_COST_F",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
