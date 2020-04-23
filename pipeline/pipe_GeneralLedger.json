@@ -1,6 +1,7 @@
 {
 	"name": "pipe_GeneralLedger",
 	"properties": {
+		"description": " ",
 		"activities": [
 			{
 				"name": "BIA_GL_HEADERS_V",
