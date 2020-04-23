@@ -1,5 +1,5 @@
 {
-	"name": "pipe_PurchaseOrdersBICS",
+	"name": "pipe_PurchaseOrders_BICS",
 	"properties": {
 		"activities": [
 			{
