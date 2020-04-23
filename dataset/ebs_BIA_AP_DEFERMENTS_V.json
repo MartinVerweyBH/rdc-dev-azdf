@@ -1,5 +1,5 @@
 {
-	"name": "T_ebs_BIA_AP_DEFERMENTS_V",
+	"name": "ebs_BIA_AP_DEFERMENTS_V",
 	"properties": {
 		"description": "Source: EBS\nView: BIA_AP_DEFERMENTS_V\n",
 		"linkedServiceName": {
