@@ -74,6 +74,32 @@
 					},
 					"waitOnCompletion": true
 				}
+			},
+			{
+				"name": "pipe_stage_BIA_XLA_AE_LINES_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_stage_BIA_XLA_AE_LINES_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_stage_BIA_XLA_AE_TRANS_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_stage_BIA_XLA_AE_TRANS_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
 			}
 		],
 		"folder": {
