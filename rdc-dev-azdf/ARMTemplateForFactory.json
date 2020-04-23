@@ -39680,6 +39680,63 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BICS_PO_AP_WORKFLOW')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy BICS_PO_AP_WORKFLOW",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BICS_PO_AP_WORKFLOW",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "oac_BICS_PO_AP_WORKFLOW",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BICS_PO_AP_WORKFLOW",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "pipe PurchaseOrders"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/oac_BICS_PO_AP_WORKFLOW')]",
+				"[concat(variables('factoryId'), '/datasets/aoac_BICS_PO_AP_WORKFLOW')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/pipe_BICS_PO_CONV_V')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -52276,6 +52333,148 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/ebs_W_PBI_PROJ_COST_DETAIL_F')]",
 				"[concat(variables('factoryId'), '/datasets/aoac_W_PROJ_COST_DETAIL_F')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_W_PROJ_COST_MJE_F')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy W_PROJ_COST_MJE_F",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.W_PROJ_COST_MJE_F",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "TASK_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "TASK_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "TASK_NUMBER",
+											"type": "String"
+										},
+										"sink": {
+											"name": "TASK_NUMBER",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "EXPENDITURE_ITEM_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "EXPENDITURE_ITEM_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PROJECT_NUMBER",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PROJECT_NUMBER",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "EXPENDITURE_ITEM_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "EXPENDITURE_ITEM_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "PROJECT_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "PROJECT_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "MJE_INV_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "MJE_INV_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_W_PBI_PROJ_COST_MJE_F",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_W_PROJ_COST_MJE_F",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "Pipe Projects"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/ebs_W_PBI_PROJ_COST_MJE_F')]",
+				"[concat(variables('factoryId'), '/datasets/aoac_W_PROJ_COST_MJE_F')]"
 			]
 		},
 		{
@@ -105674,6 +105873,31 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/oac_BICS_PO_AP_WORKFLOW')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source:  EBS\nView: BICS_PO_AP_WORKFLOW",
+				"linkedServiceName": {
+					"referenceName": "lsOACPROD",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source on Cloud - OAC"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "BICS_PO_AP_WORKFLOW"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/oac_BICS_REVENUE_FT2')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -105740,6 +105964,30 @@
 				"typeProperties": {
 					"schema": "OACPROD",
 					"table": "W_PROJECTED_DEPRN_F"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/oac_W_PROJ_COST_MJE_F')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "lsOACPROD",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source on Cloud - OAC"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "W_PROJ_COST_MJE_F"
 				}
 			},
 			"dependsOn": [
