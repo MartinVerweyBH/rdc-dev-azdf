@@ -122,6 +122,9 @@
 				}
 			}
 		],
+		"folder": {
+			"name": "Pipe ServiceContracts/pipe_ServiceContracts"
+		},
 		"annotations": []
 	}
 }
