@@ -75,6 +75,9 @@
 				}
 			}
 		],
+		"folder": {
+			"name": "Pipe SalesOrders/pipe_SalesOrders"
+		},
 		"annotations": []
 	}
 }
