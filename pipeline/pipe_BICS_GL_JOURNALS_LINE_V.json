@@ -279,7 +279,7 @@
 			}
 		],
 		"folder": {
-			"name": "pipe GeneralLedger/pipe_GeneralLedgerJournals"
+			"name": "pipe GeneralLedger/pipe_GeneralLedger_Seed"
 		},
 		"annotations": []
 	},
