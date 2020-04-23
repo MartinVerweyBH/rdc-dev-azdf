@@ -1,0 +1,127 @@
+{
+	"name": "pipe_ServiceContracts",
+	"properties": {
+		"activities": [
+			{
+				"name": "pipe_BIA_SERVICE_CONTRACTS_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BIA_SERVICE_CONTRACTS_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_BICS_CONTRACT_DETAILS_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pipe_BIA_SERVICE_CONTRACTS_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BICS_CONTRACT_DETAILS_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_BIA_SERVICE_CONTRACT_LINES_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pipe_BICS_CONTRACT_DETAILS_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BIA_SERVICE_CONTRACT_LINES_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_BICS_CONTRACT_DETAILS_V1",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BICS_CONTRACT_DETAILS_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_BIA_ANALYTICS_CONTRACTS_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BIA_ANALYTICS_CONTRACTS_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_BIA_SERVICE_CONTRACT_STRMS_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pipe_BIA_SERVICE_CONTRACT_LINES_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BIA_SERVICE_CONTRACT_STRMS_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_BIA_SERVICE_CONTRACT_STRM1_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pipe_BIA_SERVICE_CONTRACT_LINES_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BIA_SERVICE_CONTRACT_STRM1_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": []
+	}
+}
