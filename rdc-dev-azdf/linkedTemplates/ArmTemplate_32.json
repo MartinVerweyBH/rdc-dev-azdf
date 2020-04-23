@@ -238,7 +238,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger"
+					"name": "pipe GeneralLedger/pipe_GeneralLedger"
 				},
 				"annotations": []
 			},
@@ -348,7 +348,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger"
+					"name": "pipe GeneralLedger/pipe_GeneralLedgerJournals"
 				},
 				"annotations": []
 			},
