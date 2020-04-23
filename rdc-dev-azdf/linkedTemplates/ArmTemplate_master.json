@@ -354,9 +354,6 @@
 					},
 					"lsMRTG_connectionString": {
 						"value": "[parameters('lsMRTG_connectionString')]"
-					},
-					"lsMRTG_Postgres_connectionString": {
-						"value": "[parameters('lsMRTG_Postgres_connectionString')]"
 					}
 				}
 			},
@@ -377,6 +374,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"lsMRTG_Postgres_connectionString": {
+						"value": "[parameters('lsMRTG_Postgres_connectionString')]"
 					},
 					"lsSFDC_password": {
 						"value": "[parameters('lsSFDC_password')]"
@@ -654,6 +654,26 @@
 			},
 			"dependsOn": [
 				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_25')]"
+			]
+		},
+		{
+			"name": "ArmTemplate_27",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_27.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_26')]"
 			]
 		}
 	]
