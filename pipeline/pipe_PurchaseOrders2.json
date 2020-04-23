@@ -1,6 +1,21 @@
 {
 	"name": "pipe_PurchaseOrders2",
 	"properties": {
+		"activities": [
+			{
+				"name": "pipe_BICS_PO_CONV_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BICS_PO_CONV_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
 		"folder": {
 			"name": "pipe PurchaseOrders"
 		},
