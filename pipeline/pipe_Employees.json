@@ -1,0 +1,21 @@
+{
+	"name": "pipe_Employees",
+	"properties": {
+		"activities": [
+			{
+				"name": "pipe_BIA_EMPLOYEES_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BIA_EMPLOYEES_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": []
+	}
+}
