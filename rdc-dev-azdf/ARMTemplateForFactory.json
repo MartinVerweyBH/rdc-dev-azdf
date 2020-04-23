@@ -20382,7 +20382,7 @@
 					}
 				],
 				"folder": {
-					"name": "OAC Pipelines"
+					"name": "Pipe Projects"
 				},
 				"annotations": []
 			},
@@ -22788,7 +22788,7 @@
 					}
 				],
 				"folder": {
-					"name": "OAC Pipelines/OAC Pipeline - FROM OAC"
+					"name": "Pipe Projects"
 				},
 				"annotations": []
 			},
@@ -28066,7 +28066,7 @@
 					}
 				],
 				"folder": {
-					"name": "EBS 2 AzureOAC Pipelines - Stage"
+					"name": "Pipe Projects"
 				},
 				"annotations": []
 			},
