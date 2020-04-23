@@ -114,7 +114,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "x_ebs_W_PROJ_COST_MJE_F",
+						"referenceName": "ebs_W_PBI_PROJ_COST_MJE_F",
 						"type": "DatasetReference"
 					}
 				],
