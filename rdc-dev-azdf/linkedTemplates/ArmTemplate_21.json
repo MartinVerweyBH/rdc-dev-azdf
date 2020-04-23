@@ -13,6 +13,52 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_BGT_CHANGES_F')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: W_PROJ_TASK_BGT_CHANGES_F",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "PBI_PROJ_TASK_BGT_CHANGES_F"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_BOARD_APRVD_BGT_F')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: W_PROJ_TASK_BOARD_APRVD_BGT_F",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "PBI_PROJ_TASK_BOARD_APRVD_BGT"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_BUDGET_F')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -3157,216 +3203,6 @@
 				],
 				"folder": {
 					"name": "pipe GeneralLedger"
-				},
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipe_BIA_GL_SOB_V')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "pipe_BIA_GL_SOB_V\nSource: EBS\nDestination: Azure OAC",
-				"activities": [
-					{
-						"name": "Copy BIA_GL_SOB_V",
-						"description": "Copy BIA_GL_SOB_V",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "OracleSource",
-								"partitionOption": "None",
-								"queryTimeout": "02:00:00"
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_GL_SOB_V",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "SET_OF_BOOKS_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "SET_OF_BOOKS_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "NAME",
-											"type": "String"
-										},
-										"sink": {
-											"name": "NAME",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "SHORT_NAME",
-											"type": "String"
-										},
-										"sink": {
-											"name": "SHORT_NAME",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "CHART_OF_ACCOUNTS_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "CHART_OF_ACCOUNTS_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "DESCRIPTION",
-											"type": "String"
-										},
-										"sink": {
-											"name": "DESCRIPTION",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										}
-									}
-								]
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "ebs_BIA_GL_SOB_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "aoac_BIA_GL_SOB_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"folder": {
-					"name": "pipe GeneralLedger"
-				},
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipe_BIA_LINK_PO_REQ_V')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy BIA_LINK_PO_REQ_V",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "OracleSource",
-								"partitionOption": "None",
-								"queryTimeout": "02:00:00"
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_LINK_PO_REQ_V",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "PO_DISTRIBUTION_ID",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "PO_DISTRIBUTION_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "REQ_DISTRIBUTION_ID",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "REQ_DISTRIBUTION_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										}
-									}
-								]
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "ebs_BIA_LINK_PO_REQ_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "aoac_BIA_LINK_PO_REQ_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"folder": {
-					"name": "pipe PurchaseOrders"
 				},
 				"annotations": []
 			},
