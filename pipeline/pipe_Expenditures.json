@@ -1,0 +1,21 @@
+{
+	"name": "pipe_Expenditures",
+	"properties": {
+		"activities": [
+			{
+				"name": "pipe_BIA_EXPENDITURE_TYPES_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BIA_EXPENDITURE_TYPES_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": []
+	}
+}
