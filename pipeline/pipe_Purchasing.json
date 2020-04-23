@@ -1,0 +1,21 @@
+{
+	"name": "pipe_Purchasing",
+	"properties": {
+		"activities": [
+			{
+				"name": "pipe_BICS_AP_INVOICE",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BICS_AP_INVOICE",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": []
+	}
+}
