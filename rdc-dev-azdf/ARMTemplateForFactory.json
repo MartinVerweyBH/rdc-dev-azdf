@@ -16531,7 +16531,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe PriceLists"
+					"name": "Pipe PriceLists/pipe_PriceLists"
 				},
 				"annotations": []
 			},
@@ -22761,7 +22761,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe PriceLists"
+					"name": "Pipe PriceLists/pipe_PriceLists"
 				},
 				"annotations": []
 			},
@@ -22965,7 +22965,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe PriceLists"
+					"name": "Pipe PriceLists/pipe_PriceLists"
 				},
 				"annotations": []
 			},
@@ -25861,7 +25861,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe PriceLists"
+					"name": "Pipe PriceLists/pipe_PriceLists"
 				},
 				"annotations": []
 			},
@@ -25995,7 +25995,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe PriceLists"
+					"name": "Pipe PriceLists/pipe_PriceLists"
 				},
 				"annotations": []
 			},
@@ -42486,7 +42486,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe PriceLists"
+					"name": "Pipe PriceLists/pipe_PriceLists"
 				},
 				"annotations": []
 			},
@@ -109767,6 +109767,9 @@
 						}
 					}
 				],
+				"folder": {
+					"name": "Pipe FixedAssets/pipe_FixedAssets"
+				},
 				"annotations": []
 			},
 			"dependsOn": [
@@ -109775,6 +109778,139 @@
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_FA_DEPRN_PERIODS_V')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_PBI_DEPRECIATION_COST_F')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_FA_DEPRN_SUMMARY_V')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_PriceLists')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "pipe_BIA_ITEMS_CODES_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_ITEMS_CODES_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_PRICE_LISTS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_ITEMS_CODES_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_PRICE_LISTS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_PRICE_LIST_ITEMS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_PRICE_LISTS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_PRICE_LIST_ITEMS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BICS_PRICE_LIST_DETAIL_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_PRICE_LIST_ITEMS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BICS_PRICE_LIST_DETAIL_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_REV_CATEGORY_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_REV_CATEGORY_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_REV_CATEGORY_ITEMS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_REV_CATEGORY_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_REV_CATEGORY_ITEMS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"folder": {
+					"name": "Pipe PriceLists/pipe_PriceLists"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_ITEMS_CODES_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_PRICE_LISTS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_PRICE_LIST_ITEMS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_PRICE_LIST_DETAIL_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_REV_CATEGORY_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_REV_CATEGORY_ITEMS_V')]"
 			]
 		}
 	]
