@@ -351,9 +351,6 @@
 					},
 					"lsMATRIX_Postgres_connectionString": {
 						"value": "[parameters('lsMATRIX_Postgres_connectionString')]"
-					},
-					"lsMRTG_connectionString": {
-						"value": "[parameters('lsMRTG_connectionString')]"
 					}
 				}
 			},
@@ -374,6 +371,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"lsMRTG_connectionString": {
+						"value": "[parameters('lsMRTG_connectionString')]"
 					},
 					"lsMRTG_Postgres_connectionString": {
 						"value": "[parameters('lsMRTG_Postgres_connectionString')]"

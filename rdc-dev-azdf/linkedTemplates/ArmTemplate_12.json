@@ -22,10 +22,6 @@
 		"lsMATRIX_Postgres_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'lsMATRIX_Postgres'"
-		},
-		"lsMRTG_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'lsMRTG'"
 		}
 	},
 	"variables": {
@@ -51,6 +47,28 @@
 				"typeProperties": {
 					"schema": "OACPROD",
 					"table": "BIA_XLA_AE_LINK_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/oac_BICS_IPROCUREMENT_LICENSE_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "lsOACPROD",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source on Cloud - OAC"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "BICS_IPROCUREMENT_LICENSE_V"
 				}
 			},
 			"dependsOn": []
@@ -1699,24 +1717,6 @@
 				"type": "PostgreSql",
 				"typeProperties": {
 					"connectionString": "[parameters('lsMATRIX_Postgres_connectionString')]"
-				},
-				"connectVia": {
-					"referenceName": "rdcir01",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/lsMRTG')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Link Service to MRTG On Prem",
-				"annotations": [],
-				"type": "Oracle",
-				"typeProperties": {
-					"connectionString": "[parameters('lsMRTG_connectionString')]"
 				},
 				"connectVia": {
 					"referenceName": "rdcir01",
