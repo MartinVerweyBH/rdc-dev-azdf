@@ -109,6 +109,9 @@
 				}
 			}
 		],
+		"folder": {
+			"name": "Pipe PriceLists/pipe_PriceLists"
+		},
 		"annotations": []
 	}
 }
