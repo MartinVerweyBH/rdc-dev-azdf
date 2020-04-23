@@ -1,0 +1,7705 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "rdc-dev-azdf"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BIA_AP_CHECKS_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy BIA_AP_CHECKS_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_AP_CHECKS_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "CHECK_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "CHECK_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "BANK_ACCOUNT_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "BANK_ACCOUNT_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "BANK_ACCOUNT_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BANK_ACCOUNT_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CHECK_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "CHECK_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "CHECK_NUMBER",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "CHECK_NUMBER",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CURRENCY_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CURRENCY_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATED_BY",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "LAST_UPDATED_BY",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "PAYMENT_METHOD_LOOKUP_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PAYMENT_METHOD_LOOKUP_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PAYMENT_TYPE_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PAYMENT_TYPE_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ADDRESS_LINE1",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ADDRESS_LINE1",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ADDRESS_LINE2",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ADDRESS_LINE2",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ADDRESS_LINE3",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ADDRESS_LINE3",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CHECKRUN_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CHECKRUN_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CHECK_FORMAT_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "CHECK_FORMAT_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CHECK_STOCK_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "CHECK_STOCK_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CITY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CITY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "COUNTRY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "COUNTRY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CREATED_BY",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "CREATED_BY",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CREATION_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "CREATION_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_LOGIN",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_LOGIN",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "STATUS_LOOKUP_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "STATUS_LOOKUP_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "VENDOR_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "VENDOR_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "VENDOR_SITE_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "VENDOR_SITE_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ZIP",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ZIP",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "BANK_ACCOUNT_NUM",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BANK_ACCOUNT_NUM",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "BANK_ACCOUNT_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BANK_ACCOUNT_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "BANK_NUM",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BANK_NUM",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CHECK_VOUCHER_NUM",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "CHECK_VOUCHER_NUM",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CLEARED_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "CLEARED_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CLEARED_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "CLEARED_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "CLEARED_BASE_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "CLEARED_BASE_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "DOC_CATEGORY_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DOC_CATEGORY_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DOC_SEQUENCE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "DOC_SEQUENCE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "DOC_SEQUENCE_VALUE",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "DOC_SEQUENCE_VALUE",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PROVINCE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PROVINCE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "RELEASED_AT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RELEASED_AT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "RELEASED_BY",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "RELEASED_BY",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "STATE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "STATE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "STOPPED_AT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "STOPPED_AT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "STOPPED_BY",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "STOPPED_BY",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "VOID_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "VOID_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "FUTURE_PAY_DUE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "FUTURE_PAY_DUE_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "TREASURY_PAY_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "TREASURY_PAY_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "TREASURY_PAY_NUMBER",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "TREASURY_PAY_NUMBER",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "WITHHOLDING_STATUS_LOOKUP_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "WITHHOLDING_STATUS_LOOKUP_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "RECONCILIATION_BATCH_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "RECONCILIATION_BATCH_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ADDRESS_LINE4",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ADDRESS_LINE4",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "COUNTY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "COUNTY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ADDRESS_STYLE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ADDRESS_STYLE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ORG_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "ORG_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "VENDOR_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "VENDOR_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "VENDOR_SITE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "VENDOR_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "BASE_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "BASE_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CHECKRUN_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "CHECKRUN_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "REQUEST_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "REQUEST_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "POSITIVE_PAY_STATUS_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "POSITIVE_PAY_STATUS_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "TRANSFER_PRIORITY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "TRANSFER_PRIORITY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "EXTERNAL_BANK_ACCOUNT_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "EXTERNAL_BANK_ACCOUNT_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ACTUAL_VALUE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "ACTUAL_VALUE_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "ANTICIPATED_VALUE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "ANTICIPATED_VALUE_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "RELEASED_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "RELEASED_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "STOPPED_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "STOPPED_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "MRC_MATURITY_EXG_DATE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "MRC_MATURITY_EXG_DATE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "MRC_MATURITY_EXG_RATE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "MRC_MATURITY_EXG_RATE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "MRC_MATURITY_EXG_RATE_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "MRC_MATURITY_EXG_RATE_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "IBAN_NUMBER",
+											"type": "String"
+										},
+										"sink": {
+											"name": "IBAN_NUMBER",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CE_BANK_ACCT_USE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "CE_BANK_ACCT_USE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PAYMENT_METHOD_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PAYMENT_METHOD_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PARTY_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_SITE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PARTY_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PAYMENT_PROFILE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "PAYMENT_PROFILE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "SETTLEMENT_PRIORITY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SETTLEMENT_PRIORITY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "BANK_CHARGE_BEARER",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BANK_CHARGE_BEARER",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LEGAL_ENTITY_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "LEGAL_ENTITY_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PAYMENT_DOCUMENT_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "PAYMENT_DOCUMENT_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "COMPLETED_PMTS_GROUP_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "COMPLETED_PMTS_GROUP_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PAYMENT_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "PAYMENT_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PAYMENT_INSTRUCTION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "PAYMENT_INSTRUCTION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "VOID_CHECK_NUMBER",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "VOID_CHECK_NUMBER",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "VOID_CHECK_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "VOID_CHECK_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "REMIT_TO_SUPPLIER_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "REMIT_TO_SUPPLIER_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "REMIT_TO_SUPPLIER_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "REMIT_TO_SUPPLIER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "REMIT_TO_SUPPLIER_SITE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "REMIT_TO_SUPPLIER_SITE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "REMIT_TO_SUPPLIER_SITE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "REMIT_TO_SUPPLIER_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "RELATIONSHIP_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "RELATIONSHIP_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ACKNOWLEDGED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ACKNOWLEDGED_FLAG",
+											"type": "String"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_AP_CHECKS_V",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BIA_AP_CHECKS_V",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "Pipe Purchasing/pipe_Purchasing"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BIA_AP_DEFERMENTS_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "pipe_BIA_AP_DEFERMENTS_V\nSource: EBS\nDestination: Azure OAC",
+				"activities": [
+					{
+						"name": "Copy BIA_AP_DEFERMENTS_V",
+						"description": "Copy BIA_AP_DEFERMENTS_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 5,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_AP_DEFERMENTS_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"enableSkipIncompatibleRow": true,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "AE_HEADER_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "AE_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LINE_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "LINE_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "EVENT_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "EVENT_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AE_LINE_NUM",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AE_LINE_NUM",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "APPLICATION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "APPLICATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CODE_COMBINATION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "CODE_COMBINATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "XLA_ACCOUNT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "XLA_ACCOUNT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_LINES_DEPARTMENT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AP_LINES_DEPARTMENT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_LINES_ACCOUNT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AP_LINES_ACCOUNT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "GL_SL_LINK_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "GL_SL_LINK_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "GL_SL_LINK_TABLE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "GL_SL_LINK_TABLE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ENTERED_DR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ENTERED_DR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ENTERED_CR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ENTERED_CR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCOUNTED_DR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ACCOUNTED_DR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCOUNTED_CR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ACCOUNTED_CR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "XLA_LINE_DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "XLA_LINE_DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCOUNTING_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "ACCOUNTING_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "PERIOD_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PERIOD_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LEDGER_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "LEDGER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "VENDOR_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "VENDOR_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "VENDOR_SITE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "VENDOR_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "REQUESTER_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "REQUESTER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INVOICE_DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "GL_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "GL_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "PARTY_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_SITE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "PARTY_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LINE_NUMBER",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "LINE_NUMBER",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_LINE_DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AP_LINE_DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DEFERRED_ACCTG_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DEFERRED_ACCTG_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DEF_ACCTG_START_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "DEF_ACCTG_START_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "DEF_ACCTG_END_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "DEF_ACCTG_END_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "DEFERRED_MONTHS",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "DEFERRED_MONTHS",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "WFAPPROVAL_STATUS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "WFAPPROVAL_STATUS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CANCELLED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CANCELLED_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DISCARDED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DISCARDED_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_HEADER_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_LINE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_LINE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_DISTRIBUTION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_DISTRIBUTION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "EXPENDITURE_ITEM_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "EXPENDITURE_ITEM_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "PROJECT_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PROJECT_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "TASK_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "TASK_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_LINE_ID",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INVOICE_LINE_ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "REQ_DISTRIBUTION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "REQ_DISTRIBUTION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "REQUISITION_LINE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "REQUISITION_LINE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "REQUISITION_HEADER_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "REQUISITION_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CHECK_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "CHECK_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "SHIP_TO_LOCATION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "SHIP_TO_LOCATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_DESTINATION_ORG_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_DESTINATION_ORG_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "GL_LOCATION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "GL_LOCATION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ORG_LOCATION",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ORG_LOCATION",
+											"type": "Decimal"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_AP_DEFERMENTS_V",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BIA_AP_DEFERMENTS_V",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "Pipe Purchasing/pipe_Purchasing_Seed"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BIA_AP_INVOICE_DIST_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy BIA_AP_INVOICE_DIST_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_AP_INVOICE_DIST_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "INVOICE_DISTRIBUTION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_DISTRIBUTION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_LINE_ID",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INVOICE_LINE_ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DISTRIBUTION_LINE_NUMBER",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "DISTRIBUTION_LINE_NUMBER",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_PERIOD_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INV_DIST_PERIOD_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_LINE_NUMBER",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "INVOICE_LINE_NUMBER",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_QTY_INVOICED",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "INV_DIST_QTY_INVOICED",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_UNIT_PRICE",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "INV_DIST_UNIT_PRICE",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "INV_DIST_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "TOTAL_DIST_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "TOTAL_DIST_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "TOTAL_TAX_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "TOTAL_TAX_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_PROJECT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INV_DIST_PROJECT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_COST_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INV_DIST_COST_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_COST_CLASS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INV_DIST_COST_CLASS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_LOCATION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INV_DIST_LOCATION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_DISTRIBUTION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_DISTRIBUTION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "DIST_CODE_COMBINATION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "DIST_CODE_COMBINATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INV_DIST_DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_ASSETS_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INV_DIST_ASSETS_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "POSTED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "POSTED_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "EXPENDITURE_ORGANIZATION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "EXPENDITURE_ORGANIZATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "EXPENDITURE_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "EXPENDITURE_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PROJECT_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PROJECT_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "TASK_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "TASK_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CANCELLATION_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CANCELLATION_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "REQUESTER_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "REQUESTER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CANCELLED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CANCELLED_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "VENDOR_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "VENDOR_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "VENDOR_SITE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "VENDOR_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "TERMS_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "TERMS_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCTS_PAY_CODE_COMBINATION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "ACCTS_PAY_CODE_COMBINATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PAYMENT_STATUS_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PAYMENT_STATUS_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LEGAL_ENTITY_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "LEGAL_ENTITY_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "PARTY_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_SITE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "PARTY_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_HEADER_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_LINE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_LINE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LINE_LOCATION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "LINE_LOCATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_AP_INVOICE_DIST_V",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BIA_AP_INVOICE_DIST_V",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "Pipe Purchasing/pipe_Purchasing_Seed"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BIA_AP_INVOICE_HEADERS_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy BIA_AP_INVOICE_HEADERS_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_AP_INVOICE_HEADERS_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "AP_HEADER_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "AP_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "VENDOR_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "VENDOR_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "VENDOR_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "VENDOR_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "VENDOR_NUMBER",
+											"type": "String"
+										},
+										"sink": {
+											"name": "VENDOR_NUMBER",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "VENDOR_STATUS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "VENDOR_STATUS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "VENDOR_SITE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "VENDOR_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_NUM",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INVOICE_NUM",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "INVOICE_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AMOUNT_PAID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "AMOUNT_PAID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "TOTAL_TAX_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "TOTAL_TAX_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "DISCOUNT_AMOUNT_TAKEN",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "DISCOUNT_AMOUNT_TAKEN",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "INVOICE_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "SOURCE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SOURCE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_TYPE_LOOKUP_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INVOICE_TYPE_LOOKUP_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AMOUNT_APPLICABLE_TO_DISCOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "AMOUNT_APPLICABLE_TO_DISCOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "TAX_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "TAX_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CREATED_BY",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "CREATED_BY",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CREATED_FULL_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CREATED_FULL_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CREATED_LAST_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CREATED_LAST_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CREATED_EMAIL_ADDRESS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CREATED_EMAIL_ADDRESS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PAYMENT_STATUS_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PAYMENT_STATUS_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "APPROVED_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "APPROVED_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CANCELLED_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "CANCELLED_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "CANCELLED_BY",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "CANCELLED_BY",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CANCELLED_BY_FULL_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CANCELLED_BY_FULL_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CANCELLED_BY_LAST_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CANCELLED_BY_LAST_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CANCELLED_BY_EMAIL_ADDRESS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CANCELLED_BY_EMAIL_ADDRESS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CANCELLED_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "CANCELLED_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ORG_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "ORG_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "GL_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "GL_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "PARTY_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_SITE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "PARTY_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "REMIT_TO_SUPPLIER_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "REMIT_TO_SUPPLIER_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "REMIT_TO_SUPPLIER_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "REMIT_TO_SUPPLIER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "REMIT_TO_SUPPLIER_SITE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "REMIT_TO_SUPPLIER_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_HEADER_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "PO_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "QUICK_PO_HEADER_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "QUICK_PO_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_TOTAL_DIST_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "AP_TOTAL_DIST_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_STATUS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INVOICE_STATUS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "POSTING_STATUS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "POSTING_STATUS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "APPROVAL_STATUS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "APPROVAL_STATUS",
+											"type": "String"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_AP_INVOICE_HEADERS_V",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BIA_AP_INVOICE_HEADERS_V",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "Pipe Purchasing/pipe_Purchasing"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BIA_AP_PAYMENTS_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy BIA_AP_PAYMENTS_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_AP_PAYMENTS_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "INVOICE_PAYMENT_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_PAYMENT_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCOUNTING_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "ACCOUNTING_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCRUAL_POSTED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ACCRUAL_POSTED_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CASH_POSTED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CASH_POSTED_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CHECK_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "CHECK_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATED_BY",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "LAST_UPDATED_BY",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "PAYMENT_NUM",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "PAYMENT_NUM",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PERIOD_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PERIOD_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "POSTED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "POSTED_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SET_OF_BOOKS_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "SET_OF_BOOKS_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCTS_PAY_CODE_COMBINATION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ACCTS_PAY_CODE_COMBINATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ASSET_CODE_COMBINATION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ASSET_CODE_COMBINATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CREATION_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "CREATION_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_LOGIN",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_LOGIN",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "BANK_ACCOUNT_NUM",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BANK_ACCOUNT_NUM",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "BANK_ACCOUNT_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BANK_ACCOUNT_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "BANK_NUM",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BANK_NUM",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DISCOUNT_LOST",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "DISCOUNT_LOST",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "DISCOUNT_TAKEN",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "DISCOUNT_TAKEN",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CASH_JE_BATCH_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "CASH_JE_BATCH_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "FUTURE_PAY_CODE_COMBINATION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "FUTURE_PAY_CODE_COMBINATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "FUTURE_PAY_POSTED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FUTURE_PAY_POSTED_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "JE_BATCH_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "JE_BATCH_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ELECTRONIC_TRANSFER_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "ELECTRONIC_TRANSFER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ASSETS_ADDITION_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ASSETS_ADDITION_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_PAYMENT_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INVOICE_PAYMENT_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OTHER_INVOICE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "OTHER_INVOICE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ORG_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "ORG_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "EXTERNAL_BANK_ACCOUNT_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "EXTERNAL_BANK_ACCOUNT_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "REVERSAL_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "REVERSAL_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "REVERSAL_INV_PMT_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "REVERSAL_INV_PMT_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "IBAN_NUMBER",
+											"type": "String"
+										},
+										"sink": {
+											"name": "IBAN_NUMBER",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICING_PARTY_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "INVOICING_PARTY_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICING_PARTY_SITE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "INVOICING_PARTY_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICING_VENDOR_SITE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "INVOICING_VENDOR_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "REMIT_TO_SUPPLIER_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "REMIT_TO_SUPPLIER_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "REMIT_TO_SUPPLIER_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "REMIT_TO_SUPPLIER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "REMIT_TO_SUPPLIER_SITE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "REMIT_TO_SUPPLIER_SITE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "REMIT_TO_SUPPLIER_SITE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "REMIT_TO_SUPPLIER_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "VENDOR_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "VENDOR_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "VENDOR_SITE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "VENDOR_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CHECK_VOID_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "CHECK_VOID_DATE",
+											"type": "DateTime"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_AP_PAYMENTS_V",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BIA_AP_PAYMENTS_V",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "Pipe Purchasing/pipe_Purchasing"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BIA_AP_PO_DISTRIBUTION_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy BIA_AP_PO_DISTRIBUTION_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_AP_PO_DISTRIBUTION_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "AP_INVOICE_DISTRIBUTION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "AP_INVOICE_DISTRIBUTION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_INVOICE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "AP_INVOICE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_INVOICE_LINE_NUMBER",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "AP_INVOICE_LINE_NUMBER",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_INVOICE_LINE_ID",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AP_INVOICE_LINE_ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_DISTRIBUTION_LINE_NUMBER",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "AP_DISTRIBUTION_LINE_NUMBER",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_PERIOD_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AP_PERIOD_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_QUANTITY_INVOICED",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "AP_QUANTITY_INVOICED",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_UNIT_PRICE",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "AP_UNIT_PRICE",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_DIST_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "AP_DIST_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_TOTAL_DIST_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "AP_TOTAL_DIST_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_TOTAL_TAX_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "AP_TOTAL_TAX_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_INV_DIST_PROJECT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AP_INV_DIST_PROJECT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_INV_DIST_COST_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AP_INV_DIST_COST_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_INV_DIST_LOCATION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AP_INV_DIST_LOCATION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_CODE_COMBINATION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "AP_CODE_COMBINATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_INV_DIST_DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AP_INV_DIST_DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_INV_DIST_ASSETS_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AP_INV_DIST_ASSETS_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_DIST_POSTED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AP_DIST_POSTED_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_EXPENDITURE_ORGANIZATION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "AP_EXPENDITURE_ORGANIZATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_EXPENDITURE_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AP_EXPENDITURE_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_PROJECT_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "AP_PROJECT_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_TASK_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "AP_TASK_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_CANCELLATION_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AP_CANCELLATION_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_REQUESTER_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "AP_REQUESTER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_CANCELLED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AP_CANCELLED_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_VENDOR_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "AP_VENDOR_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_VENDOR_SITE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "AP_VENDOR_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_TERMS_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "AP_TERMS_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_PAY_CODE_COMBINATION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "AP_PAY_CODE_COMBINATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_PAYMENT_STATUS_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AP_PAYMENT_STATUS_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_LEGAL_ENTITY_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "AP_LEGAL_ENTITY_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_PARTY_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "AP_PARTY_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_PARTY_SITE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "AP_PARTY_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_DISTRIBUTION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_DISTRIBUTION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_LINE_LOCATION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_LINE_LOCATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_HEADER_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_LINE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_LINE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_VENDOR_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_VENDOR_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_VENDOR_SITE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_VENDOR_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_SHIP_TO_LOCATION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_SHIP_TO_LOCATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_BILL_TO_LOCATION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_BILL_TO_LOCATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_REQUESTOR_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_REQUESTOR_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_DELIVER_TO_LOCATION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_DELIVER_TO_LOCATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_DESTINATION_ORGANIZATION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_DESTINATION_ORGANIZATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_PROJECT_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_PROJECT_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_TASK_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_TASK_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_EXPENDITURE_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PO_EXPENDITURE_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_CODE_COMBINATION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_CODE_COMBINATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_GL_LOCATION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PO_GL_LOCATION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_GL_COST_CLASS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PO_GL_COST_CLASS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_GL_COST_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PO_GL_COST_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_NONRECOVERABLE_TAX",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_NONRECOVERABLE_TAX",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_RECOVERABLE_TAX",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_RECOVERABLE_TAX",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_UNIT_PRICE_L",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_UNIT_PRICE_L",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_QTY_ORDERED_DL",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_QTY_ORDERED_DL",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_QTY_BILLED_DL",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_QTY_BILLED_DL",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_QTY_CANCELLED_DL",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_QTY_CANCELLED_DL",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_QTY_DELIVERED_DL",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_QTY_DELIVERED_DL",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_QTY_REMAINING_DL",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_QTY_REMAINING_DL",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_STATUS_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PO_STATUS_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_PERIOD_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PO_PERIOD_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_REQ_DISTRIBUTION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_REQ_DISTRIBUTION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_AP_PO_DISTRIBUTION_V",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BIA_AP_PO_DISTRIBUTION_V",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "Pipe Purchasing/pipe_Purchasing"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BIA_OAC_PAYABLES_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy BIA_OAC_PAYABLES_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_OAC_PAYABLES_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "JE_BATCH_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "JE_BATCH_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "JE_HEADER_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "JE_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "JE_LINE_NUM",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "JE_LINE_NUM",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CODE_COMBINATION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "CODE_COMBINATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_DISTRIBUTION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_DISTRIBUTION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_LINE_NUMBER",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "INVOICE_LINE_NUMBER",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_LINE_ID",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INVOICE_LINE_ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "VENDOR_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "VENDOR_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PARTY_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_SITE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PARTY_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "VENDOR_SITE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "VENDOR_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PROJECT_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PROJECT_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "TASK_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "TASK_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_HEADER_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_LINE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_LINE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_LOCATION_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PO_LOCATION_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PAYMENT_HISTORY_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PAYMENT_HISTORY_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CHECK_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "CHECK_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ORGANIZATION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ORGANIZATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LINE_TYPE_LOOKUP_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "LINE_TYPE_LOOKUP_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ENTITY_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ENTITY_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CLASS_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CLASS_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PERIOD_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PERIOD_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "XLA_ACCOUNTED_DR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "XLA_ACCOUNTED_DR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "XLA_ACCOUNTED_CR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "XLA_ACCOUNTED_CR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "INV_DIST_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_BASE_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "INV_DIST_BASE_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CASH_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "CASH_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "DISCOUNT_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "DISCOUNT_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PAYMENT_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PAYMENT_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "GL_DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "GL_DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DEFERRED_ACCTG_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DEFERRED_ACCTG_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DEF_ACCTG_START_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "DEF_ACCTG_START_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "DEF_ACCTG_END_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "DEF_ACCTG_END_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "DEFERRED_MONTHS",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "DEFERRED_MONTHS",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "WFAPPROVAL_STATUS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "WFAPPROVAL_STATUS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CANCELLED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CANCELLED_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DISCARDED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DISCARDED_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "RECORD_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RECORD_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "REQ_DISTRIBUTION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "REQ_DISTRIBUTION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "REQUISITION_LINE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "REQUISITION_LINE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "REQUISITION_HEADER_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "REQUISITION_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "JE_LINE_ID",
+											"type": "String"
+										},
+										"sink": {
+											"name": "JE_LINE_ID",
+											"type": "String"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_OAC_PAYABLES_V",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BIA_OAC_PAYABLES_V",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "Pipe Purchasing/pipe_Purchasing_Seed"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BICS_AP_INVOICE')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy BICS_AP_INVOICE",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "AzureSqlSource",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_SF_BUILT_TMP",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "PARTY_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PARTY_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_NUMBER",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PARTY_NUMBER",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_STATUS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PARTY_STATUS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_COUNTRY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PARTY_COUNTRY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_CITY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PARTY_CITY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_STATE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PARTY_STATE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_COUNTY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PARTY_COUNTY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_NUM",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INVOICE_NUM",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "INVOICE_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_AMOUNT",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_AMOUNT_PAID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_AMOUNT_PAID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_DISCOUNT_AMOUNT_TAKEN",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_DISCOUNT_AMOUNT_TAKEN",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INVOICE_DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_AMT_APPL_TO_DISCOUNT",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_AMT_APPL_TO_DISCOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_PAYMENT_STATUS_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INVOICE_PAYMENT_STATUS_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_APPROVED_AMOUNT",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_APPROVED_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_CANCELLED_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "INVOICE_CANCELLED_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_CANCELLED_AMOUNT",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_CANCELLED_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_GL_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "INVOICE_GL_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_PAYMENT_METHOD_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INVOICE_PAYMENT_METHOD_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_PARTY_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_PARTY_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_PARTY_SITE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_PARTY_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_REMIT_TO_SUPPLIER_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INVOICE_REMIT_TO_SUPPLIER_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "REMIT_TO_SUPPLIER_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "REMIT_TO_SUPPLIER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "REMIT_TO_SUPPLIER_SITE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "REMIT_TO_SUPPLIER_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_LINE_NUMBER",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INV_LINE_NUMBER",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_LINE_DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INV_LINE_DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_TAX_LINE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INVOICE_TAX_LINE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_LINE_REQUESTER_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INV_LINE_REQUESTER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_LINE_MATCH_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INV_LINE_MATCH_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_LINE_ACCOUNTING_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "INV_LINE_ACCOUNTING_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_LINE_PERIOD_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INV_LINE_PERIOD_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_LINE_AMOUNT",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INV_LINE_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_LINE_QUANTITY_INVOICED",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INV_LINE_QUANTITY_INVOICED",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "UNIT_MEAS_LOOKUP_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "UNIT_MEAS_LOOKUP_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_LINE_UNIT_PRICE",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INV_LINE_UNIT_PRICE",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_LINE_CANCELLED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INV_LINE_CANCELLED_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_LINE_PO_HEADER_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INV_LINE_PO_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_LINE_PO_LINE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INV_LINE_PO_LINE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_LINE_PO_LINE_LOCATION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INV_LINE_PO_LINE_LOCATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_LINE_PO_DISTRIBUTION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INV_LINE_PO_DISTRIBUTION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_LINE_TAX_RATE_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INV_LINE_TAX_RATE_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_LINE_TAX_RATE",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INV_LINE_TAX_RATE",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_PERIOD_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INV_DIST_PERIOD_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_AMOUNT",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INV_DIST_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_QTY_INVOICED",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INV_DIST_QTY_INVOICED",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_LINE_NUMBER",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_LINE_NUMBER",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_UNIT_PRICE",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INV_DIST_UNIT_PRICE",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_PROJECT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INV_DIST_PROJECT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_COST_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INV_DIST_COST_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_COST_CLASS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INV_DIST_COST_CLASS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_LOCATION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INV_DIST_LOCATION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_DISTRIBUTION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "PO_DISTRIBUTION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_DISTRIBUTION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_DISTRIBUTION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "DISTRIBUTION_LINE_NUMBER",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "DISTRIBUTION_LINE_NUMBER",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "DIST_CODE_COMBINATION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "DIST_CODE_COMBINATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INV_DIST_DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_ASSETS_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INV_DIST_ASSETS_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "DSYS_INSTANCE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "DSYS_INSTANCE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "DSYS_PROCESS_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "DSYS_PROCESS_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "DSYS_BATCH_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "DSYS_BATCH_ID",
+											"type": "Decimal"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "aoac_BICS_AP_INVOICE",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BICS_AP_INVOICE",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "Pipe Purchasing/pipe_Purchasing"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BICS_AP_JOB_COSTS_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy BICS_AP_JOB_COSTS_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BICS_AP_JOB_COSTS_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "PARTY_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PARTY_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_NUM",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INVOICE_NUM",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "INVOICE_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AMOUNT_PAID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "AMOUNT_PAID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "DISCOUNT_AMOUNT_TAKEN",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "DISCOUNT_AMOUNT_TAKEN",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "INVOICE_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "SOURCE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SOURCE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "TAX_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "TAX_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "FREIGHT_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "FREIGHT_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PAYMENT_STATUS_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PAYMENT_STATUS_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CANCELLED_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "CANCELLED_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "CANCELLED_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "CANCELLED_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CO_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CO_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "GL_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "GL_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCOUNTING_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "ACCOUNTING_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCRUAL_POSTED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ACCRUAL_POSTED_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ASSETS_ADDITION_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ASSETS_ADDITION_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ASSETS_TRACKING_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ASSETS_TRACKING_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CASH_POSTED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CASH_POSTED_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CO",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CO",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DEPT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DEPT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ACCT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INTERCO",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INTERCO",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CLIENT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CLIENT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LOC",
+											"type": "String"
+										},
+										"sink": {
+											"name": "LOC",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PRODUCT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PRODUCT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PROJ",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PROJ",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "COST",
+											"type": "String"
+										},
+										"sink": {
+											"name": "COST",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CLASS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CLASS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "POSTED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "POSTED_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PERIOD_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PERIOD_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEGMENT1",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEGMENT1",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PROJECT_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PROJECT_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PROJECT_NUMBER",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PROJECT_NUMBER",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "TASK_NUMBER",
+											"type": "String"
+										},
+										"sink": {
+											"name": "TASK_NUMBER",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "TASK_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "TASK_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PROJECT_LOCATION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PROJECT_LOCATION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_DISTRIBUTION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_DISTRIBUTION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_HEADER_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_HEADER_ID",
+											"type": "Decimal"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BICS_AP_JOB_COSTS_V",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BICS_AP_JOB_COSTS_V",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "Pipe Purchasing/pipe_Purchasing"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BICS_AP_JOB_COST_EXTRACT')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy BICS_AP_JOB_COST_EXTRACT",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "AzureSqlSource",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BICS_AP_JOB_COST_EXTRACT",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "PARTY_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PARTY_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_NUM",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INVOICE_NUM",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_AMOUNT",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AMOUNT_PAID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "AMOUNT_PAID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "DISCOUNT_AMOUNT_TAKEN",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "DISCOUNT_AMOUNT_TAKEN",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "INVOICE_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "SOURCE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SOURCE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "TAX_AMOUNT",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "TAX_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "FREIGHT_AMOUNT",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "FREIGHT_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PAYMENT_STATUS_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PAYMENT_STATUS_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CANCELLED_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "CANCELLED_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "CANCELLED_AMOUNT",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "CANCELLED_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CO_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CO_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "GL_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "GL_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCOUNTING_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "ACCOUNTING_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCRUAL_POSTED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ACCRUAL_POSTED_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ASSETS_ADDITION_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ASSETS_ADDITION_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ASSETS_TRACKING_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ASSETS_TRACKING_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CASH_POSTED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CASH_POSTED_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CO",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CO",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DEPT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DEPT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ACCT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INTERCO",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INTERCO",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CLIENT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CLIENT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LOC",
+											"type": "String"
+										},
+										"sink": {
+											"name": "LOC",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PRODUCT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PRODUCT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PROJ",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PROJ",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "COST",
+											"type": "String"
+										},
+										"sink": {
+											"name": "COST",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CLASS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CLASS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AMOUNT",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "POSTED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "POSTED_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PERIOD_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PERIOD_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEGMENT1",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEGMENT1",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_HEADER_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "PO_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_DISTRIBUTION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_DISTRIBUTION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "PARTY_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CODE_COMBINATION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "CODE_COMBINATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PROJECT_NUMBER",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PROJECT_NUMBER",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PROJECT_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PROJECT_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "TASK_NUMBER",
+											"type": "String"
+										},
+										"sink": {
+											"name": "TASK_NUMBER",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "TASK_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "TASK_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PROJECT_LOCATION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PROJECT_LOCATION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "DSYS_INSTANCE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "DSYS_INSTANCE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "DSYS_PROCESS_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "DSYS_PROCESS_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "DSYS_BATCH_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "DSYS_BATCH_ID",
+											"type": "Decimal"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "aoac_BICS_AP_JOB_COST_EXTRACT",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BICS_AP_JOB_COST_EXTRACT",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "Pipe Purchasing/pipe_Purchasing"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_stage_BIA_AP_DEFERMENTS_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "stage_BIA_AP_DEFERMENTS_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"oracleReaderQuery": "SELECT * FROM APPS.BIA_AP_DEFERMENTS_V\nWHERE  ACCOUNTING_DATE\t\t\t>= sysdate -62\n\tOR GL_DATE\t\t\t\t\t>= sysdate -62\n\tOR DEF_ACCTG_START_DATE\t\t>= sysdate -62\n\tOR DEF_ACCTG_END_DATE\t\t>= sysdate -62\n\tOR EXPENDITURE_ITEM_DATE\t>= sysdate -62;",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.stage_BIA_AP_DEFERMENTS_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "AE_HEADER_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "AE_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LINE_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "LINE_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "EVENT_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "EVENT_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AE_LINE_NUM",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AE_LINE_NUM",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "APPLICATION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "APPLICATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CODE_COMBINATION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "CODE_COMBINATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "XLA_ACCOUNT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "XLA_ACCOUNT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_LINES_DEPARTMENT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AP_LINES_DEPARTMENT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_LINES_ACCOUNT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AP_LINES_ACCOUNT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "GL_SL_LINK_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "GL_SL_LINK_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "GL_SL_LINK_TABLE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "GL_SL_LINK_TABLE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ENTERED_DR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ENTERED_DR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ENTERED_CR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ENTERED_CR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCOUNTED_DR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ACCOUNTED_DR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCOUNTED_CR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ACCOUNTED_CR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "XLA_LINE_DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "XLA_LINE_DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCOUNTING_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "ACCOUNTING_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "PERIOD_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PERIOD_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LEDGER_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "LEDGER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "VENDOR_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "VENDOR_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "VENDOR_SITE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "VENDOR_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "REQUESTER_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "REQUESTER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INVOICE_DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "GL_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "GL_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "PARTY_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_SITE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "PARTY_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LINE_NUMBER",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "LINE_NUMBER",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AP_LINE_DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AP_LINE_DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DEFERRED_ACCTG_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DEFERRED_ACCTG_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DEF_ACCTG_START_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "DEF_ACCTG_START_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "DEF_ACCTG_END_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "DEF_ACCTG_END_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "DEFERRED_MONTHS",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "DEFERRED_MONTHS",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "WFAPPROVAL_STATUS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "WFAPPROVAL_STATUS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CANCELLED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CANCELLED_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DISCARDED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DISCARDED_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_HEADER_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_LINE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_LINE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_DISTRIBUTION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_DISTRIBUTION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "EXPENDITURE_ITEM_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "EXPENDITURE_ITEM_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "PROJECT_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PROJECT_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "TASK_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "TASK_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_LINE_ID",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INVOICE_LINE_ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "REQ_DISTRIBUTION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "REQ_DISTRIBUTION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "REQUISITION_LINE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "REQUISITION_LINE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "REQUISITION_HEADER_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "REQUISITION_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CHECK_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "CHECK_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "SHIP_TO_LOCATION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "SHIP_TO_LOCATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_DESTINATION_ORG_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_DESTINATION_ORG_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "GL_LOCATION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "GL_LOCATION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ORG_LOCATION",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ORG_LOCATION",
+											"type": "Decimal"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_AP_DEFERMENTS_V",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_stage_BIA_AP_DEFERMENTS_V",
+								"type": "DatasetReference"
+							}
+						]
+					},
+					{
+						"name": "etlMerge_BIA_AP_DEFERMENTS_V",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "stage_BIA_AP_DEFERMENTS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[OACPROD].[etlMerge_BIA_AP_DEFERMENTS_V]"
+						},
+						"linkedServiceName": {
+							"referenceName": "ls_dwStageOAC",
+							"type": "LinkedServiceReference"
+						}
+					}
+				],
+				"folder": {
+					"name": "Pipe Purchasing/pipe_Purchasing"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_stage_BIA_AP_INVOICE_DIST_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "stage BIA_AP_INVOICE_DIST_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"oracleReaderQuery": "SELECT * FROM APPS.BIA_AP_INVOICE_DIST_V\nWHERE  LAST_UPDATE_DATE >= sysdate -62;",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.stage_BIA_AP_INVOICE_DIST_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "INVOICE_DISTRIBUTION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_DISTRIBUTION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_LINE_ID",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INVOICE_LINE_ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DISTRIBUTION_LINE_NUMBER",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "DISTRIBUTION_LINE_NUMBER",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_PERIOD_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INV_DIST_PERIOD_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_LINE_NUMBER",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "INVOICE_LINE_NUMBER",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_QTY_INVOICED",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "INV_DIST_QTY_INVOICED",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_UNIT_PRICE",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "INV_DIST_UNIT_PRICE",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "INV_DIST_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "TOTAL_DIST_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "TOTAL_DIST_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "TOTAL_TAX_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "TOTAL_TAX_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_PROJECT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INV_DIST_PROJECT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_COST_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INV_DIST_COST_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_COST_CLASS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INV_DIST_COST_CLASS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_LOCATION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INV_DIST_LOCATION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_DISTRIBUTION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_DISTRIBUTION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "DIST_CODE_COMBINATION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "DIST_CODE_COMBINATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INV_DIST_DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_ASSETS_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INV_DIST_ASSETS_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "POSTED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "POSTED_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "EXPENDITURE_ORGANIZATION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "EXPENDITURE_ORGANIZATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "EXPENDITURE_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "EXPENDITURE_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PROJECT_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PROJECT_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "TASK_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "TASK_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CANCELLATION_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CANCELLATION_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "REQUESTER_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "REQUESTER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CANCELLED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CANCELLED_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "VENDOR_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "VENDOR_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "VENDOR_SITE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "VENDOR_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "TERMS_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "TERMS_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCTS_PAY_CODE_COMBINATION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "ACCTS_PAY_CODE_COMBINATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PAYMENT_STATUS_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PAYMENT_STATUS_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LEGAL_ENTITY_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "LEGAL_ENTITY_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "PARTY_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_SITE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "PARTY_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_HEADER_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_LINE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_LINE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LINE_LOCATION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "LINE_LOCATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_AP_INVOICE_DIST_V",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_stage_BIA_AP_INVOICE_DIST_V",
+								"type": "DatasetReference"
+							}
+						]
+					},
+					{
+						"name": "etlMerge_BIA_AP_INVOICE_DIST_V",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "stage BIA_AP_INVOICE_DIST_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[OACPROD].[etlMerge_BIA_AP_INVOICE_DIST_V]"
+						},
+						"linkedServiceName": {
+							"referenceName": "ls_dwStageOAC",
+							"type": "LinkedServiceReference"
+						}
+					}
+				],
+				"folder": {
+					"name": "Pipe Purchasing/pipe_Purchasing"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_stage_BIA_OAC_PAYABLES_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "stage BIA_OAC_PAYABLES_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"oracleReaderQuery": "SELECT * FROM APPS.BIA_OAC_PAYABLES_V\nWHERE LAST_UPDATE_DATE >= sysdate -62;",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.stage_BIA_OAC_PAYABLES_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "JE_BATCH_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "JE_BATCH_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "JE_HEADER_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "JE_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "JE_LINE_NUM",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "JE_LINE_NUM",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CODE_COMBINATION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "CODE_COMBINATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_DISTRIBUTION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_DISTRIBUTION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "INVOICE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_LINE_NUMBER",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "INVOICE_LINE_NUMBER",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_LINE_ID",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INVOICE_LINE_ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "VENDOR_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "VENDOR_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PARTY_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_SITE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PARTY_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "VENDOR_SITE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "VENDOR_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PROJECT_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PROJECT_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "TASK_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "TASK_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_HEADER_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_LINE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PO_LINE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_LOCATION_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PO_LOCATION_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PAYMENT_HISTORY_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PAYMENT_HISTORY_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CHECK_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "CHECK_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ORGANIZATION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ORGANIZATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LINE_TYPE_LOOKUP_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "LINE_TYPE_LOOKUP_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ENTITY_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ENTITY_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CLASS_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CLASS_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PERIOD_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PERIOD_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "XLA_ACCOUNTED_DR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "XLA_ACCOUNTED_DR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "XLA_ACCOUNTED_CR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "XLA_ACCOUNTED_CR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "INV_DIST_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INV_DIST_BASE_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "INV_DIST_BASE_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CASH_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "CASH_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "DISCOUNT_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "DISCOUNT_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PAYMENT_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PAYMENT_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "GL_DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "GL_DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DEFERRED_ACCTG_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DEFERRED_ACCTG_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DEF_ACCTG_START_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "DEF_ACCTG_START_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "DEF_ACCTG_END_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "DEF_ACCTG_END_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "DEFERRED_MONTHS",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "DEFERRED_MONTHS",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "WFAPPROVAL_STATUS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "WFAPPROVAL_STATUS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CANCELLED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CANCELLED_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DISCARDED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DISCARDED_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "RECORD_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RECORD_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "REQ_DISTRIBUTION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "REQ_DISTRIBUTION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "REQUISITION_LINE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "REQUISITION_LINE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "REQUISITION_HEADER_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "REQUISITION_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "JE_LINE_ID",
+											"type": "String"
+										},
+										"sink": {
+											"name": "JE_LINE_ID",
+											"type": "String"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_OAC_PAYABLES_V",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_stage_BIA_OAC_PAYABLES_V",
+								"type": "DatasetReference"
+							}
+						]
+					},
+					{
+						"name": "etlMerge_BIA_OAC_PAYABLES_V",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "stage BIA_OAC_PAYABLES_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[OACPROD].[etlMerge_BIA_OAC_PAYABLES_V]"
+						},
+						"linkedServiceName": {
+							"referenceName": "ls_dwStageOAC",
+							"type": "LinkedServiceReference"
+						}
+					}
+				],
+				"folder": {
+					"name": "Pipe Purchasing/pipe_Purchasing"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_Purchasing')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "pipe_BICS_AP_INVOICE",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BICS_AP_INVOICE",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true
+						}
+					},
+					{
+						"name": "pipe_BICS_AP_JOB_COSTS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BICS_AP_INVOICE",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BICS_AP_JOB_COSTS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true
+						}
+					},
+					{
+						"name": "pipe_BICS_AP_JOB_COST_EXTRACT",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BICS_AP_JOB_COSTS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BICS_AP_JOB_COST_EXTRACT",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true
+						}
+					},
+					{
+						"name": "pipe_BIA_AP_INVOICE_HEADERS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_AP_INVOICE_HEADERS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true
+						}
+					},
+					{
+						"name": "pipe_BIA_AP_CHECKS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_AP_INVOICE_HEADERS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_AP_CHECKS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true
+						}
+					},
+					{
+						"name": "pipe_BIA_AP_PAYMENTS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_AP_INVOICE_HEADERS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_AP_PAYMENTS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true
+						}
+					},
+					{
+						"name": "pipe_BIA_AP_PO_DISTRIBUTION_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_stage_BIA_AP_INVOICE_DIST_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "pipe_stage_BIA_AP_DEFERMENTS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "pipe_stage_BIA_OAC_PAYABLES_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_AP_PO_DISTRIBUTION_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true
+						}
+					},
+					{
+						"name": "pipe_stage_BIA_AP_DEFERMENTS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_AP_PAYMENTS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_stage_BIA_AP_DEFERMENTS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true
+						}
+					},
+					{
+						"name": "pipe_stage_BIA_AP_INVOICE_DIST_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_AP_CHECKS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_stage_BIA_AP_INVOICE_DIST_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true
+						}
+					},
+					{
+						"name": "pipe_stage_BIA_OAC_PAYABLES_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_AP_PAYMENTS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_stage_BIA_OAC_PAYABLES_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true
+						}
+					}
+				],
+				"folder": {
+					"name": "Pipe Purchasing/pipe_Purchasing"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_AP_INVOICE')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_AP_JOB_COSTS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_AP_JOB_COST_EXTRACT')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_AP_INVOICE_HEADERS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_AP_CHECKS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_AP_PAYMENTS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_AP_PO_DISTRIBUTION_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_stage_BIA_AP_DEFERMENTS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_stage_BIA_AP_INVOICE_DIST_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_stage_BIA_OAC_PAYABLES_V')]"
+			]
+		}
+	]
+}
