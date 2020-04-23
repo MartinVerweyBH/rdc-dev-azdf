@@ -157,7 +157,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
+					"name": "OAC - Source On Prem - EBS"
 				},
 				"annotations": [],
 				"type": "OracleTable",
