@@ -13,6 +13,223 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BICS_GL_JOURNALS_BATCH_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "pipeBICS_GL_JOURNALS_BATCH_V\nSource: EBS\nDestination: Azure OAC",
+				"activities": [
+					{
+						"name": "Copy BICS_GL_JOURNALS_BATCH_V",
+						"description": "Copy BICS_GL_JOURNALS_BATCH_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BICS_GL_JOURNALS_BATCH_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "JE_BATCH_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "JE_BATCH_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "BATCH_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BATCH_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "BATCH_DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BATCH_DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "BATCH_DEFAULT_PERIOD",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BATCH_DEFAULT_PERIOD",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "BATCH_FISCAL_YEAR",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "BATCH_FISCAL_YEAR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "BATCH_FISCAL_QTR",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BATCH_FISCAL_QTR",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "BATCH_PERIOD_STATUS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BATCH_PERIOD_STATUS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "JE_BATCH_RUNNING_TOTAL_DR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "JE_BATCH_RUNNING_TOTAL_DR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "JE_BATCH_RUNNING_TOTAL_CR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "JE_BATCH_RUNNING_TOTAL_CR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BICS_GL_JOURNALS_BATCH_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BICS_GL_JOURNALS_BATCH_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "pipe GeneralLedger"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BICS_GL_JOURNALS_DTL_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "pipeBICS_GL_JOURNALS_DTL_V\nSource: EBS\nDestination:  Azure OAC",
+				"activities": [
+					{
+						"name": "Copy BICS_GL_JOURNALS_DTL_V",
+						"description": "Copy BICS_GL_JOURNALS_DTL_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BICS_GL_JOURNALS_DTL_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BICS_GL_JOURNALS_DTL_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BICS_GL_JOURNALS_DTL_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "pipe GeneralLedger"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/pipe_BICS_GL_JOURNALS_HEADER_V')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -6028,6 +6245,235 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/pipe_MRTG_BILLING')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: PostgreSQL MRTG_BILLING",
+				"activities": [
+					{
+						"name": "Copy MRTG_BILLING",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "PostgreSqlSource",
+								"query": "SELECT   mrtg_id\t\n\t\t,customer_id\n\t\t,router_id\n\t\t,interface_id\n\t\t,billing_date\n\t\t,billing_usage\n\t\t,date_created\n\t\t,date_updated\n\t\t,created_by\n\t\t,updated_by\n\t\t,round(billing_usage_in)\tbilling_usage_in\n\t\t,round(billing_usage_out)\tbilling_usage_out\n\t\t,billing_id\n\t\t,campus\n\t\t,product_line\n\t\t,period_name\n\t\t,file_name\nFROM\tmrtgbilling.mrtg_billing \nWHERE billing_date >= sysdate -500\n"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.MRTG_BILLING",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "mrtg_id",
+											"type": "String"
+										},
+										"sink": {
+											"name": "MRTG_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "customer_id",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CUSTOMER_ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "router_id",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ROUTER_ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "interface_id",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INTERFACE_ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "billing_date",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "BILLING_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "billing_usage",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BILLING_USAGE",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "date_created",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "DATE_CREATED",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "date_updated",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "DATE_UPDATED",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "created_by",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CREATED_BY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "updated_by",
+											"type": "String"
+										},
+										"sink": {
+											"name": "UPDATED_BY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "billing_usage_in",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BILLING_USAGE_IN",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "billing_usage_out",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BILLING_USAGE_OUT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "billing_id",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BILLING_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "campus",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CAMPUS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "product_line",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PRODUCT_LINE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "period_name",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PERIOD_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "file_name",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FILE_NAME",
+											"type": "String"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "pmrtg_MRTG_BILLING",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_MRTG_BILLING",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "OAC Pipelines"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/pipe_Projects')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -9478,343 +9924,6 @@
 						"outputs": [
 							{
 								"referenceName": "aoac_W_PROJ_COST_DETAIL_F",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"folder": {
-					"name": "Pipe Projects"
-				},
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipe_W_PBI_PROJ_COST_MJE_F')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy W_PROJ_COST_MJE_F",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "OracleSource",
-								"partitionOption": "None",
-								"queryTimeout": "02:00:00"
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE OACPROD.W_PROJ_TASK_ACTUAL_COST_F\n",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "EXPENDITURE_ITEM_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "EXPENDITURE_ITEM_DATE",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "TASK_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "TASK_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "EXPENDITURE_ITEM_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "EXPENDITURE_ITEM_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										}
-									}
-								]
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "ebs_W_PBI_PROJ_COST_MJE_F",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "aoac_W_PROJ_TASK_ACTUAL_COST_F",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"folder": {
-					"name": "Pipe Projects"
-				},
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipe_W_PBI_PROJ_TASK_ACTUAL_COST_F')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy W_PBI_PROJ_TASK_ACTUAL_COST_F",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "OracleSource",
-								"partitionOption": "None",
-								"queryTimeout": "02:00:00"
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE OACPROD.W_PROJ_TASK_ACTUAL_COST_F\n",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "ACTUAL_COST",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "ACTUAL_COST",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "EXPENDITURE_ITEM_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "EXPENDITURE_ITEM_DATE",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "TASK_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "TASK_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "EXPENDITURE_ITEM_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "EXPENDITURE_ITEM_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										}
-									}
-								]
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "ebs_W_PROJ_TASK_ACTUAL_COST_F",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "aoac_W_PROJ_TASK_ACTUAL_COST_F",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"folder": {
-					"name": "Pipe Projects"
-				},
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipe_W_PBI_PROJ_TASK_AMT_PAID_F')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy W_PBI_PROJ_TASK_AMT_PAID_F",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "OracleSource",
-								"partitionOption": "None",
-								"queryTimeout": "02:00:00"
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE OACPROD.W_PROJ_TASK_AMT_PAID_F",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "TASK_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "TASK_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "INVOICE_DISTRIBUTION_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "INVOICE_DISTRIBUTION_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "INVOICE_AMOUNT",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "INVOICE_AMOUNT",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "EXPENDITURE_ITEM_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "EXPENDITURE_ITEM_DATE",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "AMOUNT_PAID",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "AMOUNT_PAID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "INVOICE_AMOUNT_REMAINING",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "INVOICE_AMOUNT_REMAINING",
-											"type": "Decimal"
-										}
-									}
-								]
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "ebs_W_PBI_PROJ_TASK_AMT_PAID_F",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "aoac_W_PROJ_TASK_AMT_PAID_F",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
