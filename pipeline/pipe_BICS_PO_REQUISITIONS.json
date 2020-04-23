@@ -4,8 +4,8 @@
 		"description": "pipe_BICS_PO_REQUISITIONS\n",
 		"activities": [
 			{
-				"name": "Copy BICS_PO_REQUISITIONS",
-				"description": "Copy BICS_PO_REQUISITIONS\n",
+				"name": "Copy BICS_PO_REQUISITIONS_V",
+				"description": "Copy BICS_PO_REQUISITIONS_V\n",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
