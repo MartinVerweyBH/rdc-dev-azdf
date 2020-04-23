@@ -16,6 +16,12 @@
 					"referenceName": "pipe_CAMP",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_GeneralLedgerJournals",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
