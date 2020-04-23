@@ -10965,7 +10965,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Expenditures"
+					"name": "Pipe Expenditures/pipe_Expenditures"
 				},
 				"annotations": []
 			},
@@ -11649,7 +11649,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Expenditures"
+					"name": "Pipe Expenditures/pipe_Expenditures"
 				},
 				"annotations": []
 			},
@@ -12011,7 +12011,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Expenditures"
+					"name": "Pipe Expenditures/pipe_Expenditures"
 				},
 				"annotations": []
 			},
@@ -12323,7 +12323,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Expenditures"
+					"name": "Pipe Expenditures/pipe_Expenditures"
 				},
 				"annotations": []
 			},
@@ -12497,7 +12497,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Expenditures"
+					"name": "Pipe Expenditures/pipe_Expenditures"
 				},
 				"annotations": []
 			},
@@ -109542,6 +109542,133 @@
 			"properties": {
 				"type": "SelfHosted",
 				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_Expenditures')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "pipe_BIA_EXPENDITURE_TYPES_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_EXPENDITURE_TYPES_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_EXPENDITURES_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_EXPENDITURE_TYPES_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_EXPENDITURES_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_EXPENDITURE_ITEMS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_EXPENDITURES_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_EXPENDITURE_ITEMS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_EXPENDITURE_COMMENTS",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_EXPENDITURE_ITEMS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_EXPENDITURE_COMMENTS",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_EXPENDITURE_DIST_LINES_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_EXPENDITURE_ITEMS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_EXPENDITURE_DIST_LINES_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"folder": {
+					"name": "Pipe Expenditures/pipe_Expenditures"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_EXPENDITURE_TYPES_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_EXPENDITURES_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_EXPENDITURE_ITEMS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_EXPENDITURE_COMMENTS')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_EXPENDITURE_DIST_LINES_V')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_FixedAssets')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": []
 			},
 			"dependsOn": []
 		}
