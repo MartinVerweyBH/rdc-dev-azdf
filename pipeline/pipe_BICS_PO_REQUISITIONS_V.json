@@ -1,7 +1,7 @@
 {
-	"name": "pipe_BICS_PO_REQUISITIONS",
+	"name": "pipe_BICS_PO_REQUISITIONS_V",
 	"properties": {
-		"description": "pipe_BICS_PO_REQUISITIONS\n",
+		"description": "pipe_BICS_PO_REQUISITIONS_V\n",
 		"activities": [
 			{
 				"name": "Copy BICS_PO_REQUISITIONS_V",
