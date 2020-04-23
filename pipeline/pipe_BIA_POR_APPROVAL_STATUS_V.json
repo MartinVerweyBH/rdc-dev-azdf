@@ -157,7 +157,7 @@
 			}
 		],
 		"folder": {
-			"name": "pipe PurchaseOrders"
+			"name": "pipe PurchaseOrders/pipe_PurchaseOrders"
 		},
 		"annotations": []
 	},
