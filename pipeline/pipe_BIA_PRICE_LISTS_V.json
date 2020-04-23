@@ -1,11 +1,11 @@
 {
-	"name": "pipe_BICS_PRICE_LIST_DETAIL_V",
+	"name": "pipe_BIA_PRICE_LISTS_V",
 	"properties": {
-		"description": "pipe_BICS_PRICE_LIST_DETAIL_V",
+		"description": "pipe_BIA_PRICE_LISTS_V",
 		"activities": [
 			{
-				"name": "Copy BICS_PRICE_LIST_DETAIL_V",
-				"description": "Copy BICS_PRICE_LIST_DETAIL_V",
+				"name": "Copy BIA_PRICE_LISTS_V",
+				"description": "Copy BIA_PRICE_LISTS_V",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -24,13 +24,23 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "TRUNCATE TABLE OACPROD.BICS_PRICE_LIST_DETAIL_V",
+						"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_PRICE_LISTS_V",
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
+							{
+								"source": {
+									"name": "PRICE_LIST_HEADER_ID",
+									"type": "Double"
+								},
+								"sink": {
+									"name": "PRICE_LIST_HEADER_ID",
+									"type": "Decimal"
+								}
+							},
 							{
 								"source": {
 									"name": "PRICE_LIST_NAME",
@@ -136,13 +146,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ebs_BICS_PRICE_LIST_DETAIL_V",
+						"referenceName": "ebs_BIA_PRICE_LISTS_V",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "aoac_BICS_PRICE_LIST_DETAIL_V",
+						"referenceName": "aoac_BIA_PRICE_LISTS_V",
 						"type": "DatasetReference"
 					}
 				]
