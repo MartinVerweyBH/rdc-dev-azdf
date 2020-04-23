@@ -1,6 +1,9 @@
 {
 	"name": "pipe_Projects",
 	"properties": {
+		"folder": {
+			"name": "Pipe Projects/pipe_Projects"
+		},
 		"annotations": []
 	}
 }
