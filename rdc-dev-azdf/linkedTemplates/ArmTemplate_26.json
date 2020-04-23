@@ -13,95 +13,6 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/pipe_BIA_LINK_PO_REQ_V')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy BIA_LINK_PO_REQ_V",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "OracleSource",
-								"partitionOption": "None",
-								"queryTimeout": "02:00:00"
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_LINK_PO_REQ_V",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "PO_DISTRIBUTION_ID",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "PO_DISTRIBUTION_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "REQ_DISTRIBUTION_ID",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "REQ_DISTRIBUTION_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										}
-									}
-								]
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "ebs_BIA_LINK_PO_REQ_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "aoac_BIA_LINK_PO_REQ_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"folder": {
-					"name": "pipe PurchaseOrders"
-				},
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/pipe_BIA_OAC_PAYABLES_V')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -705,7 +616,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -1956,7 +1867,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -2873,7 +2784,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -2952,7 +2863,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -3358,7 +3269,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -3557,7 +3468,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -4056,7 +3967,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -4415,7 +4326,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -4634,7 +4545,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -5103,7 +5014,316 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BIA_PO_REQUISITION_HEADERS_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy BIA_PO_REQUISITION_HEADERS_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_PO_REQUISITION_HEADERS_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "REQUISITION_HEADER_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "REQUISITION_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PREPARER_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PREPARER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PR_REQUESTOR_FULL_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PR_REQUESTOR_FULL_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PR_REQUESTOR_EMAIL",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PR_REQUESTOR_EMAIL",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PR_REQUESTOR_LAST_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PR_REQUESTOR_LAST_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "REQUISITION_NUMBER",
+											"type": "String"
+										},
+										"sink": {
+											"name": "REQUISITION_NUMBER",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ENABLED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ENABLED_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CREATED_BY",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "CREATED_BY",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PR_CREATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "PR_CREATE_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_CREATEDBY_FULL_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PO_CREATEDBY_FULL_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_CREATEDBY_EMAIL",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PO_CREATEDBY_EMAIL",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PO_CREATEDBY_LAST_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PO_CREATEDBY_LAST_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "REQUISITION_DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "REQUISITION_DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PR_NOTE_TO_AUTHORIZER",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PR_NOTE_TO_AUTHORIZER",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PR_AUTHORIZATION_STATUS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PR_AUTHORIZATION_STATUS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PR_WORK_STARTED",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PR_WORK_STARTED",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PR_REQUISITION_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PR_REQUISITION_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PR_LOCATION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PR_LOCATION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PR_CLOSED_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PR_CLOSED_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PR_ORG_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PR_ORG_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PR_WF_ITEM_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PR_WF_ITEM_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PR_WF_ITEM_KEY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PR_WF_ITEM_KEY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PR_EMERGENCY_PO_NUMBER",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PR_EMERGENCY_PO_NUMBER",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PR_APPROVED_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "PR_APPROVED_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "PR_LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "PR_LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_PO_REQUISITION_HEADERS_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BIA_PO_REQUISITION_HEADERS_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},

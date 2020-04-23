@@ -3414,7 +3414,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -16623,7 +16623,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -17239,7 +17239,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -18508,7 +18508,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -19439,7 +19439,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -19521,7 +19521,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -19930,7 +19930,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -20133,7 +20133,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -20635,7 +20635,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -20997,7 +20997,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -21219,7 +21219,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -21691,7 +21691,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -22003,7 +22003,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -22335,7 +22335,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -22587,7 +22587,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -38397,7 +38397,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": []
 			},
@@ -39428,7 +39428,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": []
 			},
@@ -39670,7 +39670,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": []
 			},
@@ -39727,7 +39727,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": []
 			},
@@ -40051,7 +40051,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": []
 			},
@@ -40805,7 +40805,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": []
 			},
@@ -41557,7 +41557,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": []
 			},
@@ -41567,15 +41567,15 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pipe_BICS_PO_REQUISITIONS')]",
+			"name": "[concat(parameters('factoryName'), '/pipe_BICS_PO_REQUISITIONS_V')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "pipe_BICS_PO_REQUISITIONS\n",
+				"description": "pipe_BICS_PO_REQUISITIONS_V\n",
 				"activities": [
 					{
-						"name": "Copy BICS_PO_REQUISITIONS",
-						"description": "Copy BICS_PO_REQUISITIONS\n",
+						"name": "Copy BICS_PO_REQUISITIONS_V",
+						"description": "Copy BICS_PO_REQUISITIONS_V\n",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
@@ -42322,7 +42322,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": []
 			},
@@ -44536,7 +44536,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": []
 			},
@@ -45084,6 +45084,36 @@
 				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_GL_JOURNALS_V')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_GL_JOURNALS_HEADER_V')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_GL_JOURNALS_LINE_V')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_MRTG')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "pipe_stage_MRTG_BILLING",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_stage_MRTG_BILLING",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"folder": {
+					"name": "pipe MRTG"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_stage_MRTG_BILLING')]"
 			]
 		},
 		{
@@ -48839,7 +48869,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pipe_PurchaseOrders')]",
+			"name": "[concat(parameters('factoryName'), '/pipe_PurchaseOrders_BIA')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -49045,7 +49075,7 @@
 						"type": "ExecutePipeline",
 						"dependsOn": [
 							{
-								"activity": "pipe_BIA_PO_LINES_ARCHIVE_V",
+								"activity": "pipe_BIA_ORDER_LINE_TYPE_V",
 								"dependencyConditions": [
 									"Succeeded"
 								]
@@ -49081,10 +49111,73 @@
 							"waitOnCompletion": true,
 							"parameters": {}
 						}
+					},
+					{
+						"name": "pipe_BIA_PO_REQUISITION_LINE_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_PO_REQUISITION_DIST_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_PO_REQUISITION_LINE_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_ORDER_LINE_TYPE_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_PO_LINES_ARCHIVE_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_ORDER_LINE_TYPE_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_LINK_PO_REQ_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_PO_ACTION_HISTORY_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_LINK_PO_REQ_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -49100,7 +49193,40 @@
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_POR_APPROVAL_STATUS_V')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_PO_DISTRIBUTIONS_BRDG')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_PO_ACTION_HISTORY_V')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_PO_REQUISITION_HEADERS_V')]"
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_PO_REQUISITION_HEADERS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_PO_REQUISITION_LINE_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_ORDER_LINE_TYPE_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_LINK_PO_REQ_V')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipePurchaseOrdersBICS')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "pipe_BICS_PO_CONV_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BICS_PO_CONV_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"folder": {
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_PO_CONV_V')]"
 			]
 		},
 		{
@@ -56138,7 +56264,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersFromOAC"
 				},
 				"annotations": []
 			},
@@ -58146,7 +58272,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersFromOAC"
 				},
 				"annotations": []
 			},
@@ -60272,7 +60398,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -61807,7 +61933,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -62245,7 +62371,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders"
+					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": []
 			},
@@ -103826,31 +103952,6 @@
 				"typeProperties": {
 					"schema": "APPS",
 					"table": "BICS_PO_PROJECTS_V"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BICS_PO_REQUISITIONS')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: EBS\nDestination: Azure OAC\nView: APPS.BICS_PO_REQUISITION_V",
-				"linkedServiceName": {
-					"referenceName": "lsEBS",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - EBS"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "APPS",
-					"table": "BICS_PO_REQUISITION_V"
 				}
 			},
 			"dependsOn": [
