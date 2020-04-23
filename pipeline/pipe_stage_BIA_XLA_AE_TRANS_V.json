@@ -175,7 +175,7 @@
 			}
 		],
 		"folder": {
-			"name": "EBS 2 AzureOAC Pipelines - Stage"
+			"name": "pipe SubLedger"
 		},
 		"annotations": []
 	},
