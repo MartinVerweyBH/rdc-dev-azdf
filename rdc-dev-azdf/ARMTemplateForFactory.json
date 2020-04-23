@@ -9755,7 +9755,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Employees"
+					"name": "Pipe Employees/pipe_Employees"
 				},
 				"annotations": []
 			},
@@ -10029,7 +10029,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Employees"
+					"name": "Pipe Employees/pipe_Employees"
 				},
 				"annotations": []
 			},
@@ -10773,7 +10773,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Employees"
+					"name": "Pipe Employees/pipe_Employees"
 				},
 				"annotations": []
 			},
@@ -17696,7 +17696,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Employees"
+					"name": "Pipe Employees/pipe_Employees"
 				},
 				"annotations": []
 			},
@@ -44757,6 +44757,414 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/pipe_Customers')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "pipe_BIA_CUST_SITES_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_CUSTOMER_ACCOUNTS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_CUST_SITES_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_CUSTOMER_ACCOUNTS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_CUSTOMER_ACCOUNTS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_AR_CUSTOMER_TRX_HDR_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_CUST_SITES_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_AR_CUSTOMER_TRX_HDR_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_AR_CUSTOMER_TRX_LINES_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_AR_CUSTOMER_TRX_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_AR_CUSTOMER_TRX_LINES_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_AR_CUSTOMER_TRX_DIST_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_AR_CUSTOMER_INVOICE_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "pipe_BIA_AR_CUSTOMER_RECEIPTS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "pipe_stage_BIA_CUSTOMER_REV_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_AR_CUSTOMER_TRX_DIST_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_AR_CUSTOMER_INVOICE_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_AR_CUSTOMER_TRX_LINES_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_AR_CUSTOMER_INVOICE_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_AR_CUSTOMER_RECEIPTS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_AR_CUSTOMER_TRX_LINES_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_AR_CUSTOMER_RECEIPTS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_AR_CUSTOMER_TRX_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_AR_CUSTOMER_TRX_HDR_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_AR_CUSTOMER_TRX_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_stage_BIA_CUSTOMER_REV_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_AR_CUSTOMER_TRX_LINES_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_stage_BIA_CUSTOMER_REV_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"folder": {
+					"name": "Pipe Customers/pipe_Customers"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_CUST_SITES_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_CUSTOMER_ACCOUNTS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_AR_CUSTOMER_TRX_HDR_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_AR_CUSTOMER_TRX_LINES_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_AR_CUSTOMER_TRX_DIST_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_AR_CUSTOMER_INVOICE_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_AR_CUSTOMER_RECEIPTS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_AR_CUSTOMER_TRX_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_stage_BIA_CUSTOMER_REV_V')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_Employees')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "pipe_BIA_EMPLOYEES_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_EMPLOYEES_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_ORG_LOCATIONS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_ORG_LOCATIONS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_EMPLOYEE_PERSONNEL_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_ORG_LOCATIONS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "pipe_BIA_EMPLOYEES_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_EMPLOYEE_PERSONNEL_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_EMPLOYEE_LICENSES_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_EMPLOYEE_PERSONNEL_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_EMPLOYEE_LICENSES_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_stage_BICS_IPROCUREMENT_LICENSE_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_EMPLOYEE_PERSONNEL_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_stage_BICS_IPROCUREMENT_LICENSE_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"folder": {
+					"name": "Pipe Employees/pipe_Employees"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_EMPLOYEES_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_ORG_LOCATIONS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_EMPLOYEE_PERSONNEL_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_EMPLOYEE_LICENSES_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_stage_BICS_IPROCUREMENT_LICENSE_V')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_Employees_FromMatrix')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "pipe_PBI_MATRIX_DEPT_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_PBI_MATRIX_DEPT_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_PBI_MATRIX_EMP_TYPE_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_PBI_MATRIX_EMP_TYPE_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_PBI_MATRIX_EMPLOYEE_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_PBI_MATRIX_DEPT_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "pipe_PBI_MATRIX_EMP_TYPE_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_PBI_MATRIX_EMPLOYEE_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"folder": {
+					"name": "Pipe Employees/pipe_Employees_FromMatrix"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_PBI_MATRIX_DEPT_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_PBI_MATRIX_EMP_TYPE_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_PBI_MATRIX_EMPLOYEE_V')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/pipe_GeneralLedger')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -45821,7 +46229,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Employees"
+					"name": "Pipe Employees/pipe_Employees_WithErrors"
 				},
 				"annotations": []
 			},
@@ -46093,7 +46501,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Employees"
+					"name": "Pipe Employees/pipe_Employees_FromMatrix"
 				},
 				"annotations": []
 			},
@@ -46313,7 +46721,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Employees"
+					"name": "Pipe Employees/pipe_Employees_FromMatrix"
 				},
 				"annotations": []
 			},
@@ -46403,7 +46811,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Employees"
+					"name": "Pipe Employees/pipe_Employees_FromMatrix"
 				},
 				"annotations": []
 			},
@@ -57611,7 +58019,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Employees"
+					"name": "Pipe Employees/pipe_Employees_FromOAC"
 				},
 				"annotations": []
 			},
@@ -64920,7 +65328,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Employees"
+					"name": "Pipe Employees/pipe_Employees"
 				},
 				"annotations": []
 			},
@@ -109136,224 +109544,6 @@
 				"typeProperties": {}
 			},
 			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipe_Customers')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "pipe_BIA_CUST_SITES_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "pipe_BIA_CUSTOMER_ACCOUNTS_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_CUST_SITES_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "pipe_BIA_CUSTOMER_ACCOUNTS_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_CUSTOMER_ACCOUNTS_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "pipe_BIA_AR_CUSTOMER_TRX_HDR_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "pipe_BIA_CUST_SITES_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_AR_CUSTOMER_TRX_HDR_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "pipe_BIA_AR_CUSTOMER_TRX_LINES_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "pipe_BIA_AR_CUSTOMER_TRX_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_AR_CUSTOMER_TRX_LINES_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "pipe_BIA_AR_CUSTOMER_TRX_DIST_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "pipe_BIA_AR_CUSTOMER_INVOICE_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							},
-							{
-								"activity": "pipe_BIA_AR_CUSTOMER_RECEIPTS_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							},
-							{
-								"activity": "pipe_stage_BIA_CUSTOMER_REV_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_AR_CUSTOMER_TRX_DIST_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "pipe_BIA_AR_CUSTOMER_INVOICE_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "pipe_BIA_AR_CUSTOMER_TRX_LINES_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_AR_CUSTOMER_INVOICE_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "pipe_BIA_AR_CUSTOMER_RECEIPTS_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "pipe_BIA_AR_CUSTOMER_TRX_LINES_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_AR_CUSTOMER_RECEIPTS_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "pipe_BIA_AR_CUSTOMER_TRX_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "pipe_BIA_AR_CUSTOMER_TRX_HDR_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_AR_CUSTOMER_TRX_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "pipe_stage_BIA_CUSTOMER_REV_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "pipe_BIA_AR_CUSTOMER_TRX_LINES_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_stage_BIA_CUSTOMER_REV_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					}
-				],
-				"folder": {
-					"name": "Pipe Customers/pipe_Customers"
-				},
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_CUST_SITES_V')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_CUSTOMER_ACCOUNTS_V')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_AR_CUSTOMER_TRX_HDR_V')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_AR_CUSTOMER_TRX_LINES_V')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_AR_CUSTOMER_TRX_DIST_V')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_AR_CUSTOMER_INVOICE_V')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_AR_CUSTOMER_RECEIPTS_V')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_AR_CUSTOMER_TRX_V')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_stage_BIA_CUSTOMER_REV_V')]"
-			]
 		}
 	]
 }
