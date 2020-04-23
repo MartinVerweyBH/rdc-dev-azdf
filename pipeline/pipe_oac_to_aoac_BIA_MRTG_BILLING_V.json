@@ -218,7 +218,7 @@
 			}
 		],
 		"folder": {
-			"name": "pipe MRTG"
+			"name": "pipe MRTG/pipe_MRTG_FromOAC"
 		},
 		"annotations": []
 	},
