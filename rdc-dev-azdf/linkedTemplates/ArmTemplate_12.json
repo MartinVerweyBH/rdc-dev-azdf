@@ -18,10 +18,6 @@
 		"lsEBS_UAT_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'lsEBS_UAT'"
-		},
-		"lsMATRIX_Postgres_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'lsMATRIX_Postgres'"
 		}
 	},
 	"variables": {
@@ -92,6 +88,28 @@
 				"typeProperties": {
 					"schema": "OACPROD",
 					"table": "BICS_PO_AP_RECEIVING_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/oac_BICS_REVENUE_FT2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "lsOACPROD",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source on Cloud - OAC"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "BICS_REVENUE_FT2"
 				}
 			},
 			"dependsOn": []
@@ -1699,24 +1717,6 @@
 				"type": "Oracle",
 				"typeProperties": {
 					"connectionString": "[parameters('lsEBS_UAT_connectionString')]"
-				},
-				"connectVia": {
-					"referenceName": "rdcir01",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/lsMATRIX_Postgres')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "lsMATRIX_Postgres",
-				"annotations": [],
-				"type": "PostgreSql",
-				"typeProperties": {
-					"connectionString": "[parameters('lsMATRIX_Postgres_connectionString')]"
 				},
 				"connectVia": {
 					"referenceName": "rdcir01",
