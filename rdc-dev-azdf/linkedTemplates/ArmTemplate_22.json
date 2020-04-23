@@ -5050,15 +5050,13 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pipe_BIA_PROJECTS_V')]",
+			"name": "[concat(parameters('factoryName'), '/pipe_BIA_PROJECTS_CIP_V')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "pipe_BIA_PROJECTS_V",
 				"activities": [
 					{
-						"name": "Copy BIA_PROJECTS_V",
-						"description": "Copy BIA_PROJECTS_V",
+						"name": "Copy BIA_PROJECTS_CIP_V",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
@@ -5077,7 +5075,7 @@
 							},
 							"sink": {
 								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_PROJECTS_V",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_PROJECTS_CIP_V",
 								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
@@ -5086,8 +5084,268 @@
 								"mappings": [
 									{
 										"source": {
-											"name": "PROJECT_ID",
+											"name": "JE_BATCH_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "JE_BATCH_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "JE_HEADER_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "JE_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "JE_LINE_NUM",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "JE_LINE_NUM",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "GLR_VENDOR_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "GLR_VENDOR_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "GLR_REFERENCE_2",
+											"type": "String"
+										},
+										"sink": {
+											"name": "GLR_REFERENCE_2",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "GLR_REFERENCE_3",
+											"type": "String"
+										},
+										"sink": {
+											"name": "GLR_REFERENCE_3",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "GL_SL_LINK_ID",
 											"type": "Double"
+										},
+										"sink": {
+											"name": "GL_SL_LINK_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "GL_SL_LINK_TABLE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "GL_SL_LINK_TABLE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CODE_COMBINATION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "CODE_COMBINATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCOUNTING_CLASS_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ACCOUNTING_CLASS_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PARTY_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_SITE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PARTY_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCOUNTED_DR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ACCOUNTED_DR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCOUNTED_CR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ACCOUNTED_CR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCOUNTING_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "ACCOUNTING_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "LEDGER_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "LEDGER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "EXPENDITURE_ITEM_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "EXPENDITURE_ITEM_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LINE_NUM",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "LINE_NUM",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "EXPENDITURE_LINE_NUM",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "EXPENDITURE_LINE_NUM",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "QUANTITY",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "QUANTITY",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "DR_CODE_COMBINATION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "DR_CODE_COMBINATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CR_CODE_COMBINATION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "CR_CODE_COMBINATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "GL_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "GL_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "TRANSFERRED_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "TRANSFERRED_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "BURDENED_COST",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "BURDENED_COST",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PROJECT_ID",
+											"type": "Decimal"
 										},
 										"sink": {
 											"name": "PROJECT_ID",
@@ -5096,192 +5354,62 @@
 									},
 									{
 										"source": {
-											"name": "PROJECT_NAME",
-											"type": "String"
+											"name": "TASK_ID",
+											"type": "Decimal"
 										},
 										"sink": {
-											"name": "PROJECT_NAME",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "PROJECT_NUMBER",
-											"type": "String"
-										},
-										"sink": {
-											"name": "PROJECT_NUMBER",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "CUSTOMER_ID",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "CUSTOMER_ID",
+											"name": "TASK_ID",
 											"type": "Decimal"
 										}
 									},
 									{
 										"source": {
-											"name": "PARTY_NAME",
+											"name": "GL_PERIOD_NAME",
 											"type": "String"
 										},
 										"sink": {
-											"name": "PARTY_NAME",
+											"name": "GL_PERIOD_NAME",
 											"type": "String"
 										}
 									},
 									{
 										"source": {
-											"name": "PROJECT_MANAGER",
+											"name": "PA_PERIOD_NAME",
 											"type": "String"
 										},
 										"sink": {
-											"name": "PROJECT_MANAGER",
+											"name": "PA_PERIOD_NAME",
 											"type": "String"
 										}
 									},
 									{
 										"source": {
-											"name": "PROJECT_ROLE",
-											"type": "String"
+											"name": "AE_HEADER_ID",
+											"type": "Decimal"
 										},
 										"sink": {
-											"name": "PROJECT_ROLE",
-											"type": "String"
+											"name": "AE_HEADER_ID",
+											"type": "Decimal"
 										}
 									},
 									{
 										"source": {
-											"name": "PROJECT_TYPE",
-											"type": "String"
+											"name": "AE_LINE_NUM",
+											"type": "Decimal"
 										},
 										"sink": {
-											"name": "PROJECT_TYPE",
-											"type": "String"
+											"name": "AE_LINE_NUM",
+											"type": "Decimal"
 										}
 									},
 									{
 										"source": {
-											"name": "PROJECT_STATUS_CODE",
-											"type": "String"
+											"name": "APPLICATION_ID",
+											"type": "Decimal"
 										},
 										"sink": {
-											"name": "PROJECT_STATUS_CODE",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "PROJECT_DESCRIPTION",
-											"type": "String"
-										},
-										"sink": {
-											"name": "PROJECT_DESCRIPTION",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "LONG_NAME",
-											"type": "String"
-										},
-										"sink": {
-											"name": "LONG_NAME",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "TARGET_START_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "TARGET_START_DATE",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "TARGET_FINISH_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "TARGET_FINISH_DATE",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "START_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "START_DATE",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "COMPLETION_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "COMPLETION_DATE",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "CLOSED_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "CLOSED_DATE",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "ENABLED_FLAG",
-											"type": "String"
-										},
-										"sink": {
-											"name": "ENABLED_FLAG",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "PROJECT_LOCATION",
-											"type": "String"
-										},
-										"sink": {
-											"name": "PROJECT_LOCATION",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "PROJECT_CATEGORY",
-											"type": "String"
-										},
-										"sink": {
-											"name": "PROJECT_CATEGORY",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "CODE_DESCRIPTION",
-											"type": "String"
-										},
-										"sink": {
-											"name": "CODE_DESCRIPTION",
-											"type": "String"
+											"name": "APPLICATION_ID",
+											"type": "Decimal"
 										}
 									},
 									{
@@ -5292,46 +5420,6 @@
 										"sink": {
 											"name": "LAST_UPDATE_DATE",
 											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "CUSTOMER_NAME",
-											"type": "String"
-										},
-										"sink": {
-											"name": "CUSTOMER_NAME",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "APPROVED_BUDGET",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "APPROVED_BUDGET",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "PROJECT_MANAGER_DEPT",
-											"type": "String"
-										},
-										"sink": {
-											"name": "PROJECT_MANAGER_DEPT",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "PROJECT_REMAINING_AMOUNT",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "PROJECT_REMAINING_AMOUNT",
-											"type": "Decimal"
 										}
 									}
 								]
@@ -5339,14 +5427,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "ebs_BIA_PROJECTS_V",
+								"referenceName": "ebs_BIA_PROJECTS_CIP_V",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "aoac_BIA_PROJECTS_V",
+								"referenceName": "aoac_BIA_PROJECTS_CIP_V",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -5354,7 +5442,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Projects"
+					"name": "OAC Pipelines"
 				},
 				"annotations": []
 			},
