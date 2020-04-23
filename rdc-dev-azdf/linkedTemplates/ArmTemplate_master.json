@@ -339,15 +339,6 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
-					},
-					"lsEBS_connectionString": {
-						"value": "[parameters('lsEBS_connectionString')]"
-					},
-					"lsEBS_PROD_connectionString": {
-						"value": "[parameters('lsEBS_PROD_connectionString')]"
-					},
-					"lsEBS_UAT_connectionString": {
-						"value": "[parameters('lsEBS_UAT_connectionString')]"
 					}
 				}
 			},
@@ -368,6 +359,15 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"lsEBS_connectionString": {
+						"value": "[parameters('lsEBS_connectionString')]"
+					},
+					"lsEBS_PROD_connectionString": {
+						"value": "[parameters('lsEBS_PROD_connectionString')]"
+					},
+					"lsEBS_UAT_connectionString": {
+						"value": "[parameters('lsEBS_UAT_connectionString')]"
 					},
 					"lsMATRIX_Postgres_connectionString": {
 						"value": "[parameters('lsMATRIX_Postgres_connectionString')]"

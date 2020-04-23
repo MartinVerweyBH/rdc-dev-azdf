@@ -6,24 +6,104 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "rdc-dev-azdf"
-		},
-		"lsEBS_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'lsEBS'"
-		},
-		"lsEBS_PROD_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'lsEBS_PROD'"
-		},
-		"lsEBS_UAT_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'lsEBS_UAT'"
 		}
 	},
 	"variables": {
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_PO_HEADERS_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: OAC\nVIEW: BIA_PO_HEADERS_V",
+				"linkedServiceName": {
+					"referenceName": "lsOACPROD",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source on Cloud - OAC"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "BIA_PO_HEADERS_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_PO_LINES_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: OAC\nDestination: Azure OAC\nView: BIA_PO_LINES_V",
+				"linkedServiceName": {
+					"referenceName": "lsOACPROD",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source on Cloud - OAC"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "BIA_PO_LINES_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_SALES_ORDER_HEADERS_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: OAC",
+				"linkedServiceName": {
+					"referenceName": "lsOACPROD",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source on Cloud - OAC"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "BIA_SALES_ORDER_HEADERS_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_XLA_AE_LINES_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: OAC\nSchema: OACPROD\nTable: BIA_XLA_AE_LINES_V",
+				"linkedServiceName": {
+					"referenceName": "lsOACPROD",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source on Cloud - OAC"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "BIA_XLA_AE_LINES_V"
+				}
+			},
+			"dependsOn": []
+		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_XLA_AE_LINK_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
@@ -1501,226 +1581,6 @@
 				"typeProperties": {
 					"schema": "xCAMP",
 					"table": "stage_BIA_POWER_KW_CONTRACT_LINE_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/xCAMP_stage_BIA_POWER_KW_ENCL_MONTH_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ls_dwStageOAC",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "Destination xCAMP"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "StageID",
-						"type": "bigint",
-						"precision": 19
-					},
-					{
-						"name": "PERIOD_MONTH",
-						"type": "nvarchar"
-					},
-					{
-						"name": "CLIENT_NAME",
-						"type": "nvarchar"
-					},
-					{
-						"name": "LOC_PATH",
-						"type": "nvarchar"
-					},
-					{
-						"name": "AVG_SQUARE_FEET_INUSE",
-						"type": "decimal",
-						"precision": 32,
-						"scale": 10
-					},
-					{
-						"name": "IIC_ID",
-						"type": "decimal",
-						"precision": 15,
-						"scale": 0
-					},
-					{
-						"name": "BILL_CONTRACT_LINE_ID",
-						"type": "decimal",
-						"precision": 15,
-						"scale": 0
-					},
-					{
-						"name": "OFIN_CUSTOMER_NUMBER",
-						"type": "nvarchar"
-					},
-					{
-						"name": "DSYS_INSTANCE_ID",
-						"type": "decimal",
-						"precision": 15,
-						"scale": 0
-					},
-					{
-						"name": "AVG_KW_READING_VALUE",
-						"type": "decimal",
-						"precision": 32,
-						"scale": 10
-					},
-					{
-						"name": "KWH",
-						"type": "decimal",
-						"precision": 32,
-						"scale": 10
-					},
-					{
-						"name": "DSYS_PROCESS_ID",
-						"type": "decimal",
-						"precision": 12,
-						"scale": 0
-					},
-					{
-						"name": "BILL_TYPE",
-						"type": "nvarchar"
-					},
-					{
-						"name": "DSYS_BATCH_ID",
-						"type": "decimal",
-						"precision": 30,
-						"scale": 0
-					},
-					{
-						"name": "WAREHOUSE",
-						"type": "nvarchar"
-					},
-					{
-						"name": "SF_BUILT",
-						"type": "decimal",
-						"precision": 32,
-						"scale": 10
-					},
-					{
-						"name": "ROOM",
-						"type": "nvarchar"
-					},
-					{
-						"name": "ENCLOSURE",
-						"type": "nvarchar"
-					},
-					{
-						"name": "TOTAL_AVG_KW",
-						"type": "decimal",
-						"precision": 32,
-						"scale": 10
-					},
-					{
-						"name": "PCT_AVG_KW",
-						"type": "decimal",
-						"precision": 32,
-						"scale": 10
-					},
-					{
-						"name": "TOTAL_KWH",
-						"type": "decimal",
-						"precision": 32,
-						"scale": 10
-					},
-					{
-						"name": "PCT_KWH",
-						"type": "decimal",
-						"precision": 32,
-						"scale": 10
-					},
-					{
-						"name": "TOTAL_SQFT",
-						"type": "decimal",
-						"precision": 32,
-						"scale": 10
-					},
-					{
-						"name": "TOTAL_SQFT_PCT",
-						"type": "decimal",
-						"precision": 32,
-						"scale": 10
-					},
-					{
-						"name": "BILL_TYPE_REPORTING",
-						"type": "nvarchar"
-					},
-					{
-						"name": "TOTAL_SQFT_OFFICE",
-						"type": "decimal",
-						"precision": 32,
-						"scale": 10
-					},
-					{
-						"name": "TOTAL_SQFT_OFFICE_PCT",
-						"type": "decimal",
-						"precision": 32,
-						"scale": 10
-					}
-				],
-				"typeProperties": {
-					"schema": "xCAMP",
-					"table": "stage_BIA_POWER_KW_ENCL_MONTH_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/lsEBS')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Link Service to EBS Production (On Prem)",
-				"annotations": [],
-				"type": "Oracle",
-				"typeProperties": {
-					"connectionString": "[parameters('lsEBS_connectionString')]"
-				},
-				"connectVia": {
-					"referenceName": "rdcir01",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/lsEBS_PROD')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Link Service to EBS On Prem Production (OFINPROD)",
-				"annotations": [],
-				"type": "Oracle",
-				"typeProperties": {
-					"connectionString": "[parameters('lsEBS_PROD_connectionString')]"
-				},
-				"connectVia": {
-					"referenceName": "rdcir01",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/lsEBS_UAT')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "link service to Oracle EBS on Site UAT",
-				"annotations": [],
-				"type": "Oracle",
-				"typeProperties": {
-					"connectionString": "[parameters('lsEBS_UAT_connectionString')]"
-				},
-				"connectVia": {
-					"referenceName": "rdcir01",
-					"type": "IntegrationRuntimeReference"
 				}
 			},
 			"dependsOn": []
