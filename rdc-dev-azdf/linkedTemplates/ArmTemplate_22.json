@@ -13,6 +13,348 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BIA_ORDER_LINE_TYPE_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "pipe_BIA_ORDER_LINE_TYPE_V",
+				"activities": [
+					{
+						"name": "Copy BIA_ORDER_LINE_TYPE_V",
+						"description": "Copy BIA_ORDER_LINE_TYPE_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_ORDER_LINE_TYPE_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "TRANSACTION_TYPE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "TRANSACTION_TYPE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_ORDER_LINE_TYPE_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BIA_ORDER_LINE_TYPE_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "pipe PurchaseOrders"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BIA_ORGANIZATIONS_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "pipe_BIA_ORGANIZATIONS_V",
+				"activities": [
+					{
+						"name": "Copy BIA_ORGANIZATIONS_V",
+						"description": "Copy BIA_ORGANIZATIONS_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_ORGANIZATIONS_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "ORGANIZATION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ORGANIZATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "BUSINESS_GROUP_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "BUSINESS_GROUP_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LOCATION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "LOCATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LOCATION_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "LOCATION_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "COUNTRY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "COUNTRY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ADDRESS_LINE_1",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ADDRESS_LINE_1",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ADDRESS_LINE_2",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ADDRESS_LINE_2",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ADDRESS_LINE_3",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ADDRESS_LINE_3",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "REGION_1",
+											"type": "String"
+										},
+										"sink": {
+											"name": "REGION_1",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "REGION_2",
+											"type": "String"
+										},
+										"sink": {
+											"name": "REGION_2",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "REGION_3",
+											"type": "String"
+										},
+										"sink": {
+											"name": "REGION_3",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "POSTAL_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "POSTAL_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "TOWN_OR_CITY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "TOWN_OR_CITY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DATE_FROM",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "DATE_FROM",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DATE_TO",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "DATE_TO",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "OBJECT_VERSION_NUMBER",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "OBJECT_VERSION_NUMBER",
+											"type": "Decimal"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_ORGANIZATIONS_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BIA_ORGANIZATIONS_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "Pipe CAMP"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/pipe_BIA_PA_BUDGET_VERSIONS_V')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -5013,223 +5355,6 @@
 				],
 				"folder": {
 					"name": "Pipe Projects"
-				},
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipe_BICS_GL_JOURNALS_BATCH_V')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "pipeBICS_GL_JOURNALS_BATCH_V\nSource: EBS\nDestination: Azure OAC",
-				"activities": [
-					{
-						"name": "Copy BICS_GL_JOURNALS_BATCH_V",
-						"description": "Copy BICS_GL_JOURNALS_BATCH_V",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "OracleSource",
-								"partitionOption": "None",
-								"queryTimeout": "02:00:00"
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE OACPROD.BICS_GL_JOURNALS_BATCH_V",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "JE_BATCH_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "JE_BATCH_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "BATCH_NAME",
-											"type": "String"
-										},
-										"sink": {
-											"name": "BATCH_NAME",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "BATCH_DESCRIPTION",
-											"type": "String"
-										},
-										"sink": {
-											"name": "BATCH_DESCRIPTION",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "BATCH_DEFAULT_PERIOD",
-											"type": "String"
-										},
-										"sink": {
-											"name": "BATCH_DEFAULT_PERIOD",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "BATCH_FISCAL_YEAR",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "BATCH_FISCAL_YEAR",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "BATCH_FISCAL_QTR",
-											"type": "String"
-										},
-										"sink": {
-											"name": "BATCH_FISCAL_QTR",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "BATCH_PERIOD_STATUS",
-											"type": "String"
-										},
-										"sink": {
-											"name": "BATCH_PERIOD_STATUS",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "JE_BATCH_RUNNING_TOTAL_DR",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "JE_BATCH_RUNNING_TOTAL_DR",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "JE_BATCH_RUNNING_TOTAL_CR",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "JE_BATCH_RUNNING_TOTAL_CR",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										}
-									}
-								]
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "ebs_BICS_GL_JOURNALS_BATCH_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "aoac_BICS_GL_JOURNALS_BATCH_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"folder": {
-					"name": "pipe GeneralLedger"
-				},
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipe_BICS_GL_JOURNALS_DTL_V')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "pipeBICS_GL_JOURNALS_DTL_V\nSource: EBS\nDestination:  Azure OAC",
-				"activities": [
-					{
-						"name": "Copy BICS_GL_JOURNALS_DTL_V",
-						"description": "Copy BICS_GL_JOURNALS_DTL_V",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "OracleSource",
-								"partitionOption": "None",
-								"queryTimeout": "02:00:00"
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE OACPROD.BICS_GL_JOURNALS_DTL_V",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false
-						},
-						"inputs": [
-							{
-								"referenceName": "ebs_BICS_GL_JOURNALS_DTL_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "aoac_BICS_GL_JOURNALS_DTL_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"folder": {
-					"name": "pipe GeneralLedger"
 				},
 				"annotations": []
 			},
