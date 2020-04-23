@@ -4812,7 +4812,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Receivables"
+					"name": "Pipe Receivables/pipe_Receivables"
 				},
 				"annotations": []
 			},
@@ -5054,7 +5054,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Receivables"
+					"name": "Pipe Receivables/pipe_Receivables"
 				},
 				"annotations": []
 			},
@@ -8158,7 +8158,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Receivables"
+					"name": "Pipe Receivables/pipe_Receivables"
 				},
 				"annotations": []
 			},
@@ -8350,7 +8350,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Receivables"
+					"name": "Pipe Receivables/pipe_Receivables"
 				},
 				"annotations": []
 			},
@@ -27303,7 +27303,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe SalesOrders"
+					"name": "Pipe SalesOrders/pipe_SalesOrders"
 				},
 				"annotations": []
 			},
@@ -27467,7 +27467,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe SalesOrders"
+					"name": "Pipe SalesOrders/pipe_SalesOrders"
 				},
 				"annotations": []
 			},
@@ -34625,7 +34625,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe Receivables"
+					"name": "Pipe Receivables/pipe_Receivables"
 				},
 				"annotations": []
 			},
@@ -110249,13 +110249,134 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
+			"name": "[concat(parameters('factoryName'), '/pipe_Receivables')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
+				"activities": [
+					{
+						"name": "pipe_BICS_AR_INVOICES_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BICS_AR_INVOICES_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_AR_RECEIVABLE_APPS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BICS_AR_INVOICES_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_AR_RECEIVABLE_APPS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_AR_PAYMENT_SCHEDULES_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BICS_AR_INVOICES_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_AR_PAYMENT_SCHEDULES_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_AR_ADJUSTMENTS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_AR_RECEIVABLE_APPS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "pipe_BIA_AR_PAYMENT_SCHEDULES_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "pipe_BIA_AR_CASH_RECEIPTS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_AR_ADJUSTMENTS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_AR_CASH_RECEIPTS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BICS_AR_INVOICES_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_AR_CASH_RECEIPTS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"folder": {
+					"name": "Pipe Receivables/pipe_Receivables"
+				},
 				"annotations": []
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_AR_INVOICES_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_AR_RECEIVABLE_APPS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_AR_PAYMENT_SCHEDULES_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_AR_ADJUSTMENTS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_AR_CASH_RECEIPTS_V')]"
+			]
 		}
 	]
 }
