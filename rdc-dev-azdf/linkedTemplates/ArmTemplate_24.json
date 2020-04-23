@@ -13,354 +13,6 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/pipe_BIA_PA_TASKS_V')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy BIA_PA_TASKS_V",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "OracleSource",
-								"partitionOption": "None",
-								"queryTimeout": "02:00:00"
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_PA_TASKS_V",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "TASK_ID",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "TASK_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "PROJECT_ID",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "PROJECT_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "TASK_NUMBER",
-											"type": "String"
-										},
-										"sink": {
-											"name": "TASK_NUMBER",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "TASK_NAME",
-											"type": "String"
-										},
-										"sink": {
-											"name": "TASK_NAME",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "TASK_DESCRIPTION",
-											"type": "String"
-										},
-										"sink": {
-											"name": "TASK_DESCRIPTION",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "WBS_LEVEL",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "WBS_LEVEL",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "SERVICE_TYPE_CODE",
-											"type": "String"
-										},
-										"sink": {
-											"name": "SERVICE_TYPE_CODE",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "TOP_TASK_ID",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "TOP_TASK_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "CHARGEABLE_FLAG",
-											"type": "String"
-										},
-										"sink": {
-											"name": "CHARGEABLE_FLAG",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "PARENT_TASK_ID",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "PARENT_TASK_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "BILLABLE_FLAG",
-											"type": "String"
-										},
-										"sink": {
-											"name": "BILLABLE_FLAG",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										}
-									}
-								]
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "ebs_BIA_PA_TASKS_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "aoac_BIA_PA_TASKS_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"folder": {
-					"name": "Pipe Projects"
-				},
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipe_BIA_POR_APPROVAL_STATUS_V')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy BIA_POR_APPROVAL_STATUS_V",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "OracleSource",
-								"partitionOption": "None",
-								"queryTimeout": "02:00:00"
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_POR_APPROVAL_STATUS_V",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "POR_DOCUMENT_ID",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "POR_DOCUMENT_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "PO_NUMBER",
-											"type": "String"
-										},
-										"sink": {
-											"name": "PO_NUMBER",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "PO_HEADER_ID",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "PO_HEADER_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "POR_APPROVER",
-											"type": "String"
-										},
-										"sink": {
-											"name": "POR_APPROVER",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "POR_APPROVER_EMAIL",
-											"type": "String"
-										},
-										"sink": {
-											"name": "POR_APPROVER_EMAIL",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "POR_SEQUENCE_NUMBER",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "POR_SEQUENCE_NUMBER",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "POR_APPROVAL_STATUS",
-											"type": "String"
-										},
-										"sink": {
-											"name": "POR_APPROVAL_STATUS",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "POR_APPROVAL_LABEL",
-											"type": "String"
-										},
-										"sink": {
-											"name": "POR_APPROVAL_LABEL",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "POR_APPROVAL_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "POR_APPROVAL_DATE",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "POR_APPROVAL_NOTES",
-											"type": "String"
-										},
-										"sink": {
-											"name": "POR_APPROVAL_NOTES",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										}
-									}
-								]
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "ebs_BIA_POR_APPROVAL_STATUS_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "aoac_BIA_POR_APPROVAL_STATUS_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"folder": {
-					"name": "pipe PurchaseOrders"
-				},
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/pipe_BIA_POWER_KW_CONTRACT_LINE_V')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -6203,6 +5855,1104 @@
 						"outputs": [
 							{
 								"referenceName": "aoac_BIA_QUOTE_HEADERS_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "Pipe Quotes"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BIA_QUOTE_LINES_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy BIA_QUOTE_LINES_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_QUOTE_LINES_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "NRC_QUOTE_LINE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "NRC_QUOTE_LINE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LINE_RELATIONSHIP_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "LINE_RELATIONSHIP_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "NRC_LINE_NUMBER",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "NRC_LINE_NUMBER",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "MRC_QUOTE_LINE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "MRC_QUOTE_LINE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "MRC_LINE_NUMBER",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "MRC_LINE_NUMBER",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "QUOTE_HEADER_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "QUOTE_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "QUOTE_ORDER_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "QUOTE_ORDER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PARTY_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CUST_ACCOUNT_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "CUST_ACCOUNT_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ORG_CONTACT_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ORG_CONTACT_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PHONE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PHONE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_TO_PARTY_SITE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "INVOICE_TO_PARTY_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_TO_PARTY_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "INVOICE_TO_PARTY_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ORDER_TYPE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ORDER_TYPE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "QUOTE_CATEGORY_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "QUOTE_CATEGORY_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PRICE_LIST_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PRICE_LIST_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "RESOURCE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "RESOURCE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PROJECT_MANAGER",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PROJECT_MANAGER",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "NRC_WAREHOUSE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "NRC_WAREHOUSE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "NRC_LINE_CATEGORY_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "NRC_LINE_CATEGORY_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "NRC_ITEM_TYPE_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "NRC_ITEM_TYPE_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "NRC_ORDER_LINE_TYPE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "NRC_ORDER_LINE_TYPE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "NRC_ORDER_LINE_TYPE_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "NRC_ORDER_LINE_TYPE_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "NRC_INVOICE_TO_PARTY_SITE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "NRC_INVOICE_TO_PARTY_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "NRC_INVOICE_TO_PARTY_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "NRC_INVOICE_TO_PARTY_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "NRC_ORGANIZATION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "NRC_ORGANIZATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "NRC_INVENTORY_ITEM_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "NRC_INVENTORY_ITEM_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "NRC_QUANTITY",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "NRC_QUANTITY",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "NRC_UOM_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "NRC_UOM_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "NRC_MARKETING_SOURCE_CODE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "NRC_MARKETING_SOURCE_CODE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "NRC_PRICE_LIST_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "NRC_PRICE_LIST_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "NRC_PRICE_LIST_LINE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "NRC_PRICE_LIST_LINE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "NRC_CURRENCY_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "NRC_CURRENCY_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "NRC_LINE_LIST_PRICE",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "NRC_LINE_LIST_PRICE",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "NRC_LINE_ADJUSTED_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "NRC_LINE_ADJUSTED_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "NRC_LINE_ADJUSTED_PERCENT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "NRC_LINE_ADJUSTED_PERCENT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "NRC_LINE_QUOTE_PRICE",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "NRC_LINE_QUOTE_PRICE",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "NRC_RELATED_ITEM_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "NRC_RELATED_ITEM_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "NRC_ITEM_RELATIONSHIP_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "NRC_ITEM_RELATIONSHIP_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "MRC_WAREHOUSE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "MRC_WAREHOUSE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "MRC_LINE_CATEGORY_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "MRC_LINE_CATEGORY_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "MRC_ITEM_TYPE_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "MRC_ITEM_TYPE_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "MRC_ORDER_LINE_TYPE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "MRC_ORDER_LINE_TYPE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "MRC_ORDER_LINE_TYPE_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "MRC_ORDER_LINE_TYPE_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "MRC_INVOICE_TO_PARTY_SITE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "MRC_INVOICE_TO_PARTY_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "MRC_INVOICE_TO_PARTY_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "MRC_INVOICE_TO_PARTY_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "MRC_ORGANIZATION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "MRC_ORGANIZATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "MRC_INVENTORY_ITEM_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "MRC_INVENTORY_ITEM_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "MRC_QUANTITY",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "MRC_QUANTITY",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "MRC_UOM_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "MRC_UOM_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "MRC_MARKETING_SOURCE_CODE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "MRC_MARKETING_SOURCE_CODE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "MRC_PRICE_LIST_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "MRC_PRICE_LIST_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "MRC_PRICE_LIST_LINE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "MRC_PRICE_LIST_LINE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "MRC_CURRENCY_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "MRC_CURRENCY_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "MRC_LINE_LIST_PRICE",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "MRC_LINE_LIST_PRICE",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "MRC_LINE_ADJUSTED_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "MRC_LINE_ADJUSTED_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "MRC_LINE_ADJUSTED_PERCENT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "MRC_LINE_ADJUSTED_PERCENT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "MRC_LINE_QUOTE_PRICE",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "MRC_LINE_QUOTE_PRICE",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "MRC_RELATED_ITEM_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "MRC_RELATED_ITEM_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "MRC_ITEM_RELATIONSHIP_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "MRC_ITEM_RELATIONSHIP_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "MRC_SHIPMENT_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "MRC_SHIPMENT_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "NRC_SHIPMENT_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "NRC_SHIPMENT_ID",
+											"type": "Decimal"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_QUOTE_LINES_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BIA_QUOTE_LINES_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "Pipe Quotes"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BIA_QUOTE_LINES_V2')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy BIA_QUOTE_LINES_V2",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_QUOTE_LINES_V2",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "QUOTE_LINE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "QUOTE_LINE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LINE_NUMBER",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "LINE_NUMBER",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "QUOTE_HEADER_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "QUOTE_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "QUOTE_ORDER_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "QUOTE_ORDER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PARTY_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CUST_ACCOUNT_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "CUST_ACCOUNT_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ORG_CONTACT_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ORG_CONTACT_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PHONE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PHONE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_TO_PARTY_SITE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "INVOICE_TO_PARTY_SITE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_TO_PARTY_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "INVOICE_TO_PARTY_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ORDER_TYPE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ORDER_TYPE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "QUOTE_CATEGORY_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "QUOTE_CATEGORY_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PRICE_LIST_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PRICE_LIST_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "RESOURCE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "RESOURCE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PROJECT_MANAGER",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PROJECT_MANAGER",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "WAREHOUSE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "WAREHOUSE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LINE_CATEGORY_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "LINE_CATEGORY_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ITEM_TYPE_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ITEM_TYPE_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ORDER_LINE_TYPE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ORDER_LINE_TYPE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ORDER_LINE_TYPE_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ORDER_LINE_TYPE_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ORGANIZATION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ORGANIZATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVENTORY_ITEM_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "INVENTORY_ITEM_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "QUANTITY",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "QUANTITY",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "UOM_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "UOM_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "MARKETING_SOURCE_CODE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "MARKETING_SOURCE_CODE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PRICE_LIST_LINE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "PRICE_LIST_LINE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CURRENCY_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CURRENCY_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LINE_LIST_PRICE",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "LINE_LIST_PRICE",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LINE_ADJUSTED_AMOUNT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "LINE_ADJUSTED_AMOUNT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LINE_ADJUSTED_PERCENT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "LINE_ADJUSTED_PERCENT",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LINE_QUOTE_PRICE",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "LINE_QUOTE_PRICE",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "RELATED_ITEM_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "RELATED_ITEM_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ITEM_RELATIONSHIP_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ITEM_RELATIONSHIP_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "SHIPMENT_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "SHIPMENT_ID",
+											"type": "Decimal"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_QUOTE_LINES_V2",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BIA_QUOTE_LINES_V2",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
