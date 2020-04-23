@@ -29,7 +29,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "oac_BICS_PO_AP_WORKFLOW",
+						"referenceName": "ebs_BICS_PO_AP_WORKFLOW",
 						"type": "DatasetReference"
 					}
 				],
