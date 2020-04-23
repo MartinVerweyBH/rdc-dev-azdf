@@ -10,6 +10,12 @@
 					"referenceName": "pipe_GeneralLedger",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_CAMP",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
@@ -17,7 +23,7 @@
 			"recurrence": {
 				"frequency": "Minute",
 				"interval": 20,
-				"startTime": "2020-02-05T06:00:00.000Z",
+				"startTime": "2020-02-05T06:30:00.000Z",
 				"timeZone": "UTC"
 			}
 		}
