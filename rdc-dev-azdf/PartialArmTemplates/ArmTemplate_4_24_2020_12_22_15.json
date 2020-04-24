@@ -25,71 +25,61 @@
 						"pipelineReference": {
 							"referenceName": "pipe_PurchaseOrders_BIA",
 							"type": "PipelineReference"
-						},
-						"parameters": {}
+						}
 					},
 					{
 						"pipelineReference": {
 							"referenceName": "pipe_PurchaseOrders_BICS",
 							"type": "PipelineReference"
-						},
-						"parameters": {}
+						}
 					},
 					{
 						"pipelineReference": {
 							"referenceName": "pipe_SalesOrders",
 							"type": "PipelineReference"
-						},
-						"parameters": {}
+						}
 					},
 					{
 						"pipelineReference": {
 							"referenceName": "pipe_ServiceContracts",
 							"type": "PipelineReference"
-						},
-						"parameters": {}
+						}
 					},
 					{
 						"pipelineReference": {
 							"referenceName": "pipe_Customers",
 							"type": "PipelineReference"
-						},
-						"parameters": {}
+						}
 					},
 					{
 						"pipelineReference": {
 							"referenceName": "pipe_Vendors",
 							"type": "PipelineReference"
-						},
-						"parameters": {}
+						}
 					},
 					{
 						"pipelineReference": {
 							"referenceName": "pipe_Employees",
 							"type": "PipelineReference"
-						},
-						"parameters": {}
+						}
 					},
 					{
 						"pipelineReference": {
 							"referenceName": "pipe_FixedAssets",
 							"type": "PipelineReference"
-						},
-						"parameters": {}
+						}
 					},
 					{
 						"pipelineReference": {
 							"referenceName": "pipe_Employees_FromMatrix",
 							"type": "PipelineReference"
-						},
-						"parameters": {}
+						}
 					},
 					{
 						"pipelineReference": {
 							"referenceName": "pipe_Projects_CompareOAC",
 							"type": "PipelineReference"
-						},
-						"parameters": {}
+						}
 					}
 				],
 				"type": "ScheduleTrigger",
@@ -98,49 +88,6 @@
 						"frequency": "Minute",
 						"interval": 60,
 						"startTime": "2020-04-23T06:00:00.000Z",
-						"timeZone": "UTC"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/trigger_hour_06_schedule')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Scheduled Trigger Every 6 Hours",
-				"annotations": [],
-				"runtimeState": "Started",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_MRTG",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					},
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_BudgetForecast",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					},
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_PriceLists",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
-				],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Hour",
-						"interval": 6,
-						"startTime": "2020-04-23T21:00:00.000Z",
 						"timeZone": "UTC"
 					}
 				}
