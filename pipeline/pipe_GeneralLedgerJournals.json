@@ -97,7 +97,9 @@
 		"folder": {
 			"name": "pipe GeneralLedger/pipe_GeneralLedgerJournals"
 		},
-		"annotations": []
+		"annotations": [
+			"Parent"
+		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
