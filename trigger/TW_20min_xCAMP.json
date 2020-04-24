@@ -5,7 +5,7 @@
 		"annotations": [
 			"xCAMP"
 		],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipeline": {
 			"pipelineReference": {
 				"referenceName": "pipe_xCAMP",
