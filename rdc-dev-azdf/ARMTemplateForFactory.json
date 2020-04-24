@@ -45597,27 +45597,6 @@
 						}
 					},
 					{
-						"name": "pipe_PBI_DEPRECIATION_COST_F",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "pipe_BIA_FA_DEPRN_PERIODS_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_PBI_DEPRECIATION_COST_F",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
 						"name": "pipe_BIA_FA_DEPRN_SUMMARY_V",
 						"type": "ExecutePipeline",
 						"dependsOn": [
@@ -45651,7 +45630,6 @@
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_FA_DESCRIPTION_V')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_FA_DESCRIPTION_V')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_FA_DEPRN_PERIODS_V')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_PBI_DEPRECIATION_COST_F')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_FA_DEPRN_SUMMARY_V')]"
 			]
 		},
@@ -46914,7 +46892,7 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe FixedAssets/pipe_FixedAssets"
+					"name": "Pipe FixedAssets/pipe_FixedAssets_WithErrors"
 				},
 				"annotations": [
 					"pipe_FixedAssets"
