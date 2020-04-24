@@ -164,6 +164,8 @@
 		"folder": {
 			"name": "Pipe Projects/pipe_Projects"
 		},
-		"annotations": []
+		"annotations": [
+			"Parent"
+		]
 	}
 }
