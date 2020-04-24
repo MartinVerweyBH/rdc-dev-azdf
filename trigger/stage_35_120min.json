@@ -16,12 +16,6 @@
 			},
 			{
 				"pipelineReference": {
-					"referenceName": "pipe_Projects_W",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
 					"referenceName": "pipe_PriceLists",
 					"type": "PipelineReference"
 				}
