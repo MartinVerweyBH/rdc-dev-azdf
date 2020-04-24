@@ -15,12 +15,6 @@
 					"referenceName": "pipe_BudgetForecast",
 					"type": "PipelineReference"
 				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_FixedAssets",
-					"type": "PipelineReference"
-				}
 			}
 		],
 		"type": "ScheduleTrigger",
