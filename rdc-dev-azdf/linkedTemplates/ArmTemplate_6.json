@@ -13,168 +13,6 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/aoac_BIA_XLA_AE_LINES_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Destination: Azure OAC\nSchema: OACPROD\nTable: BIA_XLA_AE_LINES_V",
-				"linkedServiceName": {
-					"referenceName": "ls_dwStageOAC",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "Destinations - AOAC"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "GLR_JE_BATCH_ID",
-						"type": "decimal",
-						"precision": 15,
-						"scale": 0
-					},
-					{
-						"name": "GLR_JE_HEADER_ID",
-						"type": "decimal",
-						"precision": 15,
-						"scale": 0
-					},
-					{
-						"name": "GLR_JE_LINE_NUM",
-						"type": "decimal",
-						"precision": 15,
-						"scale": 0
-					},
-					{
-						"name": "GLR_GL_SL_LINK_TABLE",
-						"type": "varchar"
-					},
-					{
-						"name": "GLR_GL_SL_LINK_ID",
-						"type": "decimal",
-						"precision": 32,
-						"scale": 10
-					},
-					{
-						"name": "XLAL_AE_HEADER_ID",
-						"type": "decimal",
-						"precision": 15,
-						"scale": 0
-					},
-					{
-						"name": "XLAL_AE_LINE_NUM",
-						"type": "decimal",
-						"precision": 15,
-						"scale": 0
-					},
-					{
-						"name": "XLAL_APPLICATION_ID",
-						"type": "decimal",
-						"precision": 15,
-						"scale": 0
-					},
-					{
-						"name": "XLAL_GL_TRANSFER_MODE_CODE",
-						"type": "varchar"
-					},
-					{
-						"name": "XLAL_PARTY_ID",
-						"type": "decimal",
-						"precision": 15,
-						"scale": 0
-					},
-					{
-						"name": "XLAL_PARTY_SITE_ID",
-						"type": "decimal",
-						"precision": 15,
-						"scale": 0
-					},
-					{
-						"name": "XLAL_PARTY_TYPE_CODE",
-						"type": "varchar"
-					},
-					{
-						"name": "XLAL_UNROUNDED_ACCOUNTED_DR",
-						"type": "decimal",
-						"precision": 32,
-						"scale": 10
-					},
-					{
-						"name": "XLAL_UNROUNDED_ACCOUNTED_CR",
-						"type": "decimal",
-						"precision": 32,
-						"scale": 10
-					},
-					{
-						"name": "XLAL_CODE_COMBINATION_ID",
-						"type": "decimal",
-						"precision": 15,
-						"scale": 0
-					},
-					{
-						"name": "XLAL_ACCOUNTING_CLASS_CODE",
-						"type": "varchar"
-					},
-					{
-						"name": "XLAL_ACCOUNTED_DR",
-						"type": "decimal",
-						"precision": 32,
-						"scale": 10
-					},
-					{
-						"name": "XLAL_ACCOUNTED_CR",
-						"type": "decimal",
-						"precision": 32,
-						"scale": 10
-					},
-					{
-						"name": "XLAL_DESCRIPTION",
-						"type": "varchar"
-					},
-					{
-						"name": "XLAL_ACCOUNTING_DATE",
-						"type": "datetime2",
-						"scale": 0
-					},
-					{
-						"name": "AE_LINE_NUM",
-						"type": "decimal",
-						"precision": 15,
-						"scale": 0
-					},
-					{
-						"name": "LAST_UPDATE_DATE",
-						"type": "datetime2",
-						"scale": 0
-					},
-					{
-						"name": "DSYS_INSTANCE_ID",
-						"type": "decimal",
-						"precision": 15,
-						"scale": 0
-					},
-					{
-						"name": "DSYS_PROCESS_ID",
-						"type": "decimal",
-						"precision": 12,
-						"scale": 0
-					},
-					{
-						"name": "DSYS_BATCH_ID",
-						"type": "decimal",
-						"precision": 30,
-						"scale": 0
-					}
-				],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BIA_XLA_AE_LINES_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_XLA_AE_LINK_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -3920,6 +3758,87 @@
 				"typeProperties": {
 					"schema": "OACPROD",
 					"table": "BICS_MRTG_90MV"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/aoac_BICS_MRTG_SITE_USAGE')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Destination: Azure OAC\nSchema: OACPROD\nTable: BICS_MRTG_SITE_USAGE",
+				"linkedServiceName": {
+					"referenceName": "ls_dwStageOAC",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Destinations - AOAC"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "CUSTOMER_ID",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "CAMPUS",
+						"type": "varchar"
+					},
+					{
+						"name": "PRODUCT_LINE",
+						"type": "varchar"
+					},
+					{
+						"name": "REC_LOC",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "BILLING_USAGE_IN",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "BILLING_USAGE_OUT",
+						"type": "decimal",
+						"precision": 22,
+						"scale": 0
+					},
+					{
+						"name": "FILE_NAME",
+						"type": "varchar"
+					},
+					{
+						"name": "RUN_DATE",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "POLLPERIOD",
+						"type": "varchar"
+					},
+					{
+						"name": "RUN_TYPE",
+						"type": "varchar"
+					},
+					{
+						"name": "CUSTOMER_NAME",
+						"type": "varchar"
+					},
+					{
+						"name": "RUN_DATE_C",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "BICS_MRTG_SITE_USAGE"
 				}
 			},
 			"dependsOn": []

@@ -45001,6 +45001,54 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/pipe_Combo_AP')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "pipe_PurchaseOrders_BIA",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_PurchaseOrders_BIA",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_PurchaseOrders_BICS",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_PurchaseOrders_BICS",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"folder": {
+					"name": "Pipe All Combos"
+				},
+				"annotations": [
+					"Parent",
+					"pipe_PurchaseOrders"
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_PurchaseOrders_BIA')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_PurchaseOrders_BICS')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/pipe_Combo_GLandCAMP')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -111616,83 +111664,19 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/stage_00_20min')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Trigger Every 20 Minutes on the 00",
-				"annotations": [
-					"20 min",
-					"GeneralLedger",
-					"CAMP",
-					"GeneralLedgerJournals",
-					"GeneralLedgerSingles"
-				],
-				"runtimeState": "Stopped",
-				"pipelines": [],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Minute",
-						"interval": 20,
-						"startTime": "2020-04-24T00:00:00.000Z",
-						"timeZone": "UTC"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/stage_08_60min')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Stage Every 60 Minutes at 05",
-				"annotations": [
-					"60 min"
-				],
-				"runtimeState": "Stopped",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_GeneralLedgerJournals",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
-				],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Minute",
-						"interval": 20,
-						"startTime": "2020-04-24T00:05:00.000Z",
-						"timeZone": "UTC"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_GeneralLedgerJournals')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/stage_10_20min')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"description": "Stage Every 20 Minutes at 10",
 				"annotations": [
-					"20 min"
+					"20 min",
+					"Assets",
+					"Budgets",
+					"Forecast"
 				],
 				"runtimeState": "Stopped",
 				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_Projects_CompareOAC",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					},
 					{
 						"pipelineReference": {
 							"referenceName": "pipe_BudgetForecast",
@@ -111702,7 +111686,7 @@
 					},
 					{
 						"pipelineReference": {
-							"referenceName": "pipe_PriceLists",
+							"referenceName": "pipe_FixedAssets",
 							"type": "PipelineReference"
 						},
 						"parameters": {}
@@ -111719,9 +111703,8 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_Projects_CompareOAC')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_BudgetForecast')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_PriceLists')]"
+				"[concat(variables('factoryId'), '/pipelines/pipe_FixedAssets')]"
 			]
 		},
 		{
@@ -111846,7 +111829,9 @@
 			"properties": {
 				"description": "Stage Every 60 Minutes on the 18",
 				"annotations": [
-					"60 min"
+					"60 min",
+					"Sales Orders",
+					"Service Contracts"
 				],
 				"runtimeState": "Stopped",
 				"pipelines": [
@@ -111860,13 +111845,6 @@
 					{
 						"pipelineReference": {
 							"referenceName": "pipe_ServiceContracts",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					},
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_FixedAssets",
 							"type": "PipelineReference"
 						},
 						"parameters": {}
@@ -111884,8 +111862,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_SalesOrders')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_ServiceContracts')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_FixedAssets')]"
+				"[concat(variables('factoryId'), '/pipelines/pipe_ServiceContracts')]"
 			]
 		},
 		{
@@ -111932,47 +111909,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/stage_25_20min')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Trigger Every 20 Minutes on the 25",
-				"annotations": [
-					"20 min"
-				],
-				"runtimeState": "Stopped",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_CAMP",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					},
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_xCAMP",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
-				],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Minute",
-						"interval": 20,
-						"startTime": "2020-04-24T00:25:00.000Z",
-						"timeZone": "UTC"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_CAMP')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_xCAMP')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/stage_25_60min_TW_PurchaseOrders')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
@@ -112015,7 +111951,9 @@
 			"properties": {
 				"description": "Trigger Every 20 Minutes on the 30",
 				"annotations": [
-					"20 min"
+					"20 min",
+					"Receivables",
+					"Quotes"
 				],
 				"runtimeState": "Stopped",
 				"pipelines": [
@@ -112074,6 +112012,20 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_PriceLists",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_Projects_CompareOAC",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
 					}
 				],
 				"type": "ScheduleTrigger",
@@ -112088,7 +112040,9 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_Projects')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_Projects_W')]"
+				"[concat(variables('factoryId'), '/pipelines/pipe_Projects_W')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_PriceLists')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_Projects_CompareOAC')]"
 			]
 		},
 		{
@@ -112131,6 +112085,26 @@
 				"[concat(variables('factoryId'), '/pipelines/pipe_Employees')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_Employees_FromMatrix')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger1')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 1,
+						"startTime": "2020-04-24T19:07:00.000Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/trigger_hour_06_schedule')]",
@@ -112203,71 +112177,38 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/trigger1')]",
+			"name": "[concat(parameters('factoryName'), '/TW_20min_xCAMP')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"annotations": [],
+				"description": "TW_20min_xCAMP",
+				"annotations": [
+					"xCAMP"
+				],
 				"runtimeState": "Stopped",
-				"pipelines": [],
-				"type": "ScheduleTrigger",
+				"pipeline": {
+					"pipelineReference": {
+						"referenceName": "pipe_xCAMP",
+						"type": "PipelineReference"
+					},
+					"parameters": {}
+				},
+				"type": "TumblingWindowTrigger",
 				"typeProperties": {
-					"recurrence": {
-						"frequency": "Minute",
-						"interval": 1,
-						"startTime": "2020-04-24T19:07:00.000Z",
-						"timeZone": "UTC"
-					}
+					"frequency": "Minute",
+					"interval": 20,
+					"startTime": "2020-04-24T20:00:00.000Z",
+					"delay": "00:02:00",
+					"maxConcurrency": 1,
+					"retryPolicy": {
+						"count": 5,
+						"intervalInSeconds": 120
+					},
+					"dependsOn": []
 				}
 			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipe_Combo_AP')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "pipe_PurchaseOrders_BIA",
-						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_PurchaseOrders_BIA",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "pipe_PurchaseOrders_BICS",
-						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_PurchaseOrders_BICS",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					}
-				],
-				"folder": {
-					"name": "Pipe All Combos"
-				},
-				"annotations": [
-					"Parent",
-					"pipe_PurchaseOrders"
-				]
-			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_PurchaseOrders_BIA')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_PurchaseOrders_BICS')]"
+				"[concat(variables('factoryId'), '/pipelines/pipe_xCAMP')]"
 			]
 		}
 	]
