@@ -58,6 +58,12 @@
 					"referenceName": "pipe_Employees_FromMatrix",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_Projects_CompareOAC",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
@@ -65,7 +71,7 @@
 			"recurrence": {
 				"frequency": "Minute",
 				"interval": 60,
-				"startTime": "2020-04-23T06:57:00.000Z",
+				"startTime": "2020-04-23T06:00:00.000Z",
 				"timeZone": "UTC"
 			}
 		}
