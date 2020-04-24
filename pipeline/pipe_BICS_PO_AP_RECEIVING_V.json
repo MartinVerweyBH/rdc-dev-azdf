@@ -1019,7 +1019,9 @@
 		"folder": {
 			"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 		},
-		"annotations": []
+		"annotations": [
+			"pipe_PurchaseOrders"
+		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
