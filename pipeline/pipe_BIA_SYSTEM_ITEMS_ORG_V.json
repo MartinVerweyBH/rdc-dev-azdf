@@ -319,7 +319,9 @@
 		"folder": {
 			"name": "Pipe OnceOffs"
 		},
-		"annotations": []
+		"annotations": [
+			"Once OFF"
+		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
