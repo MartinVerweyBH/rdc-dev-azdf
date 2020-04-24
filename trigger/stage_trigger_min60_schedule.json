@@ -70,7 +70,7 @@
 		"typeProperties": {
 			"recurrence": {
 				"frequency": "Minute",
-				"interval": 60,
+				"interval": 180,
 				"startTime": "2020-04-23T06:00:00.000Z",
 				"timeZone": "UTC"
 			}
