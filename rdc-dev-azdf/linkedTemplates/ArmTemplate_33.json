@@ -13,148 +13,818 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/stage_trigger_min60_schedule')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
+			"name": "[concat(parameters('factoryName'), '/pipe_Vendors')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "stage_trigger_min60_schedule",
-				"annotations": [],
-				"runtimeState": "Started",
-				"pipelines": [
+				"activities": [
 					{
-						"pipelineReference": {
-							"referenceName": "pipe_PurchaseOrders_BIA",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
+						"name": "pipe_BIA_VENDORS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_VENDORS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
 					},
 					{
-						"pipelineReference": {
-							"referenceName": "pipe_PurchaseOrders_BICS",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					},
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_SalesOrders",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					},
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_ServiceContracts",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					},
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_Customers",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					},
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_Vendors",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					},
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_Employees",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					},
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_FixedAssets",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					},
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_Employees_FromMatrix",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					},
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_Projects_CompareOAC",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
+						"name": "pipe_BIA_VENDOR_SITES_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_VENDORS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_VENDOR_SITES_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
 					}
 				],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Minute",
-						"interval": 60,
-						"startTime": "2020-04-23T06:00:00.000Z",
-						"timeZone": "UTC"
-					}
-				}
+				"folder": {
+					"name": "Pipe Vendors/pipe_Vendors"
+				},
+				"annotations": [
+					"Parent",
+					"pipe_Vendors"
+				]
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/trigger_hour_06_schedule')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
+			"name": "[concat(parameters('factoryName'), '/pipe_xCAMP')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Scheduled Trigger Every 6 Hours",
-				"annotations": [],
-				"runtimeState": "Started",
-				"pipelines": [
+				"description": " ",
+				"activities": [
 					{
-						"pipelineReference": {
-							"referenceName": "pipe_MRTG",
-							"type": "PipelineReference"
+						"name": "Copy BIA_ORGANIZATIONS_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
 						},
-						"parameters": {}
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE xCAMP.BIA_ORGANIZATIONS_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "ORGANIZATION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ORGANIZATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "BUSINESS_GROUP_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "BUSINESS_GROUP_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LOCATION_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "LOCATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LOCATION_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "LOCATION_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "COUNTRY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "COUNTRY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ADDRESS_LINE_1",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ADDRESS_LINE_1",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ADDRESS_LINE_2",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ADDRESS_LINE_2",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ADDRESS_LINE_3",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ADDRESS_LINE_3",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "REGION_1",
+											"type": "String"
+										},
+										"sink": {
+											"name": "REGION_1",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "REGION_2",
+											"type": "String"
+										},
+										"sink": {
+											"name": "REGION_2",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "REGION_3",
+											"type": "String"
+										},
+										"sink": {
+											"name": "REGION_3",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "POSTAL_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "POSTAL_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "TOWN_OR_CITY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "TOWN_OR_CITY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DATE_FROM",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "DATE_FROM",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DATE_TO",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "DATE_TO",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "OBJECT_VERSION_NUMBER",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "OBJECT_VERSION_NUMBER",
+											"type": "Decimal"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_ORGANIZATIONS_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "xCAMP_BIA_ORGANIZATIONS_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
 					},
 					{
-						"pipelineReference": {
-							"referenceName": "pipe_BudgetForecast",
-							"type": "PipelineReference"
+						"name": "Copy BIA_FLEX_RWT_PROJECT",
+						"type": "Copy",
+						"dependsOn": [
+							{
+								"activity": "Copy BIA_ORGANIZATIONS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
 						},
-						"parameters": {}
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE xCAMP.BIA_FLEX_RWT_PROJECT",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "FLEX_VALUE_SET_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FLEX_VALUE_SET_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FLEX_VALUE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FLEX_VALUE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ENABLED_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ENABLED_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SUMMARY_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SUMMARY_FLAG",
+											"type": "String"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_FLEX_RWT_PROJECT",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "xCAMP_BIA_FLEX_RWT_PROJECT",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
 					},
 					{
-						"pipelineReference": {
-							"referenceName": "pipe_PriceLists",
-							"type": "PipelineReference"
+						"name": "Copy BIA_GL_CODE_COMBINATIONS_V",
+						"type": "Copy",
+						"dependsOn": [
+							{
+								"activity": "Copy BIA_GL_CAMP_CATEGORY_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
 						},
-						"parameters": {}
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE xCAMP.BIA_GL_CODE_COMBINATIONS_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "CODE_COMBINATION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "CODE_COMBINATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CHART_OF_ACCOUNTS_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "CHART_OF_ACCOUNTS_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCOUNT_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ACCOUNT_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "SEGMENT1",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEGMENT1",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEG1_DESC",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEG1_DESC",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEGMENT2",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEGMENT2",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEG2_DESC",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEG2_DESC",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEGMENT3",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEGMENT3",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEG3_DESC",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEG3_DESC",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEGMENT4",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEGMENT4",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEG4_DESC",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEG4_DESC",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEGMENT5",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEGMENT5",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEG5_DESC",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEG5_DESC",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEGMENT6",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEGMENT6",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEG6_DESC",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEG6_DESC",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEGMENT7",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEGMENT7",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEG7_DESC",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEG7_DESC",
+											"type": "String"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_GL_CODE_COMBINATIONS_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "xCAMP_BIA_GL_CODE_COMBINATIONS_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Copy BIA_GL_CAMP_CATEGORY_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE xCAMP.BIA_GL_CAMP_CATEGORY_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "CAMP_ACCOUNT_CODE",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "CAMP_ACCOUNT_CODE",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "RDC_ACCOUNT_CATEGORY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "RDC_ACCOUNT_CATEGORY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "NTT_ACCOUNT_CATEGORY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "NTT_ACCOUNT_CATEGORY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ORIG_ACCOUNT_CATEGORY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ORIG_ACCOUNT_CATEGORY",
+											"type": "String"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_GL_CAMP_CATEGORY_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "xCAMP_BIA_GL_CAMP_CATEGORY_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "stage BIA_GL_HEADERS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_xCAMP_stage_BIA_GL_HEADERS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "stage BIA_GL_LINES_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "Copy BIA_FLEX_RWT_PROJECT",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "Copy BIA_GL_CODE_COMBINATIONS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "stage BIA_GL_HEADERS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "stage BIA_POWER_KW_ENCL_MONTH_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_xCAMP_stage_BIA_GL_LINES_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "stage BIA_POWER_KW_CONTRACT_LINE_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_xCAMP_stage_BIA_POWER_KW_CONTRACT_LINE_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "stage BIA_POWER_KW_ENCL_MONTH_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "stage BIA_POWER_KW_CONTRACT_LINE_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_xCAMP_stage_BIA_POWER_KW_ENCL_MONTH_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
 					}
 				],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Hour",
-						"interval": 6,
-						"startTime": "2020-04-23T21:00:00.000Z",
-						"timeZone": "UTC"
-					}
-				}
+				"folder": {
+					"name": "Pipe xCAMP/pipe_xCAMP"
+				},
+				"annotations": [
+					"Parent",
+					"From OAC",
+					"pipe_xCAMP"
+				]
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/stage_20min_00')]",
+			"name": "[concat(parameters('factoryName'), '/stage_00_20min')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"description": "Trigger Every 20 Minutes on the 00",
-				"annotations": [],
-				"runtimeState": "Stopped",
+				"annotations": [
+					"20 min"
+				],
+				"runtimeState": "Started",
 				"pipelines": [
 					{
 						"pipelineReference": {
@@ -177,13 +847,53 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/stage_20min_25')]",
+			"name": "[concat(parameters('factoryName'), '/stage_05_20min')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Stage Every 20 Minutes on 05",
+				"annotations": [
+					"20 min"
+				],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_Expenditures",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_Purchasing",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 20,
+						"startTime": "2020-04-24T00:05:00.000Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/stage_25_20min')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"description": "Trigger Every 20 Minutes on the 25",
-				"annotations": [],
-				"runtimeState": "Stopped",
+				"annotations": [
+					"20 min"
+				],
+				"runtimeState": "Started",
 				"pipelines": [
 					{
 						"pipelineReference": {
@@ -210,16 +920,20 @@
 					}
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_xCAMP')]"
+			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/stage_20min_30')]",
+			"name": "[concat(parameters('factoryName'), '/stage_30_20min')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"description": "Trigger Every 20 Minutes on the 30",
-				"annotations": [],
-				"runtimeState": "Stopped",
+				"annotations": [
+					"20 min"
+				],
+				"runtimeState": "Started",
 				"pipelines": [
 					{
 						"pipelineReference": {
@@ -249,85 +963,15 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/stage_20min_35')]",
+			"name": "[concat(parameters('factoryName'), '/stage_35_20min')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"description": "Trigger Every 20 Minutes on the 35",
-				"annotations": [],
-				"runtimeState": "Stopped",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_GeneralLedgerJournals",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					},
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_SubLedgers",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
+				"annotations": [
+					"20 min"
 				],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Minute",
-						"interval": 20,
-						"startTime": "2020-04-24T00:35:00.000Z",
-						"timeZone": "UTC"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/stage_20min_45')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Trigger Every 20 Minutes on the 45",
-				"annotations": [],
-				"runtimeState": "Stopped",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_Expenditures",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					},
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_Purchasing",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
-				],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Minute",
-						"interval": 20,
-						"startTime": "2020-04-24T00:45:00.000Z",
-						"timeZone": "UTC"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/stage_20min_55')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Trigger Every 20 Minutes on the 55",
-				"annotations": [],
-				"runtimeState": "Stopped",
+				"runtimeState": "Started",
 				"pipelines": [
 					{
 						"pipelineReference": {
@@ -349,7 +993,256 @@
 					"recurrence": {
 						"frequency": "Minute",
 						"interval": 20,
-						"startTime": "2020-04-24T00:55:00.000Z",
+						"startTime": "2020-04-24T00:35:00.000Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/stage_08_60min')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Stage Every 60 Minutes at 05",
+				"annotations": [
+					"60 min"
+				],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_GeneralLedgerJournals",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_SubLedgers",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_PurchaseOrders_BIA",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_PurchaseOrders_BICS",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 60,
+						"startTime": "2020-04-24T00:05:00.000Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger_hour_06_schedule')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Scheduled Trigger Every 6 Hours",
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_MRTG",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Hour",
+						"interval": 6,
+						"startTime": "2020-04-23T21:00:00.000Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/stage_10_20min')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Stage Every 20 Minutes at 10",
+				"annotations": [
+					"20 min"
+				],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_Projects_CompareOAC",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_BudgetForecast",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_PriceLists",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 20,
+						"startTime": "2020-04-24T00:10:00.000Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/stage_18_60min')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Stage Every 60 Minutes on the 18",
+				"annotations": [
+					"60 min"
+				],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_SalesOrders",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_ServiceContracts",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_FixedAssets",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 60,
+						"startTime": "2020-04-24T00:18:00.000Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/stage_28_60min')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Trigger Every 60 Minutes on the 28",
+				"annotations": [
+					"60 min"
+				],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_Customers",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_Vendors",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 60,
+						"startTime": "2020-04-24T00:28:00.000Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_Vendors')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/stage_38_60min')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Trigger Every 60 Minutes on the 38",
+				"annotations": [
+					"60 min"
+				],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_Employees",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_Employees_FromMatrix",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 60,
+						"startTime": "2020-04-24T00:38:00.000Z",
 						"timeZone": "UTC"
 					}
 				}
