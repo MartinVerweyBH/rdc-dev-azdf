@@ -3,7 +3,7 @@
 	"properties": {
 		"description": "Stage Every 60 Minutes at 05",
 		"annotations": [
-			"20 min"
+			"60 min"
 		],
 		"runtimeState": "Stopped",
 		"pipelines": [
