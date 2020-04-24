@@ -3,7 +3,9 @@
 	"properties": {
 		"description": "Stage Every 60 Minutes on the 18",
 		"annotations": [
-			"60 min"
+			"60 min",
+			"Sales Orders",
+			"Service Contracts"
 		],
 		"runtimeState": "Stopped",
 		"pipelines": [
