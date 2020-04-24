@@ -13,99 +13,6 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/pipe_SalesOrders')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "pipe_BIA_SALES_ORDER_HEADERS_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "pipe_BIA_SALES_ORDER_TYPES_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							},
-							{
-								"activity": "pipe_BIA_SALES_TRANS_TYPES_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_SALES_ORDER_HEADERS_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "pipe_BIA_SALES_ORDER_TYPES_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_SALES_ORDER_TYPES_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "pipe_BIA_SALES_TRANS_TYPES_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_SALES_TRANS_TYPES_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "pipe_BIA_SALES_ORDER_LINES_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "pipe_BIA_SALES_ORDER_HEADERS_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_SALES_ORDER_LINES_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					}
-				],
-				"folder": {
-					"name": "Pipe SalesOrders/pipe_SalesOrders"
-				},
-				"annotations": [
-					"Parent",
-					"pipe_SalesOrders"
-				]
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/pipe_ServiceContracts')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -1252,13 +1159,6 @@
 				"pipelines": [
 					{
 						"pipelineReference": {
-							"referenceName": "pipe_GeneralLedger",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					},
-					{
-						"pipelineReference": {
 							"referenceName": "pipe_CAMP",
 							"type": "PipelineReference"
 						},
@@ -1434,7 +1334,6 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_SalesOrders')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_ServiceContracts')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_Vendors')]"
 			]
@@ -1476,6 +1375,35 @@
 						"frequency": "Hour",
 						"interval": 6,
 						"startTime": "2020-04-23T21:00:00.000Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/stage_20min_00')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Trigger Every 20 Minutes on the 00",
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_GeneralLedger",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 20,
+						"startTime": "2020-04-24T00:00:00.000Z",
 						"timeZone": "UTC"
 					}
 				}

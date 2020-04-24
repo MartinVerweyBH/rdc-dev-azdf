@@ -13,169 +13,6 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/pipe_BICS_GL_JOURNALS_BATCH_V')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "pipeBICS_GL_JOURNALS_BATCH_V\nSource: EBS\nDestination: Azure OAC",
-				"activities": [
-					{
-						"name": "Copy BICS_GL_JOURNALS_BATCH_V",
-						"description": "Copy BICS_GL_JOURNALS_BATCH_V",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "OracleSource",
-								"partitionOption": "None",
-								"queryTimeout": "02:00:00"
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE OACPROD.BICS_GL_JOURNALS_BATCH_V",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "JE_BATCH_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "JE_BATCH_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "BATCH_NAME",
-											"type": "String"
-										},
-										"sink": {
-											"name": "BATCH_NAME",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "BATCH_DESCRIPTION",
-											"type": "String"
-										},
-										"sink": {
-											"name": "BATCH_DESCRIPTION",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "BATCH_DEFAULT_PERIOD",
-											"type": "String"
-										},
-										"sink": {
-											"name": "BATCH_DEFAULT_PERIOD",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "BATCH_FISCAL_YEAR",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "BATCH_FISCAL_YEAR",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "BATCH_FISCAL_QTR",
-											"type": "String"
-										},
-										"sink": {
-											"name": "BATCH_FISCAL_QTR",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "BATCH_PERIOD_STATUS",
-											"type": "String"
-										},
-										"sink": {
-											"name": "BATCH_PERIOD_STATUS",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "JE_BATCH_RUNNING_TOTAL_DR",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "JE_BATCH_RUNNING_TOTAL_DR",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "JE_BATCH_RUNNING_TOTAL_CR",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "JE_BATCH_RUNNING_TOTAL_CR",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										}
-									}
-								]
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "ebs_BICS_GL_JOURNALS_BATCH_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "aoac_BICS_GL_JOURNALS_BATCH_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedgerJournals"
-				},
-				"annotations": [
-					"pipe_GeneralLedgerJournals"
-				]
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/pipe_BICS_GL_JOURNALS_DTL_V')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -8173,6 +8010,225 @@
 						"outputs": [
 							{
 								"referenceName": "aoac_PBI_MATRIX_DEPT_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "Pipe Employees/pipe_Employees_FromMatrix"
+				},
+				"annotations": [
+					"pipe_Employees"
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_PBI_MATRIX_EMPLOYEE_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy PBI_MATRIX_EMPLOYEE_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "PostgreSqlSource"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.PBI_MATRIX_EMPLOYEE_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "matrix_id",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "MATRIX_ID",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "last_name",
+											"type": "String"
+										},
+										"sink": {
+											"name": "LAST_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "first_name",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FIRST_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "job_title",
+											"type": "String"
+										},
+										"sink": {
+											"name": "JOB_TITLE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "login_id",
+											"type": "String"
+										},
+										"sink": {
+											"name": "LOGIN_ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "email_address",
+											"type": "String"
+										},
+										"sink": {
+											"name": "EMAIL_ADDRESS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "emp_class",
+											"type": "String"
+										},
+										"sink": {
+											"name": "EMP_CLASS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "emp_status",
+											"type": "String"
+										},
+										"sink": {
+											"name": "EMP_STATUS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "emp_type",
+											"type": "String"
+										},
+										"sink": {
+											"name": "EMP_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "is_supervisor",
+											"type": "String"
+										},
+										"sink": {
+											"name": "IS_SUPERVISOR",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ascentis_id",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "ASCENTIS_ID",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "employee_id",
+											"type": "String"
+										},
+										"sink": {
+											"name": "EMPLOYEE_ID",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "supervisor_id",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SUPERVISOR_ID",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "dept_id",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "DEPT_ID",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "dept_name",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DEPT_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "last_updated",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATED",
+											"type": "DateTime"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "pmatrix_PBI_MATRIX_EMPLOYEE_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_PBI_MATRIX_EMPLOYEE_V",
 								"type": "DatasetReference",
 								"parameters": {}
 							}

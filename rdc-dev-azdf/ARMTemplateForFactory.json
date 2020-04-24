@@ -111569,13 +111569,6 @@
 				"pipelines": [
 					{
 						"pipelineReference": {
-							"referenceName": "pipe_GeneralLedger",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					},
-					{
-						"pipelineReference": {
 							"referenceName": "pipe_CAMP",
 							"type": "PipelineReference"
 						},
@@ -111656,7 +111649,6 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_GeneralLedger')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_CAMP')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_GeneralLedgerJournals')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_xCAMP')]",
@@ -112034,7 +112026,15 @@
 				"description": "Trigger Every 20 Minutes on the 00",
 				"annotations": [],
 				"runtimeState": "Stopped",
-				"pipelines": [],
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_GeneralLedger",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
 				"type": "ScheduleTrigger",
 				"typeProperties": {
 					"recurrence": {
@@ -112045,7 +112045,9 @@
 					}
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_GeneralLedger')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/stage_20min_25')]",

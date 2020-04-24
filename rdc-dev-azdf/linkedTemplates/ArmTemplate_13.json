@@ -30,35 +30,28 @@
 		"lsMRTG_Postgres_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'lsMRTG_Postgres'"
+		},
+		"lsSFDC_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'lsSFDC'"
+		},
+		"lsSFDC_securityToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'securityToken' of 'lsSFDC'"
+		},
+		"lsSFDC_properties_typeProperties_environmentUrl": {
+			"type": "string",
+			"defaultValue": "https://ragingwire.my.salesforce.com"
+		},
+		"lsSFDC_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "svc_powerbisfdc@ragingwire.com"
 		}
 	},
 	"variables": {
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_W_PROJECTED_DEPRN_F')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC\nView: W_PROJECTED_DEPRN_F",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "W_PROJECTED_DEPRN_F"
-				}
-			},
-			"dependsOn": []
-		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_W_PROJ_COST_MJE_F')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
@@ -1715,6 +1708,33 @@
 				"type": "PostgreSql",
 				"typeProperties": {
 					"connectionString": "[parameters('lsMRTG_Postgres_connectionString')]"
+				},
+				"connectVia": {
+					"referenceName": "rdcir01",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/lsSFDC')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Link Service Sales Force Dot Com",
+				"annotations": [],
+				"type": "Salesforce",
+				"typeProperties": {
+					"environmentUrl": "[parameters('lsSFDC_properties_typeProperties_environmentUrl')]",
+					"username": "[parameters('lsSFDC_properties_typeProperties_username')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('lsSFDC_password')]"
+					},
+					"securityToken": {
+						"type": "SecureString",
+						"value": "[parameters('lsSFDC_securityToken')]"
+					}
 				},
 				"connectVia": {
 					"referenceName": "rdcir01",
