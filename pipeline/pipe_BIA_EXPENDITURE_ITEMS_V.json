@@ -299,7 +299,9 @@
 		"folder": {
 			"name": "Pipe Expenditures/pipe_Expenditures"
 		},
-		"annotations": []
+		"annotations": [
+			"pipe_Expenditures"
+		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
