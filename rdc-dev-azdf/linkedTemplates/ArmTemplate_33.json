@@ -218,13 +218,13 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/TW_hrs_01_PriceList')]",
+			"name": "[concat(parameters('factoryName'), '/TW_min_30_PriceLists')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "TW_hrs_01_PriceList",
+				"description": "TW_min_30_PriceLists",
 				"annotations": [
-					"001 hrs",
+					"030 min",
 					"Price Lists"
 				],
 				"runtimeState": "Started",
@@ -237,14 +237,14 @@
 				},
 				"type": "TumblingWindowTrigger",
 				"typeProperties": {
-					"frequency": "Hour",
-					"interval": 1,
-					"startTime": "2020-04-24T00:04:00.000Z",
+					"frequency": "Minute",
+					"interval": 30,
+					"startTime": "2020-04-24T22:34:00.000Z",
 					"delay": "00:00:00",
 					"maxConcurrency": 1,
 					"retryPolicy": {
-						"count": 5,
-						"intervalInSeconds": 60
+						"count": 6,
+						"intervalInSeconds": 120
 					},
 					"dependsOn": []
 				}
