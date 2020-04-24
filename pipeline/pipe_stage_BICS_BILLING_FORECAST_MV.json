@@ -500,7 +500,9 @@
 		"folder": {
 			"name": "Pipe BudgetForecast/pipe_BudgetForecast"
 		},
-		"annotations": []
+		"annotations": [
+			"pipe_BudgetForecast"
+		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
