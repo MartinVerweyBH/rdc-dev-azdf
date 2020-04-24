@@ -112377,12 +112377,13 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/stage_17_120min_TW')]",
+			"name": "[concat(parameters('factoryName'), '/stage_17_60min_TW_SubLedgers')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Trigger Every 120 Minutes on 13 with Tumbling Window",
+				"description": "SubLedger_60min_TumblingWindow",
 				"annotations": [
+					"60 min",
 					"SubLedgers"
 				],
 				"runtimeState": "Started",
@@ -112396,12 +112397,13 @@
 				"type": "TumblingWindowTrigger",
 				"typeProperties": {
 					"frequency": "Minute",
-					"interval": 120,
+					"interval": 60,
 					"startTime": "2020-04-24T18:17:00.000Z",
 					"delay": "00:00:00",
-					"maxConcurrency": 50,
+					"maxConcurrency": 1,
 					"retryPolicy": {
-						"intervalInSeconds": 30
+						"count": 6,
+						"intervalInSeconds": 300
 					},
 					"dependsOn": []
 				}
