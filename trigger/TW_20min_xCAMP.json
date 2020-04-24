@@ -3,6 +3,7 @@
 	"properties": {
 		"description": "TW_20min_xCAMP",
 		"annotations": [
+			"020 min",
 			"xCAMP"
 		],
 		"runtimeState": "Started",
