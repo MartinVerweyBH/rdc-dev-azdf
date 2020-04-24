@@ -45060,6 +45060,20 @@
 							"waitOnCompletion": true,
 							"parameters": {}
 						}
+					},
+					{
+						"name": "pipe_GeneralLedger_Singles",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_GeneralLedger_Singles",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
 					}
 				],
 				"folder": {
@@ -45075,7 +45089,8 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_GeneralLedger')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_CAMP')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_GeneralLedgerJournals')]"
+				"[concat(variables('factoryId'), '/pipelines/pipe_GeneralLedgerJournals')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_GeneralLedger_Singles')]"
 			]
 		},
 		{
@@ -111572,18 +111587,11 @@
 					"20 min",
 					"GeneralLedger"
 				],
-				"runtimeState": "Stopped",
+				"runtimeState": "Started",
 				"pipelines": [
 					{
 						"pipelineReference": {
-							"referenceName": "pipe_GeneralLedger",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					},
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_GeneralLedger_Singles",
+							"referenceName": "pipe_Combo_GLandCAMP",
 							"type": "PipelineReference"
 						},
 						"parameters": {}
@@ -111600,8 +111608,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_GeneralLedger')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_GeneralLedger_Singles')]"
+				"[concat(variables('factoryId'), '/pipelines/pipe_Combo_GLandCAMP')]"
 			]
 		},
 		{
