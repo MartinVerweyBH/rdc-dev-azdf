@@ -10,12 +10,6 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "pipe_Projects",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
 					"referenceName": "pipe_PriceLists",
 					"type": "PipelineReference"
 				}
