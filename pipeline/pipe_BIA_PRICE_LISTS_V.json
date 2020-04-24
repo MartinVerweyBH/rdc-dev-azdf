@@ -161,7 +161,9 @@
 		"folder": {
 			"name": "Pipe PriceLists/pipe_PriceLists"
 		},
-		"annotations": []
+		"annotations": [
+			"pipe_PriceLists"
+		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
