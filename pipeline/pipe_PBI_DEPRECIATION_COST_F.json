@@ -167,7 +167,7 @@
 			}
 		],
 		"folder": {
-			"name": "Pipe FixedAssets/pipe_FixedAssets"
+			"name": "Pipe FixedAssets/pipe_FixedAssets_WithErrors"
 		},
 		"annotations": [
 			"pipe_FixedAssets"
