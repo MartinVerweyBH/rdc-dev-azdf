@@ -13,6 +13,189 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/pipe_Projects')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "pipe_BIA_PROJECTS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_PROJECTS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_PA_BUDGET_VERSIONS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_PA_PROJECT_CUSTOMERS",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_PA_BUDGET_VERSIONS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_PA_TASKS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_PA_PROJECT_CUSTOMERS",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_PA_TASKS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_EXPENDITURE_ACCUM_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_PA_BUDGET_VERSIONS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "pipe_BIA_PA_TASKS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_EXPENDITURE_ACCUM_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_PROJECTS_CIP_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_PROJECTS_CIP_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_PA_PROJECT_CUSTOMERS",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_PROJECTS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "pipe_BIA_PROJECTS_CIP_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_PA_PROJECT_CUSTOMERS",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BICS_PROJECT_CLASSES_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_PROJECTS_CIP_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BICS_PROJECT_CLASSES_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_stage_BICS_REQUISITION_PROJECTS",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BICS_PROJECT_CLASSES_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_stage_BICS_REQUISITION_PROJECTS",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"folder": {
+					"name": "Pipe Projects/pipe_Projects"
+				},
+				"annotations": [
+					"Parent",
+					"pipe_Projects"
+				]
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/pipe_Projects_W')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -2751,38 +2934,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/stage_35_120min')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Trigger Every 120 Minutes on the 35",
-				"annotations": [
-					"120 min",
-					"PriceList"
-				],
-				"runtimeState": "Stopped",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_PriceLists",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
-				],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Minute",
-						"interval": 120,
-						"startTime": "2020-04-24T00:35:00.000Z",
-						"timeZone": "UTC"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/TW_hrs_06_MRTG')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
@@ -2965,6 +3116,7 @@
 				]
 			},
 			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_Projects')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_Projects_W')]"
 			]
 		}

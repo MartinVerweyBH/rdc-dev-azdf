@@ -13,6 +13,204 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BIA_POWER_KW_ENCL_MONTH_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy BIA_POWER_KW_ENCL_MONTH_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_POWER_KW_ENCL_MONTH_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "PERIOD_MONTH",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PERIOD_MONTH",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CLIENT_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CLIENT_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LOC_PATH",
+											"type": "String"
+										},
+										"sink": {
+											"name": "LOC_PATH",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AVG_SQUARE_FEET_INUSE",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "AVG_SQUARE_FEET_INUSE",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "IIC_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "IIC_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "BILL_CONTRACT_LINE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "BILL_CONTRACT_LINE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "OFIN_CUSTOMER_NUMBER",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OFIN_CUSTOMER_NUMBER",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AVG_KW_READING_VALUE",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "AVG_KW_READING_VALUE",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "KWH",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "KWH",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "BILL_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BILL_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SF_BUILT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "SF_BUILT",
+											"type": "Decimal"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_POWER_KW_ENCL_MONTH_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BIA_POWER_KW_ENCL_MONTH_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "etlUpdate_PowerEnclMonth_PostUpdates",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "Copy BIA_POWER_KW_ENCL_MONTH_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[OACPROD].[etlUpdate_PowerEnclMonth_PostUpdates]"
+						},
+						"linkedServiceName": {
+							"referenceName": "ls_dwStageOAC",
+							"type": "LinkedServiceReference"
+						}
+					}
+				],
+				"folder": {
+					"name": "Pipe CAMP/pipe_CAMP"
+				},
+				"annotations": [
+					"pipe_CAMP"
+				]
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/pipe_BIA_PO_ACTION_HISTORY_V')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -6601,139 +6799,6 @@
 						"outputs": [
 							{
 								"referenceName": "aoac_BIA_REV_CATEGORY_ITEMS_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"folder": {
-					"name": "Pipe PriceLists/pipe_PriceLists"
-				},
-				"annotations": [
-					"pipe_PriceLists"
-				]
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipe_BIA_REV_CATEGORY_V')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "pipe_BIA_REV_CATEGORY_V",
-				"activities": [
-					{
-						"name": "Copy BIA_REV_CATEGORY_V",
-						"description": "Copy BIA_REV_CATEGORY_V\n(Ignore REV_CATEGORY not on EBS Source - ES: 1/30/20-Field is not used)",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "OracleSource",
-								"partitionOption": "None",
-								"queryTimeout": "02:00:00"
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_REV_CATEGORY_V",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "REV_CATEGORY_SORT_ORDER",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "REV_CATEGORY_SORT_ORDER",
-											"type": "Double"
-										}
-									},
-									{
-										"source": {
-											"name": "ITEM_CATEGORY",
-											"type": "String"
-										},
-										"sink": {
-											"name": "ITEM_CATEGORY",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "ITEM_REV_CATEGORY",
-											"type": "String"
-										},
-										"sink": {
-											"name": "ITEM_REV_CATEGORY",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "ACCOUNT_CODE",
-											"type": "String"
-										},
-										"sink": {
-											"name": "ACCOUNT_CODE",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "REVENUE_CATEGORY",
-											"type": "String"
-										},
-										"sink": {
-											"name": "REVENUE_CATEGORY",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "STRUCTURE_ID",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "STRUCTURE_ID",
-											"type": "Double"
-										}
-									},
-									{
-										"source": {
-											"name": "CATEGORY_ID",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "CATEGORY_ID",
-											"type": "Double"
-										}
-									}
-								]
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "ebs_BIA_REV_CATEGORY_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "aoac_BIA_REV_CATEGORY_V",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
