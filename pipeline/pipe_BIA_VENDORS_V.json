@@ -290,7 +290,9 @@
 		"folder": {
 			"name": "Pipe Vendors/pipe_Vendors"
 		},
-		"annotations": []
+		"annotations": [
+			"pipe_Vendors"
+		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
