@@ -44569,7 +44569,9 @@
 				"folder": {
 					"name": "Pipe BudgetForecast/pipe_BudgetForecast"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_stage_BICS_BILLING_FORECAST_MV')]"
@@ -44743,7 +44745,9 @@
 				"folder": {
 					"name": "Pipe CAMP/pipe_CAMP"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_ORGANIZATIONS_V')]",
@@ -44960,7 +44964,9 @@
 				"folder": {
 					"name": "Pipe Customers/pipe_Customers"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_CUST_SITES_V')]",
@@ -45081,7 +45087,9 @@
 				"folder": {
 					"name": "Pipe Employees/pipe_Employees"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_EMPLOYEES_V')]",
@@ -45156,7 +45164,9 @@
 				"folder": {
 					"name": "Pipe Employees/pipe_Employees_FromMatrix"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_PBI_MATRIX_DEPT_V')]",
@@ -45272,7 +45282,9 @@
 				"folder": {
 					"name": "Pipe Expenditures/pipe_Expenditures"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_EXPENDITURE_TYPES_V')]",
@@ -45389,7 +45401,9 @@
 				"folder": {
 					"name": "Pipe FixedAssets/pipe_FixedAssets"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_FA_DESCRIPTION_V')]",
@@ -45628,7 +45642,9 @@
 				"folder": {
 					"name": "pipe GeneralLedger/pipe_GeneralLedger"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_HEADERS_V')]",
@@ -45750,7 +45766,9 @@
 				"folder": {
 					"name": "pipe GeneralLedger/pipe_GeneralLedgerJournals"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_GL_JOURNALS_BATCH_V')]",
@@ -45784,7 +45802,9 @@
 				"folder": {
 					"name": "pipe MRTG/pipe_MRTG"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_stage_MRTG_BILLING')]"
@@ -47178,7 +47198,9 @@
 				"folder": {
 					"name": "Pipe PriceLists/pipe_PriceLists"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_ITEMS_CODES_V')]",
@@ -47365,7 +47387,9 @@
 				"folder": {
 					"name": "Pipe Projects/pipe_Projects"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_PROJECTS_V')]",
@@ -49844,7 +49868,10 @@
 				"folder": {
 					"name": "Pipe Projects/pipe_Projects_CompareOAC"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent",
+					"From OAC"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/ebs_BIA_PROJECTS_V')]",
@@ -50196,7 +50223,9 @@
 				"folder": {
 					"name": "Pipe Projects/pipe_Projects_W"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_W_DEPRICIATION_COST_F')]",
@@ -50529,7 +50558,9 @@
 				"folder": {
 					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_PO_HEADERS_V')]",
@@ -50740,7 +50771,9 @@
 				"folder": {
 					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_PO_CONV_V')]",
@@ -50972,7 +51005,9 @@
 				"folder": {
 					"name": "Pipe Purchasing/pipe_Purchasing"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_AP_INVOICE')]",
@@ -51080,7 +51115,9 @@
 				"folder": {
 					"name": "Pipe Quotes/pipe_Quotes"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_QUOTE_HEADERS_V')]",
@@ -51209,7 +51246,9 @@
 				"folder": {
 					"name": "Pipe Receivables/pipe_Receivables"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_AR_INVOICES_V')]",
@@ -51305,7 +51344,9 @@
 				"folder": {
 					"name": "Pipe SalesOrders/pipe_SalesOrders"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_SALES_ORDER_HEADERS_V')]",
@@ -51450,7 +51491,9 @@
 				"folder": {
 					"name": "Pipe ServiceContracts/pipe_ServiceContracts"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_SERVICE_CONTRACTS_V')]",
@@ -51644,7 +51687,9 @@
 				"folder": {
 					"name": "pipe SubLedger/pipe_SubLedgers"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_XLA_AE_HEADERS_V')]",
@@ -51702,7 +51747,9 @@
 				"folder": {
 					"name": "Pipe Vendors/pipe_Vendors"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_VENDORS_V')]",
@@ -69295,7 +69342,10 @@
 				"folder": {
 					"name": "Pipe xCAMP/pipe_xCAMP"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent",
+					"From OAC"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/ebs_BIA_ORGANIZATIONS_V')]",

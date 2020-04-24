@@ -5353,7 +5353,9 @@
 				"folder": {
 					"name": "Pipe BudgetForecast/pipe_BudgetForecast"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_stage_BICS_BILLING_FORECAST_MV')]"
@@ -5527,7 +5529,9 @@
 				"folder": {
 					"name": "Pipe CAMP/pipe_CAMP"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent"
+				]
 			},
 			"dependsOn": []
 		},
@@ -5735,7 +5739,9 @@
 				"folder": {
 					"name": "Pipe Customers/pipe_Customers"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent"
+				]
 			},
 			"dependsOn": []
 		},
@@ -5846,7 +5852,9 @@
 				"folder": {
 					"name": "Pipe Employees/pipe_Employees"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_stage_BICS_IPROCUREMENT_LICENSE_V')]"
@@ -5917,7 +5925,9 @@
 				"folder": {
 					"name": "Pipe Employees/pipe_Employees_FromMatrix"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent"
+				]
 			},
 			"dependsOn": []
 		}
