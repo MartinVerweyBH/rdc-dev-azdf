@@ -98,7 +98,8 @@
 			"name": "pipe GeneralLedger/pipe_GeneralLedgerJournals"
 		},
 		"annotations": [
-			"Parent"
+			"Parent",
+			"pipe_GeneralLedgerJournals"
 		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
