@@ -157,7 +157,8 @@
 			"name": "Pipe CAMP/pipe_CAMP"
 		},
 		"annotations": [
-			"Parent"
+			"Parent",
+			"pipe_CAMP"
 		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
