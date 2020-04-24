@@ -1,0 +1,125 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "rdc-dev-azdf"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_GeneralLedgerJournals')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "pipe_BICS_GL_JOURNALS_BATCH_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BICS_GL_JOURNALS_BATCH_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true
+						}
+					},
+					{
+						"name": "pipe_BICS_GL_JOURNALS_DTL_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BICS_GL_JOURNALS_DTL_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true
+						}
+					},
+					{
+						"name": "pipe_BICS_GL_JOURNALS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BICS_GL_JOURNALS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true
+						}
+					},
+					{
+						"name": "pipe_BICS_GL_JOURNALS_HEADER_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BICS_GL_JOURNALS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "pipe_BICS_GL_JOURNALS_DTL_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "pipe_BICS_GL_JOURNALS_BATCH_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BICS_GL_JOURNALS_HEADER_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true
+						}
+					},
+					{
+						"name": "pipe_stage_BICS_GL_JOURNALS_LINE_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BICS_GL_JOURNALS_HEADER_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_stage_BICS_GL_JOURNALS_LINE_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true
+						}
+					}
+				],
+				"folder": {
+					"name": "Pipe GeneralLedger/pipe_GeneralLedgerJournals"
+				},
+				"annotations": [
+					"Parent",
+					"pipe_GeneralLedgerJournals",
+					"pipe_Combo_GLandCAMP"
+				]
+			},
+			"dependsOn": []
+		}
+	]
+}

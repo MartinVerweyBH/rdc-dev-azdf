@@ -46087,7 +46087,7 @@
 						}
 					},
 					{
-						"name": "pipe_BICS_GL_JOURNALS_LINE_V",
+						"name": "pipe_stage_BICS_GL_JOURNALS_LINE_V",
 						"type": "ExecutePipeline",
 						"dependsOn": [
 							{
@@ -46100,7 +46100,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"pipeline": {
-								"referenceName": "pipe_BICS_GL_JOURNALS_LINE_V",
+								"referenceName": "pipe_stage_BICS_GL_JOURNALS_LINE_V",
 								"type": "PipelineReference"
 							},
 							"waitOnCompletion": true,
@@ -46122,7 +46122,7 @@
 				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_GL_JOURNALS_DTL_V')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_GL_JOURNALS_V')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_GL_JOURNALS_HEADER_V')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_GL_JOURNALS_LINE_V')]"
+				"[concat(variables('factoryId'), '/pipelines/pipe_stage_BICS_GL_JOURNALS_LINE_V')]"
 			]
 		},
 		{
