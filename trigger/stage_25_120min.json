@@ -1,7 +1,7 @@
 {
-	"name": "stage_28_120min",
+	"name": "stage_25_120min",
 	"properties": {
-		"description": "Trigger Every 120 Minutes on the 28\n- Customers\n- Vendors",
+		"description": "Trigger Every 120 Minutes on the 25\n- Customers\n- Vendors",
 		"annotations": [
 			"120 min",
 			"Customers",
