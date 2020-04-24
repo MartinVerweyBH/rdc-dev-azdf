@@ -3,7 +3,7 @@
 	"properties": {
 		"description": "stage_trigger_min20_schedule",
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipelines": [
 			{
 				"pipelineReference": {
