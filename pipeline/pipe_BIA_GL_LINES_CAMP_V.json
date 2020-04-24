@@ -229,7 +229,9 @@
 		"folder": {
 			"name": "pipe GeneralLedger/pipe_GeneralLedger"
 		},
-		"annotations": []
+		"annotations": [
+			"pipe_GeneralLedger"
+		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
