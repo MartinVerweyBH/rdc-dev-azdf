@@ -339,6 +339,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"lsEBS_connectionString": {
+						"value": "[parameters('lsEBS_connectionString')]"
 					}
 				}
 			},
@@ -359,9 +362,6 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
-					},
-					"lsEBS_connectionString": {
-						"value": "[parameters('lsEBS_connectionString')]"
 					},
 					"lsEBS_PROD_connectionString": {
 						"value": "[parameters('lsEBS_PROD_connectionString')]"

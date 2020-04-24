@@ -111750,31 +111750,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/stage_25_120min')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Trigger Every 120 Minutes on the 25\n- Customers\n- Vendors",
-				"annotations": [
-					"120 min",
-					"Customers",
-					"Vendors"
-				],
-				"runtimeState": "Stopped",
-				"pipelines": [],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Minute",
-						"interval": 120,
-						"startTime": "2020-04-24T00:25:00.000Z",
-						"timeZone": "UTC"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/stage_25_60min_TW_PurchaseOrders')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
@@ -111829,13 +111804,6 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {}
-					},
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_Quotes",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
 					}
 				],
 				"type": "ScheduleTrigger",
@@ -111849,8 +111817,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_Receivables')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_Quotes')]"
+				"[concat(variables('factoryId'), '/pipelines/pipe_Receivables')]"
 			]
 		},
 		{
@@ -112407,6 +112374,42 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_Vendors')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/TW_min_30_Quotes')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "TW_min_30_Quotes",
+				"annotations": [
+					"030 min",
+					"Quotes"
+				],
+				"runtimeState": "Started",
+				"pipeline": {
+					"pipelineReference": {
+						"referenceName": "pipe_Quotes",
+						"type": "PipelineReference"
+					},
+					"parameters": {}
+				},
+				"type": "TumblingWindowTrigger",
+				"typeProperties": {
+					"frequency": "Minute",
+					"interval": 30,
+					"startTime": "2020-04-24T22:07:00.000Z",
+					"delay": "00:00:00",
+					"maxConcurrency": 1,
+					"retryPolicy": {
+						"count": 6,
+						"intervalInSeconds": 120
+					},
+					"dependsOn": []
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_Quotes')]"
 			]
 		}
 	]
