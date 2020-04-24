@@ -156,7 +156,9 @@
 		"folder": {
 			"name": "Pipe CAMP/pipe_CAMP"
 		},
-		"annotations": []
+		"annotations": [
+			"Parent"
+		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
