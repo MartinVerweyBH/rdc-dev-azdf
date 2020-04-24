@@ -126,7 +126,8 @@
 			"name": "Pipe ServiceContracts/pipe_ServiceContracts"
 		},
 		"annotations": [
-			"Parent"
+			"Parent",
+			"pipe_ServiceContracts"
 		]
 	}
 }

@@ -729,7 +729,8 @@
 		},
 		"annotations": [
 			"Parent",
-			"From OAC"
+			"From OAC",
+			"pipe_xCAMP"
 		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"

@@ -112,7 +112,8 @@
 			"name": "Pipe Receivables/pipe_Receivables"
 		},
 		"annotations": [
-			"Parent"
+			"Parent",
+			"pipe_Receivables"
 		]
 	}
 }

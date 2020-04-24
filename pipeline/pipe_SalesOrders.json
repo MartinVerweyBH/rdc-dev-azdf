@@ -79,7 +79,8 @@
 			"name": "Pipe SalesOrders/pipe_SalesOrders"
 		},
 		"annotations": [
-			"Parent"
+			"Parent",
+			"pipe_SalesOrders"
 		]
 	}
 }

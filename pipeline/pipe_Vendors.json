@@ -40,7 +40,8 @@
 			"name": "Pipe Vendors/pipe_Vendors"
 		},
 		"annotations": [
-			"Parent"
+			"Parent",
+			"pipe_Vendors"
 		]
 	}
 }
