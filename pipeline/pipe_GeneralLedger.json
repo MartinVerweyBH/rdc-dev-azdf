@@ -4,7 +4,7 @@
 		"description": " ",
 		"activities": [
 			{
-				"name": "BIA_GL_HEADERS_V",
+				"name": "stage_BIA_GL_HEADERS_V",
 				"type": "ExecutePipeline",
 				"dependsOn": [
 					{
@@ -53,18 +53,18 @@
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
-						"referenceName": "pipe_BIA_GL_HEADERS_V",
+						"referenceName": "pipe_stage_BIA_GL_HEADERS_V",
 						"type": "PipelineReference"
 					},
 					"waitOnCompletion": true
 				}
 			},
 			{
-				"name": "BIA_GL_LINES_V",
+				"name": "stage_BIA_GL_LINES_V",
 				"type": "ExecutePipeline",
 				"dependsOn": [
 					{
-						"activity": "BIA_GL_HEADERS_V",
+						"activity": "stage_BIA_GL_HEADERS_V",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -73,7 +73,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
-						"referenceName": "pipe_BIA_GL_LINES_V",
+						"referenceName": "pipe_stage_BIA_GL_LINES_V",
 						"type": "PipelineReference"
 					},
 					"waitOnCompletion": true
@@ -175,7 +175,7 @@
 				"type": "ExecutePipeline",
 				"dependsOn": [
 					{
-						"activity": "BIA_GL_HEADERS_V",
+						"activity": "stage_BIA_GL_HEADERS_V",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -195,7 +195,7 @@
 				"type": "ExecutePipeline",
 				"dependsOn": [
 					{
-						"activity": "BIA_GL_HEADERS_V",
+						"activity": "stage_BIA_GL_HEADERS_V",
 						"dependencyConditions": [
 							"Succeeded"
 						]
