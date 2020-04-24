@@ -729,7 +729,9 @@
 		"folder": {
 			"name": "Pipe SalesOrders/pipe_SalesOrders"
 		},
-		"annotations": []
+		"annotations": [
+			"pipe_SalesOrders"
+		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
