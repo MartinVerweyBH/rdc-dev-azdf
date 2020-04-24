@@ -2,7 +2,9 @@
 	"name": "stage_18_60min",
 	"properties": {
 		"description": "Stage Every 60 Minutes on the 18",
-		"annotations": [],
+		"annotations": [
+			"60 min"
+		],
 		"runtimeState": "Stopped",
 		"pipelines": [
 			{
