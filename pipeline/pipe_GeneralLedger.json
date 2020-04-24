@@ -215,7 +215,8 @@
 			"name": "pipe GeneralLedger/pipe_GeneralLedger"
 		},
 		"annotations": [
-			"Parent"
+			"Parent",
+			"pipe_GeneralLedger"
 		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
