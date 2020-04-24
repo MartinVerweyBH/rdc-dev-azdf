@@ -19,11 +19,32 @@
 			"properties": {
 				"description": "stage_trigger_min20_schedule",
 				"annotations": [],
-				"runtimeState": "Stopped",
+				"runtimeState": "Started",
 				"pipelines": [
 					{
 						"pipelineReference": {
 							"referenceName": "pipe_GeneralLedger",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_CAMP",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_GeneralLedgerJournals",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_xCAMP",
 							"type": "PipelineReference"
 						},
 						"parameters": {}
@@ -34,7 +55,7 @@
 					"recurrence": {
 						"frequency": "Minute",
 						"interval": 20,
-						"startTime": "2020-02-05T06:00:00.000Z",
+						"startTime": "2020-02-05T06:20:00.000Z",
 						"timeZone": "UTC"
 					}
 				}

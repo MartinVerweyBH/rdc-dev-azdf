@@ -45169,6 +45169,7 @@
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
+				"description": " ",
 				"activities": [
 					{
 						"name": "BIA_GL_HEADERS_V",
@@ -66886,6 +66887,7 @@
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
+				"description": " ",
 				"activities": [
 					{
 						"name": "Copy BIA_ORGANIZATIONS_V",
@@ -109282,11 +109284,32 @@
 			"properties": {
 				"description": "stage_trigger_min20_schedule",
 				"annotations": [],
-				"runtimeState": "Stopped",
+				"runtimeState": "Started",
 				"pipelines": [
 					{
 						"pipelineReference": {
 							"referenceName": "pipe_GeneralLedger",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_CAMP",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_GeneralLedgerJournals",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_xCAMP",
 							"type": "PipelineReference"
 						},
 						"parameters": {}
@@ -109297,13 +109320,16 @@
 					"recurrence": {
 						"frequency": "Minute",
 						"interval": 20,
-						"startTime": "2020-02-05T06:00:00.000Z",
+						"startTime": "2020-02-05T06:20:00.000Z",
 						"timeZone": "UTC"
 					}
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_GeneralLedger')]"
+				"[concat(variables('factoryId'), '/pipelines/pipe_GeneralLedger')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_CAMP')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_GeneralLedgerJournals')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_xCAMP')]"
 			]
 		},
 		{
