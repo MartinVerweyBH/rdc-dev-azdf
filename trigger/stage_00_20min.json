@@ -9,7 +9,7 @@
 			"GeneralLedgerJournals",
 			"GeneralLedgerSingles"
 		],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
