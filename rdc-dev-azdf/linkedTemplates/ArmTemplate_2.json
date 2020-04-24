@@ -13,103 +13,6 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/aoac_BIA_FA_DEPRN_PERIODS_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Destination: Azure OAC\nSchema: OACPROD\nTable: BIA_FA_DEPRN_PERIODS_V",
-				"linkedServiceName": {
-					"referenceName": "ls_dwStageOAC",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "Destinations - AOAC"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "BOOK",
-						"type": "varchar"
-					},
-					{
-						"name": "PERIOD_NAME",
-						"type": "varchar"
-					},
-					{
-						"name": "PERIOD_COUNTER",
-						"type": "decimal",
-						"precision": 15,
-						"scale": 0
-					},
-					{
-						"name": "FISCAL_YEAR",
-						"type": "decimal",
-						"precision": 4,
-						"scale": 0
-					},
-					{
-						"name": "PERIOD_NUM",
-						"type": "decimal",
-						"precision": 3,
-						"scale": 0
-					},
-					{
-						"name": "PERIOD_OPEN_DATE",
-						"type": "datetime2",
-						"scale": 0
-					},
-					{
-						"name": "PERIOD_CLOSE_DATE",
-						"type": "datetime2",
-						"scale": 0
-					},
-					{
-						"name": "CALENDAR_PERIOD_OPEN_DATE",
-						"type": "datetime2",
-						"scale": 0
-					},
-					{
-						"name": "CALENDAR_PERIOD_CLOSE_DATE",
-						"type": "datetime2",
-						"scale": 0
-					},
-					{
-						"name": "LAST_UPDATE_DATE",
-						"type": "datetime2",
-						"scale": 0
-					},
-					{
-						"name": "DSYS_INSTANCE_ID",
-						"type": "decimal",
-						"precision": 15,
-						"scale": 0
-					},
-					{
-						"name": "DSYS_PROCESS_ID",
-						"type": "decimal",
-						"precision": 12,
-						"scale": 0
-					},
-					{
-						"name": "DSYS_BATCH_ID",
-						"type": "decimal",
-						"precision": 30,
-						"scale": 0
-					},
-					{
-						"name": "PERIOD_BOOK_ID",
-						"type": "varchar"
-					}
-				],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BIA_FA_DEPRN_PERIODS_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_FA_DEPRN_SUMMARY_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -2234,6 +2137,170 @@
 				"typeProperties": {
 					"schema": "OACPROD",
 					"table": "BIA_GL_LOCATIONS_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/aoac_BIA_GL_PERIODS_R11V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Destination: Azure OAC\nSchema: OACPROD\nTable: BIA_GL_PERIODS_R11V",
+				"linkedServiceName": {
+					"referenceName": "ls_dwStageOAC",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Destinations - AOAC"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "PERIOD_NAME",
+						"type": "varchar"
+					},
+					{
+						"name": "PERIOD_NAME_U",
+						"type": "varchar"
+					},
+					{
+						"name": "PERIOD_NAME_FULL",
+						"type": "varchar"
+					},
+					{
+						"name": "START_DATE",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "END_DATE",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "PERIOD_YEAR",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "PERIOD_NUM",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "QUARTER_NUM",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "ENTERED_PERIOD_NAME",
+						"type": "varchar"
+					},
+					{
+						"name": "ADJUSTMENT_PERIOD_FLAG",
+						"type": "varchar"
+					},
+					{
+						"name": "NUMBER_PER_FISCAL_YEAR",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "DESCRIPTION",
+						"type": "varchar"
+					},
+					{
+						"name": "CREATION_DATE",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "CREATED_BY",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "LAST_UPDATE_DATE",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "LAST_UPDATED_BY",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "LAST_UPDATE_LOGIN",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "CONTEXT",
+						"type": "varchar"
+					},
+					{
+						"name": "ATTRIBUTE1",
+						"type": "varchar"
+					},
+					{
+						"name": "ATTRIBUTE2",
+						"type": "varchar"
+					},
+					{
+						"name": "ATTRIBUTE3",
+						"type": "varchar"
+					},
+					{
+						"name": "ATTRIBUTE4",
+						"type": "varchar"
+					},
+					{
+						"name": "ATTRIBUTE5",
+						"type": "varchar"
+					},
+					{
+						"name": "ATTRIBUTE6",
+						"type": "varchar"
+					},
+					{
+						"name": "ATTRIBUTE7",
+						"type": "varchar"
+					},
+					{
+						"name": "ATTRIBUTE8",
+						"type": "varchar"
+					},
+					{
+						"name": "DSYS_INSTANCE_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "DSYS_PROCESS_ID",
+						"type": "decimal",
+						"precision": 12,
+						"scale": 0
+					},
+					{
+						"name": "DSYS_BATCH_ID",
+						"type": "decimal",
+						"precision": 30,
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "BIA_GL_PERIODS_R11V"
 				}
 			},
 			"dependsOn": []
