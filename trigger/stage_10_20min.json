@@ -18,12 +18,6 @@
 					"referenceName": "pipe_BudgetForecast",
 					"type": "PipelineReference"
 				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_PriceLists",
-					"type": "PipelineReference"
-				}
 			}
 		],
 		"type": "ScheduleTrigger",
