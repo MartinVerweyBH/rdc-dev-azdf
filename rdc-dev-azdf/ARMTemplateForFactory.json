@@ -15136,6 +15136,7 @@
 					"name": "Pipe GeneralLedger/pioe_GeneralLedger_Singles"
 				},
 				"annotations": [
+					"pipe_GeneralLedger_Singles",
 					"pipe_GeneralLedger"
 				]
 			},
@@ -45038,6 +45039,27 @@
 							"waitOnCompletion": true,
 							"parameters": {}
 						}
+					},
+					{
+						"name": "pipe_GeneralLedgerJournals",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_GeneralLedger",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_GeneralLedgerJournals",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
 					}
 				],
 				"folder": {
@@ -45051,7 +45073,8 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_GeneralLedger')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_CAMP')]"
+				"[concat(variables('factoryId'), '/pipelines/pipe_CAMP')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_GeneralLedgerJournals')]"
 			]
 		},
 		{
@@ -111556,6 +111579,13 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_GeneralLedger_Singles",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
 					}
 				],
 				"type": "ScheduleTrigger",
@@ -111569,7 +111599,8 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_GeneralLedger')]"
+				"[concat(variables('factoryId'), '/pipelines/pipe_GeneralLedger')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_GeneralLedger_Singles')]"
 			]
 		},
 		{
@@ -112328,7 +112359,10 @@
 				"folder": {
 					"name": "Pipe GeneralLedger/pioe_GeneralLedger_Singles"
 				},
-				"annotations": []
+				"annotations": [
+					"Parent",
+					"pipe_GeneralLedger_Singles"
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_LINES_CAMP_V')]"

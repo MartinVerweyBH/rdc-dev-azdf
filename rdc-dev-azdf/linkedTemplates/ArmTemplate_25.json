@@ -2552,6 +2552,7 @@
 					"name": "Pipe GeneralLedger/pioe_GeneralLedger_Singles"
 				},
 				"annotations": [
+					"pipe_GeneralLedger_Singles",
 					"pipe_GeneralLedger"
 				]
 			},
