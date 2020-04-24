@@ -16,6 +16,12 @@
 					"referenceName": "pipe_PurchaseOrders_BICS",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_SalesOrders",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
@@ -23,7 +29,7 @@
 			"recurrence": {
 				"frequency": "Minute",
 				"interval": 60,
-				"startTime": "2020-04-23T06:08:00.000Z",
+				"startTime": "2020-04-23T06:12:00.000Z",
 				"timeZone": "UTC"
 			}
 		}
