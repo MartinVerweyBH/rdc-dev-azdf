@@ -1,0 +1,18 @@
+{
+	"name": "stage_18_60min",
+	"properties": {
+		"description": "Stage Every 60 Minutes on the 18",
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 60,
+				"startTime": "2020-04-24T00:18:00.000Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}
