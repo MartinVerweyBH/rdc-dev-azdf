@@ -2,7 +2,9 @@
 	"name": "stage_38_60min",
 	"properties": {
 		"description": "Trigger Every 60 Minutes on the 38",
-		"annotations": [],
+		"annotations": [
+			"60 min"
+		],
 		"runtimeState": "Stopped",
 		"pipelines": [
 			{
