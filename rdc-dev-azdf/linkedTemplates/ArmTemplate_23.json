@@ -13,6 +13,29 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_BOARD_APRVD_BGT_F')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: W_PROJ_TASK_BOARD_APRVD_BGT_F",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "PBI_PROJ_TASK_BOARD_APRVD_BGT"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_BUDGET_F')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -4963,247 +4986,6 @@
 						"outputs": [
 							{
 								"referenceName": "aoac_BIA_AR_ADJUSTMENTS_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"folder": {
-					"name": "Pipe Receivables/pipe_Receivables"
-				},
-				"annotations": [
-					"pipe_Receivables"
-				]
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipe_BIA_AR_CASH_RECEIPTS_V')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy BIA_AR_CASH_RECEIPTS_V",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "OracleSource",
-								"partitionOption": "None",
-								"queryTimeout": "02:00:00"
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_AR_CASH_RECEIPTS_V",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "CASH_RECEIPT_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "CASH_RECEIPT_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "LAST_UPDATED_BY",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "LAST_UPDATED_BY",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "AMOUNT",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "AMOUNT",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "SET_OF_BOOKS_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "SET_OF_BOOKS_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "RECEIVABLES_TRX_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "RECEIVABLES_TRX_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "PAY_FROM_CUSTOMER",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "PAY_FROM_CUSTOMER",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "STATUS",
-											"type": "String"
-										},
-										"sink": {
-											"name": "STATUS",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "TYPE",
-											"type": "String"
-										},
-										"sink": {
-											"name": "TYPE",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "RECEIPT_NUMBER",
-											"type": "String"
-										},
-										"sink": {
-											"name": "RECEIPT_NUMBER",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "RECEIPT_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "RECEIPT_DATE",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "REVERSAL_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "REVERSAL_DATE",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "REVERSAL_CATEGORY",
-											"type": "String"
-										},
-										"sink": {
-											"name": "REVERSAL_CATEGORY",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "REVERSAL_REASON_CODE",
-											"type": "String"
-										},
-										"sink": {
-											"name": "REVERSAL_REASON_CODE",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "REVERSAL_COMMENTS",
-											"type": "String"
-										},
-										"sink": {
-											"name": "REVERSAL_COMMENTS",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "CONFIRMED_FLAG",
-											"type": "String"
-										},
-										"sink": {
-											"name": "CONFIRMED_FLAG",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "ORG_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "ORG_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "ACTUAL_VALUE_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "ACTUAL_VALUE_DATE",
-											"type": "DateTime"
-										}
-									}
-								]
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "ebs_BIA_AR_CASH_RECEIPTS_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "aoac_BIA_AR_CASH_RECEIPTS_V",
 								"type": "DatasetReference",
 								"parameters": {}
 							}

@@ -13,6 +13,179 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BIA_EXPENDITURE_TYPES_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "pipe_BIA_EXPENDITURE_TYPES_V",
+				"activities": [
+					{
+						"name": "Copy BIA_EXPENDITURE_TYPES_V",
+						"description": "copy BIA_EXPENDITURE_TYPES_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_EXPENDITURE_TYPES_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "EXPENDITURE_TYPE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "EXPENDITURE_TYPE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "EXPENDITURE_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "EXPENDITURE_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "EXPENDITURE_CATEGORY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "EXPENDITURE_CATEGORY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "REVENUE_CATEGORY_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "REVENUE_CATEGORY_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "UNIT_OF_MEASURE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "UNIT_OF_MEASURE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "START_DATE_ACTIVE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "START_DATE_ACTIVE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "COST_RATE_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "COST_RATE_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "END_DATE_ACTIVE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "END_DATE_ACTIVE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ADW_NOTIFY_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ADW_NOTIFY_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_EXPENDITURE_TYPES_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BIA_EXPENDITURE_TYPES_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "Pipe Expenditures/pipe_Expenditures"
+				},
+				"annotations": [
+					"pipe_Expenditures"
+				]
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/pipe_BIA_FA_DEPRN_PERIODS_V')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -3820,209 +3993,6 @@
 				},
 				"annotations": [
 					"pipe_GeneralLedger"
-				]
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipe_BIA_ITEMS_CODES_V')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "pipe_BIA_ITEMS_CODES_V",
-				"activities": [
-					{
-						"name": "Copy BIA_ITEMS_CODES_V",
-						"description": "Copy BIA_ITEMS_CODES_V",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "OracleSource",
-								"partitionOption": "None",
-								"queryTimeout": "02:00:00"
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_ITEMS_CODES_V",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "INVENTORY_ITEM_ID",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "INVENTORY_ITEM_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "ORGANIZATION_ID",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "ORGANIZATION_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "DESCRIPTION",
-											"type": "String"
-										},
-										"sink": {
-											"name": "DESCRIPTION",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "ITEM_CODE",
-											"type": "String"
-										},
-										"sink": {
-											"name": "ITEM_CODE",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "PRIMARY_UNIT_OF_MEASURE",
-											"type": "String"
-										},
-										"sink": {
-											"name": "PRIMARY_UNIT_OF_MEASURE",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "SALES_ACCOUNT",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "SALES_ACCOUNT",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "EXPENSE_ACCOUNT",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "EXPENSE_ACCOUNT",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "COST_OF_SALES_ACCOUNT",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "COST_OF_SALES_ACCOUNT",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "SERVICE_ITEM_FLAG",
-											"type": "String"
-										},
-										"sink": {
-											"name": "SERVICE_ITEM_FLAG",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "INVENTORY_ITEM_FLAG",
-											"type": "String"
-										},
-										"sink": {
-											"name": "INVENTORY_ITEM_FLAG",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "INVENTORY_ITEM_STATUS_CODE",
-											"type": "String"
-										},
-										"sink": {
-											"name": "INVENTORY_ITEM_STATUS_CODE",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "SERVICE_ITEM_ID",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "SERVICE_ITEM_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "RELATED_ITEM_ID",
-											"type": "Double"
-										},
-										"sink": {
-											"name": "RELATED_ITEM_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										}
-									}
-								]
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "ebs_BIA_ITEMS_CODES_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "aoac_BIA_ITEMS_CODES_V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"folder": {
-					"name": "Pipe PriceLists/pipe_PriceLists"
-				},
-				"annotations": [
-					"pipe_PriceLists"
 				]
 			},
 			"dependsOn": []

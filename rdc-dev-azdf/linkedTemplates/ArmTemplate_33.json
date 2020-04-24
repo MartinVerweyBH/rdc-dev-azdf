@@ -13,6 +13,196 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/pipe_SubLedgers')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "pipe_BIA_XLA_AE_HEADERS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_XLA_AE_HEADERS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_XLA_AE_APPS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_XLA_AE_HEADERS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_XLA_AE_APPS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_XLA_AE_EVENTS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_XLA_AE_HEADERS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_XLA_AE_EVENTS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_XLA_AE_LINK_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_XLA_AE_HEADERS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_XLA_AE_LINK_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_stage_BIA_XLA_AE_LINES_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_XLA_GL_AR_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_stage_BIA_XLA_AE_LINES_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_stage_BIA_XLA_AE_TRANS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_XLA_GL_AR_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_stage_BIA_XLA_AE_TRANS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_XLA_GL_AP_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_XLA_AE_EVENTS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "pipe_BIA_XLA_AE_LINK_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "pipe_BIA_XLA_AE_APPS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_XLA_GL_AP_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_XLA_GL_AR_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_XLA_GL_AP_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_XLA_GL_AR_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"folder": {
+					"name": "Pipe SubLedger/pipe_SubLedgers"
+				},
+				"annotations": [
+					"Parent",
+					"pipe_SubLedgers"
+				]
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/pipe_Vendors')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -1372,39 +1562,40 @@
 					"dependsOn": []
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_SubLedgers')]"
+			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/stage_00_20min')]",
+			"name": "[concat(parameters('factoryName'), '/stage_10_20min_TW_Combo_GLandCAMP')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Trigger Every 20 Minutes on the 00",
+				"description": "stage_00_20min_TW_Combo_GLandCAMP",
 				"annotations": [
 					"20 min",
-					"GeneralLedger",
-					"CAMP",
-					"GeneralLedgerJournals",
-					"GeneralLedgerSingles"
+					"GL and CAMP"
 				],
 				"runtimeState": "Started",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_Combo_GLandCAMP",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
-				],
-				"type": "ScheduleTrigger",
+				"pipeline": {
+					"pipelineReference": {
+						"referenceName": "pipe_Combo_GLandCAMP",
+						"type": "PipelineReference"
+					},
+					"parameters": {}
+				},
+				"type": "TumblingWindowTrigger",
 				"typeProperties": {
-					"recurrence": {
-						"frequency": "Minute",
-						"interval": 20,
-						"startTime": "2020-04-24T00:00:00.000Z",
-						"timeZone": "UTC"
-					}
+					"frequency": "Minute",
+					"interval": 20,
+					"startTime": "2020-04-24T18:10:00.000Z",
+					"delay": "00:00:00",
+					"maxConcurrency": 1,
+					"retryPolicy": {
+						"count": 6,
+						"intervalInSeconds": 120
+					},
+					"dependsOn": []
 				}
 			},
 			"dependsOn": [

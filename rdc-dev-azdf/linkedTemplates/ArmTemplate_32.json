@@ -13,6 +13,37 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BudgetForecast')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "pipe_stage_BICS_BILLING_FORECAST_MV",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_stage_BICS_BILLING_FORECAST_MV",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"folder": {
+					"name": "Pipe BudgetForecast/pipe_BudgetForecast"
+				},
+				"annotations": [
+					"Parent",
+					"pipe_BudgetForecast"
+				]
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/pipe_CAMP')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -2983,196 +3014,6 @@
 				"annotations": [
 					"Parent",
 					"pipe_ServiceContracts"
-				]
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipe_SubLedgers')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "pipe_BIA_XLA_AE_HEADERS_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_XLA_AE_HEADERS_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "pipe_BIA_XLA_AE_APPS_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "pipe_BIA_XLA_AE_HEADERS_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_XLA_AE_APPS_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "pipe_BIA_XLA_AE_EVENTS_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "pipe_BIA_XLA_AE_HEADERS_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_XLA_AE_EVENTS_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "pipe_BIA_XLA_AE_LINK_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "pipe_BIA_XLA_AE_HEADERS_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_XLA_AE_LINK_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "pipe_stage_BIA_XLA_AE_LINES_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "pipe_BIA_XLA_GL_AR_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_stage_BIA_XLA_AE_LINES_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "pipe_stage_BIA_XLA_AE_TRANS_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "pipe_BIA_XLA_GL_AR_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_stage_BIA_XLA_AE_TRANS_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "pipe_BIA_XLA_GL_AP_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "pipe_BIA_XLA_AE_EVENTS_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							},
-							{
-								"activity": "pipe_BIA_XLA_AE_LINK_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							},
-							{
-								"activity": "pipe_BIA_XLA_AE_APPS_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_XLA_GL_AP_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "pipe_BIA_XLA_GL_AR_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "pipe_BIA_XLA_GL_AP_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_XLA_GL_AR_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					}
-				],
-				"folder": {
-					"name": "Pipe SubLedger/pipe_SubLedgers"
-				},
-				"annotations": [
-					"Parent",
-					"pipe_SubLedgers"
 				]
 			},
 			"dependsOn": []

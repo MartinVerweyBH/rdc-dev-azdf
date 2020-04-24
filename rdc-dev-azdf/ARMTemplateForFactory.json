@@ -111594,16 +111594,8 @@
 					"GeneralLedgerJournals",
 					"GeneralLedgerSingles"
 				],
-				"runtimeState": "Started",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_Combo_GLandCAMP",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
-				],
+				"runtimeState": "Stopped",
+				"pipelines": [],
 				"type": "ScheduleTrigger",
 				"typeProperties": {
 					"recurrence": {
@@ -111614,9 +111606,7 @@
 					}
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_Combo_GLandCAMP')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/stage_08_60min')]",
@@ -112410,6 +112400,42 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_SubLedgers')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/stage_10_20min_TW_Combo_GLandCAMP')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "stage_00_20min_TW_Combo_GLandCAMP",
+				"annotations": [
+					"20 min",
+					"GL and CAMP"
+				],
+				"runtimeState": "Started",
+				"pipeline": {
+					"pipelineReference": {
+						"referenceName": "pipe_Combo_GLandCAMP",
+						"type": "PipelineReference"
+					},
+					"parameters": {}
+				},
+				"type": "TumblingWindowTrigger",
+				"typeProperties": {
+					"frequency": "Minute",
+					"interval": 20,
+					"startTime": "2020-04-24T18:10:00.000Z",
+					"delay": "00:00:00",
+					"maxConcurrency": 1,
+					"retryPolicy": {
+						"count": 6,
+						"intervalInSeconds": 120
+					},
+					"dependsOn": []
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_Combo_GLandCAMP')]"
 			]
 		}
 	]
