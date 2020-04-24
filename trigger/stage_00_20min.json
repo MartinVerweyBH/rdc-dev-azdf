@@ -19,6 +19,12 @@
 					"referenceName": "pipe_GeneralLedger_Singles",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_Combo_GLandCAMP",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",

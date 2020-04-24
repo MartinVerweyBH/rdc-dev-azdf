@@ -54,6 +54,19 @@
 					},
 					"waitOnCompletion": true
 				}
+			},
+			{
+				"name": "pipe_GeneralLedger_Singles",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_GeneralLedger_Singles",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
 			}
 		],
 		"folder": {
