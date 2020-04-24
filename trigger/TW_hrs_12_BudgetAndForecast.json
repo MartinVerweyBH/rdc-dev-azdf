@@ -1,0 +1,25 @@
+{
+	"name": "TW_hrs_12_BudgetAndForecast",
+	"properties": {
+		"description": "TW_hrs_12_BudgetAndForecast",
+		"annotations": [
+			"012 hrs",
+			"Budget",
+			"Forecast"
+		],
+		"runtimeState": "Stopped",
+		"type": "TumblingWindowTrigger",
+		"typeProperties": {
+			"frequency": "Hour",
+			"interval": 12,
+			"startTime": "2020-04-24T23:55:00.000Z",
+			"delay": "00:00:00",
+			"maxConcurrency": 1,
+			"retryPolicy": {
+				"count": 5,
+				"intervalInSeconds": 300
+			},
+			"dependsOn": []
+		}
+	}
+}
