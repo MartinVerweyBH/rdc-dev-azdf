@@ -111078,6 +111078,20 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_Customers",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_Vendors",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
 					}
 				],
 				"type": "ScheduleTrigger",
@@ -111085,7 +111099,7 @@
 					"recurrence": {
 						"frequency": "Minute",
 						"interval": 60,
-						"startTime": "2020-04-23T06:17:00.000Z",
+						"startTime": "2020-04-23T06:50:00.000Z",
 						"timeZone": "UTC"
 					}
 				}
@@ -111094,7 +111108,9 @@
 				"[concat(variables('factoryId'), '/pipelines/pipe_PurchaseOrders_BIA')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_PurchaseOrders_BICS')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_SalesOrders')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_ServiceContracts')]"
+				"[concat(variables('factoryId'), '/pipelines/pipe_ServiceContracts')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_Customers')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_Vendors')]"
 			]
 		},
 		{
