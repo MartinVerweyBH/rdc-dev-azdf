@@ -509,7 +509,9 @@
 		"folder": {
 			"name": "Pipe Receivables/pipe_Receivables"
 		},
-		"annotations": []
+		"annotations": [
+			"pipe_Receivables"
+		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
