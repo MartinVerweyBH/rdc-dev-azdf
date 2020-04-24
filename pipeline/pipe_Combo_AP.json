@@ -1,0 +1,9 @@
+{
+	"name": "pipe_Combo_AP",
+	"properties": {
+		"annotations": [
+			"Parent",
+			"pipe_PurchaseOrders"
+		]
+	}
+}
