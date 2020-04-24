@@ -2920,34 +2920,13 @@
 				"description": "Trigger Every 120 Minutes on the 35",
 				"annotations": [
 					"120 min",
-					"Projects"
+					"PriceList"
 				],
 				"runtimeState": "Stopped",
 				"pipelines": [
 					{
 						"pipelineReference": {
-							"referenceName": "pipe_Projects",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					},
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_Projects_W",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					},
-					{
-						"pipelineReference": {
 							"referenceName": "pipe_PriceLists",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					},
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_Projects_CompareOAC",
 							"type": "PipelineReference"
 						},
 						"parameters": {}
@@ -2963,9 +2942,7 @@
 					}
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_Projects_W')]"
-			]
+			"dependsOn": []
 		}
 	]
 }
