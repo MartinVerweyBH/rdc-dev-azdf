@@ -6,12 +6,6 @@
 			"SubLedgers"
 		],
 		"runtimeState": "Stopped",
-		"pipeline": {
-			"pipelineReference": {
-				"referenceName": "pipe_SubLedgers",
-				"type": "PipelineReference"
-			}
-		},
 		"type": "TumblingWindowTrigger",
 		"typeProperties": {
 			"frequency": "Minute",
