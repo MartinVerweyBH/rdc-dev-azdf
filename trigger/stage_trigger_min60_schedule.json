@@ -25,12 +25,6 @@
 			},
 			{
 				"pipelineReference": {
-					"referenceName": "pipe_FixedAssets",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
 					"referenceName": "pipe_Employees_FromMatrix",
 					"type": "PipelineReference"
 				}
