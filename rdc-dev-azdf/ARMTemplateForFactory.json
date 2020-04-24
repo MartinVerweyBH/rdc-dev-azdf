@@ -111344,7 +111344,7 @@
 			"properties": {
 				"description": "stage_trigger_min20_schedule",
 				"annotations": [],
-				"runtimeState": "Started",
+				"runtimeState": "Stopped",
 				"pipelines": [
 					{
 						"pipelineReference": {
@@ -111455,7 +111455,7 @@
 			"properties": {
 				"description": "stage_trigger_min60_schedule",
 				"annotations": [],
-				"runtimeState": "Started",
+				"runtimeState": "Stopped",
 				"pipelines": [
 					{
 						"pipelineReference": {
@@ -111621,7 +111621,7 @@
 			"properties": {
 				"description": "Scheduled Trigger Every 6 Hours",
 				"annotations": [],
-				"runtimeState": "Started",
+				"runtimeState": "Stopped",
 				"pipelines": [
 					{
 						"pipelineReference": {
