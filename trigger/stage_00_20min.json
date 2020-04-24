@@ -4,7 +4,10 @@
 		"description": "Trigger Every 20 Minutes on the 00",
 		"annotations": [
 			"20 min",
-			"GeneralLedger"
+			"GeneralLedger",
+			"CAMP",
+			"GeneralLedgerJournals",
+			"GeneralLedgerSingles"
 		],
 		"runtimeState": "Started",
 		"pipelines": [
