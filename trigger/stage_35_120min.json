@@ -1,7 +1,7 @@
 {
-	"name": "stage_35_20min",
+	"name": "stage_35_120min",
 	"properties": {
-		"description": "Trigger Every 20 Minutes on the 35",
+		"description": "Trigger Every 120 Minutes on the 35",
 		"annotations": [
 			"20 min"
 		],
@@ -24,7 +24,7 @@
 		"typeProperties": {
 			"recurrence": {
 				"frequency": "Minute",
-				"interval": 20,
+				"interval": 120,
 				"startTime": "2020-04-24T00:35:00.000Z",
 				"timeZone": "UTC"
 			}
