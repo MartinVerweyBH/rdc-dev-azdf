@@ -389,7 +389,9 @@
 		"folder": {
 			"name": "Pipe Projects/pipe_Projects"
 		},
-		"annotations": []
+		"annotations": [
+			"pipe_Projects"
+		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
