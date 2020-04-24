@@ -11,12 +11,6 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "pipe_SalesOrders",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
 					"referenceName": "pipe_ServiceContracts",
 					"type": "PipelineReference"
 				}
