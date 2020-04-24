@@ -1,0 +1,23 @@
+{
+	"name": "TW_20min_xCAMP",
+	"properties": {
+		"description": "TW_20min_xCAMP",
+		"annotations": [
+			"xCAMP"
+		],
+		"runtimeState": "Stopped",
+		"type": "TumblingWindowTrigger",
+		"typeProperties": {
+			"frequency": "Minute",
+			"interval": 20,
+			"startTime": "2020-04-24T20:00:00.000Z",
+			"delay": "00:02:00",
+			"maxConcurrency": 1,
+			"retryPolicy": {
+				"count": 5,
+				"intervalInSeconds": 120
+			},
+			"dependsOn": []
+		}
+	}
+}
