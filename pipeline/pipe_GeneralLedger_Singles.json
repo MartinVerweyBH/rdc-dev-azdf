@@ -21,7 +21,8 @@
 		},
 		"annotations": [
 			"Parent",
-			"pipe_GeneralLedger_Singles"
+			"pipe_GeneralLedger_Singles",
+			"pipe_Combo_GLandCAMP"
 		]
 	}
 }

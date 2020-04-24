@@ -99,7 +99,8 @@
 		},
 		"annotations": [
 			"Parent",
-			"pipe_GeneralLedgerJournals"
+			"pipe_GeneralLedgerJournals",
+			"pipe_Combo_GLandCAMP"
 		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"

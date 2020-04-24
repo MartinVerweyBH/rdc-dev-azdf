@@ -196,7 +196,8 @@
 		},
 		"annotations": [
 			"Parent",
-			"pipe_GeneralLedger"
+			"pipe_GeneralLedger",
+			"pipe_Combo_GLandCAMP"
 		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"

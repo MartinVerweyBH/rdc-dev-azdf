@@ -158,7 +158,8 @@
 		},
 		"annotations": [
 			"Parent",
-			"pipe_CAMP"
+			"pipe_CAMP",
+			"pipe_Combo_GLandCAMP"
 		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
