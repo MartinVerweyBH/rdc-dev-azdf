@@ -3519,6 +3519,13 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_SubLedgers",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
 					}
 				],
 				"type": "ScheduleTrigger",
@@ -3526,7 +3533,7 @@
 					"recurrence": {
 						"frequency": "Minute",
 						"interval": 20,
-						"startTime": "2020-02-05T06:20:00.000Z",
+						"startTime": "2020-02-05T06:40:00.000Z",
 						"timeZone": "UTC"
 					}
 				}
@@ -3534,7 +3541,8 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_GeneralLedger')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_GeneralLedgerJournals')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_xCAMP')]"
+				"[concat(variables('factoryId'), '/pipelines/pipe_xCAMP')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_SubLedgers')]"
 			]
 		}
 	]
