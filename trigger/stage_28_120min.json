@@ -3,7 +3,9 @@
 	"properties": {
 		"description": "Trigger Every 120 Minutes on the 28\n- Customers\n- Vendors",
 		"annotations": [
-			"120 min"
+			"120 min",
+			"Customers",
+			"Vendors"
 		],
 		"runtimeState": "Stopped",
 		"pipelines": [
