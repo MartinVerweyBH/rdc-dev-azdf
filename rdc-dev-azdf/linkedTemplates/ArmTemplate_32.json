@@ -2722,13 +2722,6 @@
 				"pipelines": [
 					{
 						"pipelineReference": {
-							"referenceName": "pipe_SalesOrders",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					},
-					{
-						"pipelineReference": {
 							"referenceName": "pipe_ServiceContracts",
 							"type": "PipelineReference"
 						},
@@ -2746,7 +2739,6 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_SalesOrders')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_ServiceContracts')]"
 			]
 		},
