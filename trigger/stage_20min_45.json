@@ -10,6 +10,12 @@
 					"referenceName": "pipe_Expenditures",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_Purchasing",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
