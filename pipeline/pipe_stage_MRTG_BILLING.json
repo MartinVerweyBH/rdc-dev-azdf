@@ -245,7 +245,7 @@
 			}
 		],
 		"folder": {
-			"name": "pipe MRTG/pipe_MRTG"
+			"name": "Pipe MRTG/pipe_MRTG"
 		},
 		"annotations": [
 			"pipe_MRTG"

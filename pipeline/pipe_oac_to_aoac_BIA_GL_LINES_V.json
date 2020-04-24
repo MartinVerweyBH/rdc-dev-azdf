@@ -287,7 +287,7 @@
 			}
 		],
 		"folder": {
-			"name": "pipe GeneralLedger/pipe_GeneralLedger_FromOAC"
+			"name": "Pipe GeneralLedger/pipe_GeneralLedger_FromOAC"
 		},
 		"annotations": []
 	},

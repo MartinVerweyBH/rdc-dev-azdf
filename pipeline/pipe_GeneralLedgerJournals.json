@@ -95,7 +95,7 @@
 			}
 		],
 		"folder": {
-			"name": "pipe GeneralLedger/pipe_GeneralLedgerJournals"
+			"name": "Pipe GeneralLedger/pipe_GeneralLedgerJournals"
 		},
 		"annotations": [
 			"Parent",

@@ -42,7 +42,7 @@
 			}
 		],
 		"folder": {
-			"name": "pipe PurchaseOrders/pipe_PurchaseOrdersFromOAC"
+			"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersFromOAC"
 		},
 		"annotations": []
 	},
