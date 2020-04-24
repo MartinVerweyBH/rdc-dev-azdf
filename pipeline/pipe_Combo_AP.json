@@ -1,6 +1,34 @@
 {
 	"name": "pipe_Combo_AP",
 	"properties": {
+		"activities": [
+			{
+				"name": "pipe_PurchaseOrders_BIA",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_PurchaseOrders_BIA",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_PurchaseOrders_BICS",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_PurchaseOrders_BICS",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
 		"annotations": [
 			"Parent",
 			"pipe_PurchaseOrders"
