@@ -10,12 +10,6 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "pipe_GeneralLedger",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
 					"referenceName": "pipe_Combo_GLandCAMP",
 					"type": "PipelineReference"
 				}
