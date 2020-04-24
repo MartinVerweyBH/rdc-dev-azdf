@@ -1,0 +1,24 @@
+{
+	"name": "TW_min_30_ServiceContracts",
+	"properties": {
+		"description": "TW_min_30_ServiceContracts",
+		"annotations": [
+			"030 min",
+			"Service Contracts"
+		],
+		"runtimeState": "Stopped",
+		"type": "TumblingWindowTrigger",
+		"typeProperties": {
+			"frequency": "Minute",
+			"interval": 30,
+			"startTime": "2020-04-24T23:27:00.000Z",
+			"delay": "00:00:00",
+			"maxConcurrency": 1,
+			"retryPolicy": {
+				"count": 6,
+				"intervalInSeconds": 120
+			},
+			"dependsOn": []
+		}
+	}
+}
