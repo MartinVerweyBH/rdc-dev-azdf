@@ -28,6 +28,12 @@
 					"referenceName": "pipe_ServiceContracts",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_Customers",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
@@ -35,7 +41,7 @@
 			"recurrence": {
 				"frequency": "Minute",
 				"interval": 60,
-				"startTime": "2020-04-23T06:17:00.000Z",
+				"startTime": "2020-04-23T06:50:00.000Z",
 				"timeZone": "UTC"
 			}
 		}
