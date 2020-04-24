@@ -1,0 +1,24 @@
+{
+	"name": "TW_min_30_SalesOrders",
+	"properties": {
+		"description": "TW_min_30_SalesOrders",
+		"annotations": [
+			"030 min",
+			"Sales Orders"
+		],
+		"runtimeState": "Stopped",
+		"type": "TumblingWindowTrigger",
+		"typeProperties": {
+			"frequency": "Minute",
+			"interval": 30,
+			"startTime": "2020-04-24T23:05:00.000Z",
+			"delay": "00:00:00",
+			"maxConcurrency": 1,
+			"retryPolicy": {
+				"count": 6,
+				"intervalInSeconds": 300
+			},
+			"dependsOn": []
+		}
+	}
+}
