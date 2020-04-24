@@ -13,6 +13,12 @@
 					"referenceName": "pipe_GeneralLedger",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_GeneralLedger_Singles",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
