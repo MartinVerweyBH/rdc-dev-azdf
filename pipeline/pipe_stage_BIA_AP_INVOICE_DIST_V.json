@@ -467,7 +467,9 @@
 		"folder": {
 			"name": "Pipe Purchasing/pipe_Purchasing"
 		},
-		"annotations": []
+		"annotations": [
+			"pipe_Purchasing"
+		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
