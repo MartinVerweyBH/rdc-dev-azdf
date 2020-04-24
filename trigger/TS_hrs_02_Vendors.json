@@ -1,0 +1,24 @@
+{
+	"name": "TS_hrs_02_Vendors",
+	"properties": {
+		"description": "TS_hrs_02_Vendors",
+		"annotations": [
+			"002 hrs",
+			"Vendors"
+		],
+		"runtimeState": "Stopped",
+		"type": "TumblingWindowTrigger",
+		"typeProperties": {
+			"frequency": "Hour",
+			"interval": 2,
+			"startTime": "2020-04-24T21:43:00.000Z",
+			"delay": "00:00:00",
+			"maxConcurrency": 1,
+			"retryPolicy": {
+				"count": 6,
+				"intervalInSeconds": 300
+			},
+			"dependsOn": []
+		}
+	}
+}
