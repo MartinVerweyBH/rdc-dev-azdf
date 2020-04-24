@@ -1,0 +1,64 @@
+{
+	"name": "pipe_Combo_PRJ",
+	"properties": {
+		"activities": [
+			{
+				"name": "pipe_Projects",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pipe_Projects_CompareOAC",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_Projects",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_Projects_W",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pipe_Projects_CompareOAC",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_Projects_W",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_Projects_CompareOAC",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_Projects_CompareOAC",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": [
+			"Parent",
+			"pipe_Projects"
+		]
+	}
+}
