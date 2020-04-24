@@ -6,7 +6,7 @@
 			"60 mins",
 			"Purchase Orders"
 		],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipeline": {
 			"pipelineReference": {
 				"referenceName": "pipe_Combo_AP",
