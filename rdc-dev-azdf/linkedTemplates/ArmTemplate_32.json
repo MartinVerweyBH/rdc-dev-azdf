@@ -182,7 +182,8 @@
 				},
 				"annotations": [
 					"Parent",
-					"pipe_CAMP"
+					"pipe_CAMP",
+					"pipe_Combo_GLandCAMP"
 				]
 			},
 			"dependsOn": []
@@ -1001,7 +1002,8 @@
 				},
 				"annotations": [
 					"Parent",
-					"pipe_GeneralLedger"
+					"pipe_GeneralLedger",
+					"pipe_Combo_GLandCAMP"
 				]
 			},
 			"dependsOn": []
@@ -1114,7 +1116,8 @@
 				},
 				"annotations": [
 					"Parent",
-					"pipe_GeneralLedgerJournals"
+					"pipe_GeneralLedgerJournals",
+					"pipe_Combo_GLandCAMP"
 				]
 			},
 			"dependsOn": []

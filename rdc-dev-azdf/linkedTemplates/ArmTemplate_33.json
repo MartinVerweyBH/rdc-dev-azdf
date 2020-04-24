@@ -841,7 +841,8 @@
 				},
 				"annotations": [
 					"Parent",
-					"pipe_GeneralLedger_Singles"
+					"pipe_GeneralLedger_Singles",
+					"pipe_Combo_GLandCAMP"
 				]
 			},
 			"dependsOn": []
@@ -930,7 +931,8 @@
 					"Parent",
 					"pipe_GeneralLedger",
 					"pipe_CAMP",
-					"pipe_GeneralLedger_Journals"
+					"pipe_GeneralLedger_Journals",
+					"pipe_Combo_GLandCAMP"
 				]
 			},
 			"dependsOn": [
@@ -1353,7 +1355,8 @@
 				"description": "Trigger Every 20 Minutes on the 00",
 				"annotations": [
 					"20 min",
-					"GeneralLedger"
+					"GeneralLedger",
+					"pipe_Combo_GLandCAMP"
 				],
 				"runtimeState": "Started",
 				"pipelines": [
