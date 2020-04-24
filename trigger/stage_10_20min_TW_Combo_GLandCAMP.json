@@ -2,7 +2,10 @@
 	"name": "stage_10_20min_TW_Combo_GLandCAMP",
 	"properties": {
 		"description": "stage_00_20min_TW_Combo_GLandCAMP",
-		"annotations": [],
+		"annotations": [
+			"20 min",
+			"GL and CAMP"
+		],
 		"runtimeState": "Stopped",
 		"type": "TumblingWindowTrigger",
 		"typeProperties": {
