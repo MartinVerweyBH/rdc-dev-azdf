@@ -12,12 +12,6 @@
 					"referenceName": "pipe_GeneralLedgerJournals",
 					"type": "PipelineReference"
 				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_PurchaseOrders_BICS",
-					"type": "PipelineReference"
-				}
 			}
 		],
 		"type": "ScheduleTrigger",
