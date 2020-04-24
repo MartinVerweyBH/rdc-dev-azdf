@@ -129,7 +129,9 @@
 		"folder": {
 			"name": "Pipe CAMP/pipe_CAMP_WithErrors"
 		},
-		"annotations": []
+		"annotations": [
+			"pipe_CAMP"
+		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
