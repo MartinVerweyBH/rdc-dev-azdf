@@ -25,8 +25,7 @@
 						"pipelineReference": {
 							"referenceName": "pipe_MRTG",
 							"type": "PipelineReference"
-						},
-						"parameters": {}
+						}
 					}
 				],
 				"type": "ScheduleTrigger",
