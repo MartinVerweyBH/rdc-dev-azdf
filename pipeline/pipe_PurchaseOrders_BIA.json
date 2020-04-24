@@ -292,7 +292,9 @@
 		"folder": {
 			"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 		},
-		"annotations": []
+		"annotations": [
+			"Parent"
+		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
