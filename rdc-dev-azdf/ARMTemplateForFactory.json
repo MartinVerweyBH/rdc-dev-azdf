@@ -112046,39 +112046,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/stage_38_60min')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Trigger Every 60 Minutes on the 38",
-				"annotations": [
-					"60 min"
-				],
-				"runtimeState": "Stopped",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_Employees",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
-				],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Minute",
-						"interval": 60,
-						"startTime": "2020-04-24T00:38:00.000Z",
-						"timeZone": "UTC"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_Employees')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/Oracle')]",
 			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
 			"apiVersion": "2018-06-01",
