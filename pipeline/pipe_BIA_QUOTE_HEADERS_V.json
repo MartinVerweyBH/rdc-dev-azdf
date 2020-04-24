@@ -869,7 +869,9 @@
 		"folder": {
 			"name": "Pipe Quotes/pipe_Quotes"
 		},
-		"annotations": []
+		"annotations": [
+			"pipe_Quotes"
+		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
