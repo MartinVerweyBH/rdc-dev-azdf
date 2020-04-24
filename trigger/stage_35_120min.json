@@ -3,7 +3,8 @@
 	"properties": {
 		"description": "Trigger Every 120 Minutes on the 35",
 		"annotations": [
-			"120 min"
+			"120 min",
+			"Projects"
 		],
 		"runtimeState": "Stopped",
 		"pipelines": [
