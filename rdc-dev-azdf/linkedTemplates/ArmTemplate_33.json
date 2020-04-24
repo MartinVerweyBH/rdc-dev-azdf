@@ -51,40 +51,45 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/trigger_hour_06_schedule')]",
+			"name": "[concat(parameters('factoryName'), '/TW_hrs_06_MRTG')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Scheduled Trigger Every 6 Hours",
-				"annotations": [],
-				"runtimeState": "Stopped",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_MRTG",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
+				"description": "TW_hrs_06_MRTG",
+				"annotations": [
+					"006 hrs",
+					"MRTG"
 				],
-				"type": "ScheduleTrigger",
+				"runtimeState": "Started",
+				"pipeline": {
+					"pipelineReference": {
+						"referenceName": "pipe_MRTG",
+						"type": "PipelineReference"
+					},
+					"parameters": {}
+				},
+				"type": "TumblingWindowTrigger",
 				"typeProperties": {
-					"recurrence": {
-						"frequency": "Hour",
-						"interval": 6,
-						"startTime": "2020-04-23T21:00:00.000Z",
-						"timeZone": "UTC"
-					}
+					"frequency": "Hour",
+					"interval": 6,
+					"startTime": "2020-04-24T12:00:00.000Z",
+					"delay": "00:00:00",
+					"maxConcurrency": 1,
+					"retryPolicy": {
+						"count": 5,
+						"intervalInSeconds": 600
+					},
+					"dependsOn": []
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/TW_20min_xCAMP')]",
+			"name": "[concat(parameters('factoryName'), '/TW_min_20_xCAMP')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "TW_20min_xCAMP",
+				"description": "TW_min_20_xCAMP",
 				"annotations": [
 					"020 min",
 					"xCAMP"
@@ -101,12 +106,11 @@
 				"typeProperties": {
 					"frequency": "Minute",
 					"interval": 20,
-					"startTime": "2020-04-24T20:00:00.000Z",
-					"delay": "00:02:00",
-					"maxConcurrency": 1,
+					"startTime": "2020-04-24T20:23:00.000Z",
+					"delay": "00:00:00",
+					"maxConcurrency": 50,
 					"retryPolicy": {
-						"count": 5,
-						"intervalInSeconds": 120
+						"intervalInSeconds": 30
 					},
 					"dependsOn": []
 				}
