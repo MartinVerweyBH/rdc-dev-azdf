@@ -16,12 +16,6 @@
 					"referenceName": "pipe_Employees_FromMatrix",
 					"type": "PipelineReference"
 				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_Projects_CompareOAC",
-					"type": "PipelineReference"
-				}
 			}
 		],
 		"type": "ScheduleTrigger",
