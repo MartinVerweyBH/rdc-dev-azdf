@@ -177,7 +177,7 @@
 			}
 		],
 		"folder": {
-			"name": "pipe GeneralLedger/pipe_GeneralLedger"
+			"name": "pipe GeneralLedger/pipe_GeneralLedger_Seed"
 		},
 		"annotations": [
 			"pipe_GeneralLedger"
