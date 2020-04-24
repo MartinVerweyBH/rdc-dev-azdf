@@ -994,27 +994,6 @@
 							"waitOnCompletion": true,
 							"parameters": {}
 						}
-					},
-					{
-						"name": "pipe_BIA_GL_LINES_CAMP_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "stage_BIA_GL_HEADERS_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_GL_LINES_CAMP_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
 					}
 				],
 				"folder": {
