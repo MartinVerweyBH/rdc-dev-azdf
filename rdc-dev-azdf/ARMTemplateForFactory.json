@@ -111018,6 +111018,20 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_Projects",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_Projects_W",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
 					}
 				],
 				"type": "ScheduleTrigger",
@@ -111025,7 +111039,7 @@
 					"recurrence": {
 						"frequency": "Minute",
 						"interval": 20,
-						"startTime": "2020-04-23T06:22:00.000Z",
+						"startTime": "2020-04-23T06:12:00.000Z",
 						"timeZone": "UTC"
 					}
 				}
@@ -111039,7 +111053,9 @@
 				"[concat(variables('factoryId'), '/pipelines/pipe_Expenditures')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_Purchasing')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_Receivables')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_Quotes')]"
+				"[concat(variables('factoryId'), '/pipelines/pipe_Quotes')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_Projects')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_Projects_W')]"
 			]
 		},
 		{
@@ -111106,6 +111122,20 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_Employees_FromMatrix",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_Projects_CompareOAC",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
 					}
 				],
 				"type": "ScheduleTrigger",
@@ -111113,7 +111143,7 @@
 					"recurrence": {
 						"frequency": "Minute",
 						"interval": 60,
-						"startTime": "2020-04-23T06:38:00.000Z",
+						"startTime": "2020-04-23T06:00:00.000Z",
 						"timeZone": "UTC"
 					}
 				}
@@ -111126,7 +111156,9 @@
 				"[concat(variables('factoryId'), '/pipelines/pipe_Customers')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_Vendors')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_Employees')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_FixedAssets')]"
+				"[concat(variables('factoryId'), '/pipelines/pipe_FixedAssets')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_Employees_FromMatrix')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_Projects_CompareOAC')]"
 			]
 		},
 		{
@@ -111214,6 +111246,13 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_PriceLists",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
 					}
 				],
 				"type": "ScheduleTrigger",
@@ -111221,14 +111260,15 @@
 					"recurrence": {
 						"frequency": "Hour",
 						"interval": 6,
-						"startTime": "2020-04-23T20:00:00.000Z",
+						"startTime": "2020-04-23T21:00:00.000Z",
 						"timeZone": "UTC"
 					}
 				}
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_MRTG')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_BudgetForecast')]"
+				"[concat(variables('factoryId'), '/pipelines/pipe_BudgetForecast')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_PriceLists')]"
 			]
 		},
 		{

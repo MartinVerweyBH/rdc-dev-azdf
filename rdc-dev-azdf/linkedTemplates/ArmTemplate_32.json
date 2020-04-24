@@ -3485,6 +3485,20 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_Projects",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_Projects_W",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
 					}
 				],
 				"type": "ScheduleTrigger",
@@ -3492,7 +3506,7 @@
 					"recurrence": {
 						"frequency": "Minute",
 						"interval": 20,
-						"startTime": "2020-04-23T06:22:00.000Z",
+						"startTime": "2020-04-23T06:12:00.000Z",
 						"timeZone": "UTC"
 					}
 				}
@@ -3505,7 +3519,9 @@
 				"[concat(variables('factoryId'), '/pipelines/pipe_Expenditures')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_Purchasing')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_Receivables')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_Quotes')]"
+				"[concat(variables('factoryId'), '/pipelines/pipe_Quotes')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_Projects')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_Projects_W')]"
 			]
 		},
 		{
@@ -3572,6 +3588,20 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_Employees_FromMatrix",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_Projects_CompareOAC",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
 					}
 				],
 				"type": "ScheduleTrigger",
@@ -3579,7 +3609,7 @@
 					"recurrence": {
 						"frequency": "Minute",
 						"interval": 60,
-						"startTime": "2020-04-23T06:38:00.000Z",
+						"startTime": "2020-04-23T06:00:00.000Z",
 						"timeZone": "UTC"
 					}
 				}
