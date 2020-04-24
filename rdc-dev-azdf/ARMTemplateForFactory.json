@@ -110990,6 +110990,34 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_Expenditures",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_Purchasing",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_Receivables",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_Quotes",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
 					}
 				],
 				"type": "ScheduleTrigger",
@@ -110997,7 +111025,7 @@
 					"recurrence": {
 						"frequency": "Minute",
 						"interval": 20,
-						"startTime": "2020-02-05T06:40:00.000Z",
+						"startTime": "2020-04-23T06:22:00.000Z",
 						"timeZone": "UTC"
 					}
 				}
@@ -111007,7 +111035,11 @@
 				"[concat(variables('factoryId'), '/pipelines/pipe_CAMP')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_GeneralLedgerJournals')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_xCAMP')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_SubLedgers')]"
+				"[concat(variables('factoryId'), '/pipelines/pipe_SubLedgers')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_Expenditures')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_Purchasing')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_Receivables')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_Quotes')]"
 			]
 		},
 		{
