@@ -7,12 +7,6 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "pipe_PurchaseOrders_BICS",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
 					"referenceName": "pipe_SalesOrders",
 					"type": "PipelineReference"
 				}
