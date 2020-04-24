@@ -4,13 +4,20 @@
 		"description": "Scheduled Trigger Every 6 Hours",
 		"annotations": [],
 		"runtimeState": "Started",
-		"pipelines": [],
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_MRTG",
+					"type": "PipelineReference"
+				}
+			}
+		],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {
 				"frequency": "Hour",
 				"interval": 6,
-				"startTime": "2020-01-27T06:00:00Z",
+				"startTime": "2020-01-27T19:00:00.000Z",
 				"timeZone": "UTC"
 			}
 		}
