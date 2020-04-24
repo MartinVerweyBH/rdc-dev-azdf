@@ -16,6 +16,12 @@
 					"referenceName": "pipe_SubLedgers",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_PurchaseOrders_BIA",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
