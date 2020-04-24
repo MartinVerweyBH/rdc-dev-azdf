@@ -1,0 +1,24 @@
+{
+	"name": "TW_min_30_Quotes",
+	"properties": {
+		"description": "TW_min_30_Quotes",
+		"annotations": [
+			"030 min",
+			"Quotes"
+		],
+		"runtimeState": "Stopped",
+		"type": "TumblingWindowTrigger",
+		"typeProperties": {
+			"frequency": "Minute",
+			"interval": 30,
+			"startTime": "2020-04-24T22:07:00.000Z",
+			"delay": "00:00:00",
+			"maxConcurrency": 1,
+			"retryPolicy": {
+				"count": 6,
+				"intervalInSeconds": 120
+			},
+			"dependsOn": []
+		}
+	}
+}
