@@ -1580,7 +1580,9 @@
 				"folder": {
 					"name": "Pipe Purchasing/pipe_Purchasing"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_Purchasing"
+				]
 			},
 			"dependsOn": []
 		},
@@ -3090,7 +3092,9 @@
 				"folder": {
 					"name": "Pipe Purchasing/pipe_Purchasing"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_Purchasing"
+				]
 			},
 			"dependsOn": []
 		},
@@ -3479,7 +3483,9 @@
 				"folder": {
 					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_PurchaseOrders"
+				]
 			},
 			"dependsOn": []
 		},
@@ -3988,7 +3994,9 @@
 				"folder": {
 					"name": "Pipe Purchasing/pipe_Purchasing"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_Purchasing"
+				]
 			},
 			"dependsOn": []
 		},
@@ -4677,7 +4685,9 @@
 				"folder": {
 					"name": "Pipe Purchasing/pipe_Purchasing"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_Purchasing"
+				]
 			},
 			"dependsOn": []
 		},
@@ -6116,7 +6126,9 @@
 				"folder": {
 					"name": "Pipe Customers/pipe_Customers"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_Customers"
+				]
 			},
 			"dependsOn": []
 		},
@@ -6435,7 +6447,9 @@
 				"folder": {
 					"name": "Pipe Customers/pipe_Customers"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_Customers"
+				]
 			},
 			"dependsOn": []
 		},
@@ -6744,7 +6758,9 @@
 				"folder": {
 					"name": "Pipe Customers/pipe_Customers"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_Customers"
+				]
 			},
 			"dependsOn": []
 		},
@@ -7413,7 +7429,9 @@
 				"folder": {
 					"name": "Pipe Customers/pipe_Customers"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_Customers"
+				]
 			},
 			"dependsOn": []
 		}

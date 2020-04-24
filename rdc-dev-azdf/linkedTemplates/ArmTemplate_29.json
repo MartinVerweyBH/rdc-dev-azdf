@@ -329,7 +329,9 @@
 				"folder": {
 					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_PurchaseOrders"
+				]
 			},
 			"dependsOn": []
 		},
@@ -1080,7 +1082,9 @@
 				"folder": {
 					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_PurchaseOrders"
+				]
 			},
 			"dependsOn": []
 		},
@@ -1829,7 +1833,9 @@
 				"folder": {
 					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_PurchaseOrders"
+				]
 			},
 			"dependsOn": []
 		},
@@ -2591,7 +2597,9 @@
 				"folder": {
 					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_PurchaseOrders"
+				]
 			},
 			"dependsOn": []
 		},
@@ -2752,7 +2760,9 @@
 				"folder": {
 					"name": "Pipe PriceLists/pipe_PriceLists"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_PriceLists"
+				]
 			},
 			"dependsOn": []
 		},
@@ -4790,7 +4800,9 @@
 				"folder": {
 					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_PurchaseOrders"
+				]
 			},
 			"dependsOn": []
 		},
@@ -5468,7 +5480,9 @@
 				"folder": {
 					"name": "Pipe Employees/pipe_Employees_WithErrors"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_Employees"
+				]
 			},
 			"dependsOn": []
 		},
@@ -5647,7 +5661,9 @@
 				"folder": {
 					"name": "Pipe FixedAssets/pipe_FixedAssets"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_FixedAssets"
+				]
 			},
 			"dependsOn": []
 		},
@@ -5734,7 +5750,9 @@
 				"folder": {
 					"name": "Pipe Employees/pipe_Employees_FromMatrix"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_Employees"
+				]
 			},
 			"dependsOn": []
 		},
@@ -5951,7 +5969,9 @@
 				"folder": {
 					"name": "Pipe Employees/pipe_Employees_FromMatrix"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_Employees"
+				]
 			},
 			"dependsOn": []
 		},
@@ -6038,7 +6058,9 @@
 				"folder": {
 					"name": "Pipe Employees/pipe_Employees_FromMatrix"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_Employees"
+				]
 			},
 			"dependsOn": []
 		},

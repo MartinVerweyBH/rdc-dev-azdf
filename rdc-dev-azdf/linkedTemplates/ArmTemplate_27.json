@@ -209,7 +209,9 @@
 				"folder": {
 					"name": "Pipe PriceLists/pipe_PriceLists"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_PriceLists"
+				]
 			},
 			"dependsOn": []
 		},
@@ -1798,7 +1800,9 @@
 				"folder": {
 					"name": "Pipe Quotes/pipe_Quotes"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_Quotes"
+				]
 			},
 			"dependsOn": []
 		},
@@ -3087,7 +3091,9 @@
 				"folder": {
 					"name": "Pipe PriceLists/pipe_PriceLists"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_PriceLists"
+				]
 			},
 			"dependsOn": []
 		},
@@ -3218,7 +3224,9 @@
 				"folder": {
 					"name": "Pipe PriceLists/pipe_PriceLists"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_PriceLists"
+				]
 			},
 			"dependsOn": []
 		},
@@ -6386,7 +6394,9 @@
 				"folder": {
 					"name": "Pipe OnceOffs"
 				},
-				"annotations": []
+				"annotations": [
+					"Once OFF"
+				]
 			},
 			"dependsOn": []
 		},
@@ -6715,7 +6725,9 @@
 				"folder": {
 					"name": "Pipe OnceOffs"
 				},
-				"annotations": []
+				"annotations": [
+					"Once OFF"
+				]
 			},
 			"dependsOn": []
 		},
@@ -7016,7 +7028,9 @@
 				"folder": {
 					"name": "Pipe OnceOffs"
 				},
-				"annotations": []
+				"annotations": [
+					"Once OFF"
+				]
 			},
 			"dependsOn": []
 		},

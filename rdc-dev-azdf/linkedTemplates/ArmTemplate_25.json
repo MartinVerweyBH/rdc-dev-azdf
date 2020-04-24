@@ -89,7 +89,9 @@
 				"folder": {
 					"name": "pipe GeneralLedger/pipe_GeneralLedger"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_GeneralLedger"
+				]
 			},
 			"dependsOn": []
 		},
@@ -258,7 +260,9 @@
 				"folder": {
 					"name": "pipe GeneralLedger/pipe_GeneralLedger"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_GeneralLedger"
+				]
 			},
 			"dependsOn": []
 		},
@@ -359,7 +363,9 @@
 				"folder": {
 					"name": "Pipe CAMP/pipe_CAMP"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_CAMP"
+				]
 			},
 			"dependsOn": []
 		},
@@ -560,7 +566,9 @@
 				"folder": {
 					"name": "Pipe OnceOffs"
 				},
-				"annotations": []
+				"annotations": [
+					"Once OFF"
+				]
 			},
 			"dependsOn": []
 		},
@@ -799,7 +807,9 @@
 				"folder": {
 					"name": "Pipe CAMP/pipe_CAMP"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_CAMP"
+				]
 			},
 			"dependsOn": []
 		},
@@ -880,7 +890,9 @@
 				"folder": {
 					"name": "pipe GeneralLedger/pipe_GeneralLedger"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_GeneralLedger"
+				]
 			},
 			"dependsOn": []
 		},
@@ -1067,9 +1079,11 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe CAMP/pipe_CAMP_Seed"
+					"name": "pipe GeneralLedger/pipe_GeneralLedger"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_GeneralLedger"
+				]
 			},
 			"dependsOn": []
 		},
@@ -1258,7 +1272,9 @@
 				"folder": {
 					"name": "pipe GeneralLedger/pipe_GeneralLedger"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_GeneralLedger"
+				]
 			},
 			"dependsOn": []
 		},
@@ -1497,7 +1513,9 @@
 				"folder": {
 					"name": "pipe GeneralLedger/pipe_GeneralLedger"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_GeneralLedger"
+				]
 			},
 			"dependsOn": []
 		},
@@ -1764,9 +1782,11 @@
 					}
 				],
 				"folder": {
-					"name": "Pipe CAMP/pipe_CAMP_Seed"
+					"name": "pipe GeneralLedger/pipe_GeneralLedger"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_GeneralLedger"
+				]
 			},
 			"dependsOn": []
 		},
@@ -1847,7 +1867,9 @@
 				"folder": {
 					"name": "pipe GeneralLedger/pipe_GeneralLedger"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_GeneralLedger"
+				]
 			},
 			"dependsOn": []
 		},
@@ -2168,7 +2190,9 @@
 				"folder": {
 					"name": "Pipe OnceOffs"
 				},
-				"annotations": []
+				"annotations": [
+					"Once OFF"
+				]
 			},
 			"dependsOn": []
 		},
@@ -2509,7 +2533,9 @@
 				"folder": {
 					"name": "pipe GeneralLedger/pipe_GeneralLedger"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_GeneralLedger"
+				]
 			},
 			"dependsOn": []
 		},
@@ -2630,7 +2656,9 @@
 				"folder": {
 					"name": "Pipe OnceOffs"
 				},
-				"annotations": []
+				"annotations": [
+					"Once OFF"
+				]
 			},
 			"dependsOn": []
 		},
@@ -2751,7 +2779,9 @@
 				"folder": {
 					"name": "pipe GeneralLedger/pipe_GeneralLedger"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_GeneralLedger"
+				]
 			},
 			"dependsOn": []
 		},
@@ -2952,7 +2982,9 @@
 				"folder": {
 					"name": "Pipe PriceLists/pipe_PriceLists"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_PriceLists"
+				]
 			},
 			"dependsOn": []
 		},
@@ -3041,7 +3073,9 @@
 				"folder": {
 					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_PurchaseOrders"
+				]
 			},
 			"dependsOn": []
 		},
@@ -3651,7 +3685,9 @@
 				"folder": {
 					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_PurchaseOrders"
+				]
 			},
 			"dependsOn": []
 		},
@@ -3892,7 +3928,9 @@
 				"folder": {
 					"name": "Pipe CAMP/pipe_CAMP"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_CAMP"
+				]
 			},
 			"dependsOn": []
 		}

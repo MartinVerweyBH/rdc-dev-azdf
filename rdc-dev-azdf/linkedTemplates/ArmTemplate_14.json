@@ -680,7 +680,9 @@
 				"folder": {
 					"name": "Pipe OnceOffs"
 				},
-				"annotations": []
+				"annotations": [
+					"Once OFF"
+				]
 			},
 			"dependsOn": []
 		},
@@ -734,7 +736,9 @@
 				"folder": {
 					"name": "Pipe OnceOffs"
 				},
-				"annotations": []
+				"annotations": [
+					"Once OFF"
+				]
 			},
 			"dependsOn": []
 		},
@@ -788,7 +792,9 @@
 				"folder": {
 					"name": "Pipe OnceOffs"
 				},
-				"annotations": []
+				"annotations": [
+					"Once OFF"
+				]
 			},
 			"dependsOn": []
 		},
@@ -989,7 +995,9 @@
 				"folder": {
 					"name": "Pipe OnceOffs"
 				},
-				"annotations": []
+				"annotations": [
+					"Once OFF"
+				]
 			},
 			"dependsOn": []
 		},
@@ -1655,7 +1663,9 @@
 				"folder": {
 					"name": "Pipe OnceOffs"
 				},
-				"annotations": []
+				"annotations": [
+					"Once OFF"
+				]
 			},
 			"dependsOn": []
 		},
@@ -1874,7 +1884,9 @@
 				"folder": {
 					"name": "Pipe OnceOffs"
 				},
-				"annotations": []
+				"annotations": [
+					"Once OFF"
+				]
 			},
 			"dependsOn": []
 		},
@@ -2114,7 +2126,9 @@
 				"folder": {
 					"name": "Pipe OnceOffs"
 				},
-				"annotations": []
+				"annotations": [
+					"Once OFF"
+				]
 			},
 			"dependsOn": []
 		},

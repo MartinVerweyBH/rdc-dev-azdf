@@ -1685,7 +1685,9 @@
 				"folder": {
 					"name": "Pipe OnceOffs"
 				},
-				"annotations": []
+				"annotations": [
+					"Once OFF"
+				]
 			},
 			"dependsOn": []
 		},
