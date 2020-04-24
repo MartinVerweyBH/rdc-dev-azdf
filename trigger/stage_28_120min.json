@@ -3,7 +3,7 @@
 	"properties": {
 		"description": "Trigger Every 120 Minutes on the 28",
 		"annotations": [
-			"60 min"
+			"120 min"
 		],
 		"runtimeState": "Stopped",
 		"pipelines": [
