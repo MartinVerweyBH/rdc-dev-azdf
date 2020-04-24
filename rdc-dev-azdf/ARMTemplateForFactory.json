@@ -46078,6 +46078,40 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/pipe_GeneralLedger_Singles')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "pipe_BIA_GL_LINES_CAMP_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_GL_LINES_CAMP_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"folder": {
+					"name": "Pipe GeneralLedger/pioe_GeneralLedger_Singles"
+				},
+				"annotations": [
+					"Parent",
+					"pipe_GeneralLedger_Singles",
+					"pipe_Combo_GLandCAMP"
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_LINES_CAMP_V')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/pipe_MRTG')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -111625,20 +111659,6 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {}
-					},
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_PurchaseOrders_BIA",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					},
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_PurchaseOrders_BICS",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
 					}
 				],
 				"type": "ScheduleTrigger",
@@ -111652,9 +111672,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_GeneralLedgerJournals')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_PurchaseOrders_BIA')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_PurchaseOrders_BICS')]"
+				"[concat(variables('factoryId'), '/pipelines/pipe_GeneralLedgerJournals')]"
 			]
 		},
 		{
@@ -111707,6 +111725,42 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/stage_10_20min_TW_Combo_GLandCAMP')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "stage_00_20min_TW_Combo_GLandCAMP",
+				"annotations": [
+					"20 min",
+					"GL and CAMP"
+				],
+				"runtimeState": "Started",
+				"pipeline": {
+					"pipelineReference": {
+						"referenceName": "pipe_Combo_GLandCAMP",
+						"type": "PipelineReference"
+					},
+					"parameters": {}
+				},
+				"type": "TumblingWindowTrigger",
+				"typeProperties": {
+					"frequency": "Minute",
+					"interval": 20,
+					"startTime": "2020-04-24T18:10:00.000Z",
+					"delay": "00:00:00",
+					"maxConcurrency": 1,
+					"retryPolicy": {
+						"count": 6,
+						"intervalInSeconds": 120
+					},
+					"dependsOn": []
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_Combo_GLandCAMP')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/stage_15_120min')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
@@ -111747,6 +111801,42 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_Expenditures')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_Purchasing')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/stage_17_60min_TW_SubLedgers')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "SubLedger_60min_TumblingWindow",
+				"annotations": [
+					"60 min",
+					"SubLedgers"
+				],
+				"runtimeState": "Started",
+				"pipeline": {
+					"pipelineReference": {
+						"referenceName": "pipe_SubLedgers",
+						"type": "PipelineReference"
+					},
+					"parameters": {}
+				},
+				"type": "TumblingWindowTrigger",
+				"typeProperties": {
+					"frequency": "Minute",
+					"interval": 60,
+					"startTime": "2020-04-24T18:17:00.000Z",
+					"delay": "00:00:00",
+					"maxConcurrency": 1,
+					"retryPolicy": {
+						"count": 6,
+						"intervalInSeconds": 300
+					},
+					"dependsOn": []
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_SubLedgers')]"
 			]
 		},
 		{
@@ -111880,6 +111970,42 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_CAMP')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_xCAMP')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/stage_25_60min_TW_PurchaseOrders')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "stage_25_60min_TW_PurchaseOrders",
+				"annotations": [
+					"60 mins",
+					"Purchase Orders"
+				],
+				"runtimeState": "Stopped",
+				"pipeline": {
+					"pipelineReference": {
+						"referenceName": "pipe_PurchaseOrders_BIA",
+						"type": "PipelineReference"
+					},
+					"parameters": {}
+				},
+				"type": "TumblingWindowTrigger",
+				"typeProperties": {
+					"frequency": "Minute",
+					"interval": 60,
+					"startTime": "2020-04-24T18:34:00.000Z",
+					"delay": "00:00:00",
+					"maxConcurrency": 1,
+					"retryPolicy": {
+						"count": 6,
+						"intervalInSeconds": 300
+					},
+					"dependsOn": []
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_PurchaseOrders_BIA')]"
 			]
 		},
 		{
@@ -112210,48 +112336,6 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/trigger_minute_15_schedule')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Scheduled Trigger Every 15 Minutes",
-				"annotations": [],
-				"runtimeState": "Stopped",
-				"pipelines": [],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Hour",
-						"interval": 1,
-						"startTime": "2020-01-27T06:00:00Z",
-						"timeZone": "UTC"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/trigger_minute_20_schedule')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Scheduled Trigger Every 20 Minutes",
-				"annotations": [],
-				"runtimeState": "Stopped",
-				"pipelines": [],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Hour",
-						"interval": 1,
-						"startTime": "2020-01-27T06:00:00Z",
-						"timeZone": "UTC"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/trigger_minute_30_schedule')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
@@ -112331,112 +112415,6 @@
 				"typeProperties": {}
 			},
 			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipe_GeneralLedger_Singles')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "pipe_BIA_GL_LINES_CAMP_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_GL_LINES_CAMP_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					}
-				],
-				"folder": {
-					"name": "Pipe GeneralLedger/pioe_GeneralLedger_Singles"
-				},
-				"annotations": [
-					"Parent",
-					"pipe_GeneralLedger_Singles",
-					"pipe_Combo_GLandCAMP"
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_LINES_CAMP_V')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/stage_17_60min_TW_SubLedgers')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "SubLedger_60min_TumblingWindow",
-				"annotations": [
-					"60 min",
-					"SubLedgers"
-				],
-				"runtimeState": "Started",
-				"pipeline": {
-					"pipelineReference": {
-						"referenceName": "pipe_SubLedgers",
-						"type": "PipelineReference"
-					},
-					"parameters": {}
-				},
-				"type": "TumblingWindowTrigger",
-				"typeProperties": {
-					"frequency": "Minute",
-					"interval": 60,
-					"startTime": "2020-04-24T18:17:00.000Z",
-					"delay": "00:00:00",
-					"maxConcurrency": 1,
-					"retryPolicy": {
-						"count": 6,
-						"intervalInSeconds": 300
-					},
-					"dependsOn": []
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_SubLedgers')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/stage_10_20min_TW_Combo_GLandCAMP')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "stage_00_20min_TW_Combo_GLandCAMP",
-				"annotations": [
-					"20 min",
-					"GL and CAMP"
-				],
-				"runtimeState": "Started",
-				"pipeline": {
-					"pipelineReference": {
-						"referenceName": "pipe_Combo_GLandCAMP",
-						"type": "PipelineReference"
-					},
-					"parameters": {}
-				},
-				"type": "TumblingWindowTrigger",
-				"typeProperties": {
-					"frequency": "Minute",
-					"interval": 20,
-					"startTime": "2020-04-24T18:10:00.000Z",
-					"delay": "00:00:00",
-					"maxConcurrency": 1,
-					"retryPolicy": {
-						"count": 6,
-						"intervalInSeconds": 120
-					},
-					"dependsOn": []
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_Combo_GLandCAMP')]"
-			]
 		}
 	]
 }
