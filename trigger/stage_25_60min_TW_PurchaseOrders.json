@@ -1,0 +1,24 @@
+{
+	"name": "stage_25_60min_TW_PurchaseOrders",
+	"properties": {
+		"description": "stage_25_60min_TW_PurchaseOrders",
+		"annotations": [
+			"60 mins",
+			"POs"
+		],
+		"runtimeState": "Stopped",
+		"type": "TumblingWindowTrigger",
+		"typeProperties": {
+			"frequency": "Minute",
+			"interval": 60,
+			"startTime": "2020-04-24T18:34:00.000Z",
+			"delay": "00:00:00",
+			"maxConcurrency": 1,
+			"retryPolicy": {
+				"count": 6,
+				"intervalInSeconds": 300
+			},
+			"dependsOn": []
+		}
+	}
+}
