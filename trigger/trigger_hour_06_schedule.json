@@ -10,6 +10,12 @@
 					"referenceName": "pipe_MRTG",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BudgetForecast",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
@@ -17,7 +23,7 @@
 			"recurrence": {
 				"frequency": "Hour",
 				"interval": 6,
-				"startTime": "2020-01-27T19:00:00.000Z",
+				"startTime": "2020-04-23T20:00:00.000Z",
 				"timeZone": "UTC"
 			}
 		}
