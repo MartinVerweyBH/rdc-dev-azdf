@@ -29,6 +29,9 @@
 				}
 			}
 		],
+		"folder": {
+			"name": "Pipe All Combos"
+		},
 		"annotations": [
 			"Parent",
 			"pipe_PurchaseOrders"
