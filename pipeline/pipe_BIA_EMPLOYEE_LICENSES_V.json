@@ -261,7 +261,9 @@
 		"folder": {
 			"name": "Pipe Employees/pipe_Employees"
 		},
-		"annotations": []
+		"annotations": [
+			"pipe_Employees"
+		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
