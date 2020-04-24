@@ -1,5 +1,5 @@
 {
-	"name": "stage_20min_30",
+	"name": "stage_30_20min",
 	"properties": {
 		"description": "Trigger Every 20 Minutes on the 30",
 		"annotations": [],
