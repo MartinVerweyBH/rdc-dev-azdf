@@ -10,12 +10,6 @@
 					"referenceName": "pipe_GeneralLedgerJournals",
 					"type": "PipelineReference"
 				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_SubLedgers",
-					"type": "PipelineReference"
-				}
 			}
 		],
 		"type": "ScheduleTrigger",
