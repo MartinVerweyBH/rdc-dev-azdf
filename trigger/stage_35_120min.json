@@ -25,12 +25,6 @@
 					"referenceName": "pipe_PriceLists",
 					"type": "PipelineReference"
 				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_Projects_CompareOAC",
-					"type": "PipelineReference"
-				}
 			}
 		],
 		"type": "ScheduleTrigger",
