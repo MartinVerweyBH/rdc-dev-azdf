@@ -20,7 +20,8 @@
 			"name": "pipe MRTG/pipe_MRTG"
 		},
 		"annotations": [
-			"Parent"
+			"Parent",
+			"pipe_MRTG"
 		]
 	}
 }
