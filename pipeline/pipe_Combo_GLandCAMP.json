@@ -76,7 +76,8 @@
 			"Parent",
 			"pipe_GeneralLedger",
 			"pipe_CAMP",
-			"pipe_GeneralLedger_Journals"
+			"pipe_GeneralLedger_Journals",
+			"pipe_Combo_GLandCAMP"
 		]
 	}
 }
