@@ -381,7 +381,9 @@
 		"folder": {
 			"name": "Pipe Customers/pipe_Customers"
 		},
-		"annotations": []
+		"annotations": [
+			"pipe_Customers"
+		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
