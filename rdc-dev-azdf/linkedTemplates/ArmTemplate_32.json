@@ -947,20 +947,6 @@
 						}
 					},
 					{
-						"name": "pipe_W_PBI_DEPRECIATION_COST_F",
-						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_W_PBI_DEPRECIATION_COST_F",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
 						"name": "pipe_W_PBI_PROJ_COMMITED_COST_F",
 						"type": "ExecutePipeline",
 						"dependsOn": [],
@@ -1026,14 +1012,7 @@
 					{
 						"name": "pipe_W_PBI_PROJ_TASK_AMT_PAID_F",
 						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "pipe_W_PBI_DEPRECIATION_COST_F",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
+						"dependsOn": [],
 						"userProperties": [],
 						"typeProperties": {
 							"pipeline": {
