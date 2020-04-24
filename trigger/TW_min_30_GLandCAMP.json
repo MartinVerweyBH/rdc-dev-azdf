@@ -1,0 +1,25 @@
+{
+	"name": "TW_min_30_GLandCAMP",
+	"properties": {
+		"description": "TW_min_30_GLandCAMP",
+		"annotations": [
+			"030 min",
+			"General Ledger",
+			"CAMP"
+		],
+		"runtimeState": "Stopped",
+		"type": "TumblingWindowTrigger",
+		"typeProperties": {
+			"frequency": "Minute",
+			"interval": 30,
+			"startTime": "2020-04-24T21:00:00.000Z",
+			"delay": "00:00:00",
+			"maxConcurrency": 1,
+			"retryPolicy": {
+				"count": 5,
+				"intervalInSeconds": 120
+			},
+			"dependsOn": []
+		}
+	}
+}
