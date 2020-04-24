@@ -10,6 +10,12 @@
 					"referenceName": "pipe_Projects_CompareOAC",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BudgetForecast",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
