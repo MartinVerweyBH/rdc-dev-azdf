@@ -25,15 +25,13 @@
 						"pipelineReference": {
 							"referenceName": "pipe_MRTG",
 							"type": "PipelineReference"
-						},
-						"parameters": {}
+						}
 					},
 					{
 						"pipelineReference": {
 							"referenceName": "pipe_BudgetForecast",
 							"type": "PipelineReference"
-						},
-						"parameters": {}
+						}
 					}
 				],
 				"type": "ScheduleTrigger",

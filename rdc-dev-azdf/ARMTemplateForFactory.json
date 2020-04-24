@@ -111207,6 +111207,13 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pipe_BudgetForecast",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
 					}
 				],
 				"type": "ScheduleTrigger",
@@ -111214,13 +111221,14 @@
 					"recurrence": {
 						"frequency": "Hour",
 						"interval": 6,
-						"startTime": "2020-01-27T19:00:00.000Z",
+						"startTime": "2020-04-23T20:00:00.000Z",
 						"timeZone": "UTC"
 					}
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_MRTG')]"
+				"[concat(variables('factoryId'), '/pipelines/pipe_MRTG')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BudgetForecast')]"
 			]
 		},
 		{
