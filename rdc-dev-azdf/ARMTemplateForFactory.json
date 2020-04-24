@@ -111511,7 +111511,8 @@
 			"properties": {
 				"description": "Trigger Every 20 Minutes on the 00",
 				"annotations": [
-					"20 min"
+					"20 min",
+					"GeneralLedger"
 				],
 				"runtimeState": "Stopped",
 				"pipelines": [
@@ -111538,13 +111539,15 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/stage_05_20min')]",
+			"name": "[concat(parameters('factoryName'), '/stage_15_120min')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Stage Every 20 Minutes on 05",
+				"description": "Stage Every 120 Minutes on 15",
 				"annotations": [
-					"20 min"
+					"120 min",
+					"Purchasing",
+					"Expenditure"
 				],
 				"runtimeState": "Stopped",
 				"pipelines": [
@@ -111567,8 +111570,8 @@
 				"typeProperties": {
 					"recurrence": {
 						"frequency": "Minute",
-						"interval": 20,
-						"startTime": "2020-04-24T00:05:00.000Z",
+						"interval": 120,
+						"startTime": "2020-04-24T00:15:00.000Z",
 						"timeZone": "UTC"
 					}
 				}
@@ -111775,13 +111778,15 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/stage_28_60min')]",
+			"name": "[concat(parameters('factoryName'), '/stage_25_120min')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Trigger Every 60 Minutes on the 28",
+				"description": "Trigger Every 120 Minutes on the 25\n- Customers\n- Vendors",
 				"annotations": [
-					"60 min"
+					"120 min",
+					"Customers",
+					"Vendors"
 				],
 				"runtimeState": "Stopped",
 				"pipelines": [
@@ -111804,8 +111809,8 @@
 				"typeProperties": {
 					"recurrence": {
 						"frequency": "Minute",
-						"interval": 60,
-						"startTime": "2020-04-24T00:28:00.000Z",
+						"interval": 120,
+						"startTime": "2020-04-24T00:25:00.000Z",
 						"timeZone": "UTC"
 					}
 				}
@@ -111863,7 +111868,8 @@
 			"properties": {
 				"description": "Trigger Every 120 Minutes on the 35",
 				"annotations": [
-					"120 min"
+					"120 min",
+					"Projects"
 				],
 				"runtimeState": "Stopped",
 				"pipelines": [
