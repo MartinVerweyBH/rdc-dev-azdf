@@ -3325,7 +3325,9 @@
 				"folder": {
 					"name": "Pipe Quotes/pipe_Quotes"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_Quotes"
+				]
 			},
 			"dependsOn": []
 		},
@@ -3962,7 +3964,9 @@
 				"folder": {
 					"name": "Pipe Projects/pipe_Projects"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_Projects"
+				]
 			},
 			"dependsOn": []
 		},
@@ -4438,7 +4442,9 @@
 				"folder": {
 					"name": "Pipe xCAMP/pipe_xCAMP"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_xCAMP"
+				]
 			},
 			"dependsOn": []
 		},
@@ -4735,7 +4741,9 @@
 				"folder": {
 					"name": "Pipe xCAMP/pipe_xCAMP"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_xCAMP"
+				]
 			},
 			"dependsOn": []
 		},
@@ -5145,7 +5153,9 @@
 				"folder": {
 					"name": "Pipe xCAMP/pipe_xCAMP"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_xCAMP"
+				]
 			},
 			"dependsOn": []
 		},
@@ -5341,7 +5351,9 @@
 				"folder": {
 					"name": "Pipe xCAMP/pipe_xCAMP"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_xCAMP"
+				]
 			},
 			"dependsOn": []
 		},

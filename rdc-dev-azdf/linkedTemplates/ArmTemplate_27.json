@@ -610,7 +610,9 @@
 				"folder": {
 					"name": "Pipe Projects/pipe_Projects"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_Projects"
+				]
 			},
 			"dependsOn": []
 		},
@@ -921,7 +923,9 @@
 				"folder": {
 					"name": "Pipe Projects/pipe_Projects"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_Projects"
+				]
 			},
 			"dependsOn": []
 		},
@@ -2491,7 +2495,9 @@
 				"folder": {
 					"name": "Pipe Quotes/pipe_Quotes"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_Quotes"
+				]
 			},
 			"dependsOn": []
 		},
@@ -2900,7 +2906,9 @@
 				"folder": {
 					"name": "Pipe Quotes/pipe_Quotes"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_Quotes"
+				]
 			},
 			"dependsOn": []
 		},
@@ -3965,7 +3973,9 @@
 				"folder": {
 					"name": "Pipe SalesOrders/pipe_SalesOrders"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_SalesOrders"
+				]
 			},
 			"dependsOn": []
 		},
@@ -4066,7 +4076,9 @@
 				"folder": {
 					"name": "Pipe SalesOrders/pipe_SalesOrders"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_SalesOrders"
+				]
 			},
 			"dependsOn": []
 		},
@@ -4227,7 +4239,9 @@
 				"folder": {
 					"name": "Pipe SalesOrders/pipe_SalesOrders"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_SalesOrders"
+				]
 			},
 			"dependsOn": []
 		},
@@ -4588,7 +4602,9 @@
 				"folder": {
 					"name": "Pipe ServiceContracts/pipe_ServiceContracts"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_ServiceContracts"
+				]
 			},
 			"dependsOn": []
 		},
@@ -5277,7 +5293,9 @@
 				"folder": {
 					"name": "Pipe ServiceContracts/pipe_ServiceContracts"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_ServiceContracts"
+				]
 			},
 			"dependsOn": []
 		},
@@ -6056,7 +6074,9 @@
 				"folder": {
 					"name": "Pipe ServiceContracts/pipe_ServiceContracts"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_ServiceContracts"
+				]
 			},
 			"dependsOn": []
 		},
@@ -6255,7 +6275,9 @@
 				"folder": {
 					"name": "Pipe ServiceContracts/pipe_ServiceContracts"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_ServiceContracts"
+				]
 			},
 			"dependsOn": []
 		},
@@ -7330,7 +7352,9 @@
 				"folder": {
 					"name": "Pipe Vendors/pipe_Vendors"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_Vendors"
+				]
 			},
 			"dependsOn": []
 		},
@@ -7591,7 +7615,9 @@
 				"folder": {
 					"name": "Pipe Vendors/pipe_Vendors"
 				},
-				"annotations": []
+				"annotations": [
+					"pipe_Vendors"
+				]
 			},
 			"dependsOn": []
 		}
