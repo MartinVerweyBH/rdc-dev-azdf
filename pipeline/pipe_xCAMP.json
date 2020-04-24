@@ -1,6 +1,7 @@
 {
 	"name": "pipe_xCAMP",
 	"properties": {
+		"description": " ",
 		"activities": [
 			{
 				"name": "Copy BIA_ORGANIZATIONS_V",
