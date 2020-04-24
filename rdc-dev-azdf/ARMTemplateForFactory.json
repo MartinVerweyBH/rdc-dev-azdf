@@ -44806,7 +44806,8 @@
 					"name": "Pipe BudgetForecast/pipe_BudgetForecast"
 				},
 				"annotations": [
-					"Parent"
+					"Parent",
+					"pipe_BudgetForecast"
 				]
 			},
 			"dependsOn": [
@@ -44982,7 +44983,8 @@
 					"name": "Pipe CAMP/pipe_CAMP"
 				},
 				"annotations": [
-					"Parent"
+					"Parent",
+					"pipe_CAMP"
 				]
 			},
 			"dependsOn": [
@@ -45201,7 +45203,8 @@
 					"name": "Pipe Customers/pipe_Customers"
 				},
 				"annotations": [
-					"Parent"
+					"Parent",
+					"pipe_Customers"
 				]
 			},
 			"dependsOn": [
@@ -45324,7 +45327,8 @@
 					"name": "Pipe Employees/pipe_Employees"
 				},
 				"annotations": [
-					"Parent"
+					"Parent",
+					"pipe_Employees"
 				]
 			},
 			"dependsOn": [
@@ -45519,7 +45523,8 @@
 					"name": "Pipe Expenditures/pipe_Expenditures"
 				},
 				"annotations": [
-					"Parent"
+					"Parent",
+					"pipe_Expenditures"
 				]
 			},
 			"dependsOn": [
@@ -45638,7 +45643,8 @@
 					"name": "Pipe FixedAssets/pipe_FixedAssets"
 				},
 				"annotations": [
-					"Parent"
+					"Parent",
+					"pipe_FixedAssets"
 				]
 			},
 			"dependsOn": [
@@ -45657,7 +45663,7 @@
 				"description": " ",
 				"activities": [
 					{
-						"name": "BIA_GL_HEADERS_V",
+						"name": "stage_BIA_GL_HEADERS_V",
 						"type": "ExecutePipeline",
 						"dependsOn": [
 							{
@@ -45706,7 +45712,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"pipeline": {
-								"referenceName": "pipe_BIA_GL_HEADERS_V",
+								"referenceName": "pipe_stage_BIA_GL_HEADERS_V",
 								"type": "PipelineReference"
 							},
 							"waitOnCompletion": true,
@@ -45714,11 +45720,11 @@
 						}
 					},
 					{
-						"name": "BIA_GL_LINES_V",
+						"name": "stage_BIA_GL_LINES_V",
 						"type": "ExecutePipeline",
 						"dependsOn": [
 							{
-								"activity": "BIA_GL_HEADERS_V",
+								"activity": "stage_BIA_GL_HEADERS_V",
 								"dependencyConditions": [
 									"Succeeded"
 								]
@@ -45727,7 +45733,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"pipeline": {
-								"referenceName": "pipe_BIA_GL_LINES_V",
+								"referenceName": "pipe_stage_BIA_GL_LINES_V",
 								"type": "PipelineReference"
 							},
 							"waitOnCompletion": true,
@@ -45837,7 +45843,7 @@
 						"type": "ExecutePipeline",
 						"dependsOn": [
 							{
-								"activity": "BIA_GL_HEADERS_V",
+								"activity": "stage_BIA_GL_HEADERS_V",
 								"dependencyConditions": [
 									"Succeeded"
 								]
@@ -45858,7 +45864,7 @@
 						"type": "ExecutePipeline",
 						"dependsOn": [
 							{
-								"activity": "BIA_GL_HEADERS_V",
+								"activity": "stage_BIA_GL_HEADERS_V",
 								"dependencyConditions": [
 									"Succeeded"
 								]
@@ -45879,12 +45885,13 @@
 					"name": "pipe GeneralLedger/pipe_GeneralLedger"
 				},
 				"annotations": [
-					"Parent"
+					"Parent",
+					"pipe_GeneralLedger"
 				]
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_HEADERS_V')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_LINES_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_stage_BIA_GL_HEADERS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_stage_BIA_GL_LINES_V')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_ACCOUNTS_V')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_CODE_COMBINATIONS_V')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_BATCHES_V')]",
@@ -46003,7 +46010,8 @@
 					"name": "pipe GeneralLedger/pipe_GeneralLedgerJournals"
 				},
 				"annotations": [
-					"Parent"
+					"Parent",
+					"pipe_GeneralLedgerJournals"
 				]
 			},
 			"dependsOn": [
@@ -46039,7 +46047,8 @@
 					"name": "pipe MRTG/pipe_MRTG"
 				},
 				"annotations": [
-					"Parent"
+					"Parent",
+					"pipe_MRTG"
 				]
 			},
 			"dependsOn": [
@@ -47445,7 +47454,8 @@
 					"name": "Pipe PriceLists/pipe_PriceLists"
 				},
 				"annotations": [
-					"Parent"
+					"Parent",
+					"pipe_PriceLists"
 				]
 			},
 			"dependsOn": [
@@ -47634,7 +47644,8 @@
 					"name": "Pipe Projects/pipe_Projects"
 				},
 				"annotations": [
-					"Parent"
+					"Parent",
+					"pipe_Projects"
 				]
 			},
 			"dependsOn": [
@@ -50116,7 +50127,8 @@
 				},
 				"annotations": [
 					"Parent",
-					"From OAC"
+					"From OAC",
+					"pipe_Projects"
 				]
 			},
 			"dependsOn": [
@@ -50449,7 +50461,8 @@
 					"name": "Pipe Projects/pipe_Projects_W"
 				},
 				"annotations": [
-					"Parent"
+					"Parent",
+					"pipe_Projects"
 				]
 			},
 			"dependsOn": [
@@ -50783,7 +50796,8 @@
 					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": [
-					"Parent"
+					"Parent",
+					"pipe_PurchaseOrders"
 				]
 			},
 			"dependsOn": [
@@ -50996,7 +51010,8 @@
 					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": [
-					"Parent"
+					"Parent",
+					"pipe_PurchaseOrders"
 				]
 			},
 			"dependsOn": [
@@ -51230,7 +51245,8 @@
 					"name": "Pipe Purchasing/pipe_Purchasing"
 				},
 				"annotations": [
-					"Parent"
+					"Parent",
+					"pipe_Purchasing"
 				]
 			},
 			"dependsOn": [
@@ -51340,7 +51356,8 @@
 					"name": "Pipe Quotes/pipe_Quotes"
 				},
 				"annotations": [
-					"Parent"
+					"Parent",
+					"pipe_Quotes"
 				]
 			},
 			"dependsOn": [
@@ -51471,7 +51488,8 @@
 					"name": "Pipe Receivables/pipe_Receivables"
 				},
 				"annotations": [
-					"Parent"
+					"Parent",
+					"pipe_Receivables"
 				]
 			},
 			"dependsOn": [
@@ -51569,7 +51587,8 @@
 					"name": "Pipe SalesOrders/pipe_SalesOrders"
 				},
 				"annotations": [
-					"Parent"
+					"Parent",
+					"pipe_SalesOrders"
 				]
 			},
 			"dependsOn": [
@@ -51716,7 +51735,8 @@
 					"name": "Pipe ServiceContracts/pipe_ServiceContracts"
 				},
 				"annotations": [
-					"Parent"
+					"Parent",
+					"pipe_ServiceContracts"
 				]
 			},
 			"dependsOn": [
@@ -51912,7 +51932,8 @@
 					"name": "pipe SubLedger/pipe_SubLedgers"
 				},
 				"annotations": [
-					"Parent"
+					"Parent",
+					"pipe_SubLedgers"
 				]
 			},
 			"dependsOn": [
@@ -51972,7 +51993,8 @@
 					"name": "Pipe Vendors/pipe_Vendors"
 				},
 				"annotations": [
-					"Parent"
+					"Parent",
+					"pipe_Vendors"
 				]
 			},
 			"dependsOn": [
@@ -69652,7 +69674,8 @@
 				},
 				"annotations": [
 					"Parent",
-					"From OAC"
+					"From OAC",
+					"pipe_xCAMP"
 				]
 			},
 			"dependsOn": [
