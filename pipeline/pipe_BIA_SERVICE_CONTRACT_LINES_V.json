@@ -679,7 +679,9 @@
 		"folder": {
 			"name": "Pipe ServiceContracts/pipe_ServiceContracts"
 		},
-		"annotations": []
+		"annotations": [
+			"pipe_ServiceContracts"
+		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
