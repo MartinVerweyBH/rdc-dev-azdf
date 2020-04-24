@@ -34,6 +34,12 @@
 					"referenceName": "pipe_SubLedgers",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_Expenditures",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
@@ -41,7 +47,7 @@
 			"recurrence": {
 				"frequency": "Minute",
 				"interval": 20,
-				"startTime": "2020-02-05T06:40:00.000Z",
+				"startTime": "2020-04-23T06:22:00.000Z",
 				"timeZone": "UTC"
 			}
 		}
