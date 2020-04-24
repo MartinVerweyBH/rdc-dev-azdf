@@ -165,7 +165,8 @@
 			"name": "Pipe Projects/pipe_Projects"
 		},
 		"annotations": [
-			"Parent"
+			"Parent",
+			"pipe_Projects"
 		]
 	}
 }

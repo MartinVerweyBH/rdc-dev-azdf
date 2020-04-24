@@ -99,7 +99,8 @@
 			"name": "Pipe FixedAssets/pipe_FixedAssets"
 		},
 		"annotations": [
-			"Parent"
+			"Parent",
+			"pipe_FixedAssets"
 		]
 	}
 }

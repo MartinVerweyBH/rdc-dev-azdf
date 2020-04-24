@@ -2448,7 +2448,8 @@
 		},
 		"annotations": [
 			"Parent",
-			"From OAC"
+			"From OAC",
+			"pipe_Projects"
 		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"

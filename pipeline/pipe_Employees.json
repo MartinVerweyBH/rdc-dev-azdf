@@ -99,7 +99,8 @@
 			"name": "Pipe Employees/pipe_Employees"
 		},
 		"annotations": [
-			"Parent"
+			"Parent",
+			"pipe_Employees"
 		]
 	}
 }

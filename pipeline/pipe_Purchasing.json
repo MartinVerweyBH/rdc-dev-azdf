@@ -205,7 +205,8 @@
 			"name": "Pipe Purchasing/pipe_Purchasing"
 		},
 		"annotations": [
-			"Parent"
+			"Parent",
+			"pipe_Purchasing"
 		]
 	}
 }

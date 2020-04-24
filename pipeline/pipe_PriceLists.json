@@ -113,7 +113,8 @@
 			"name": "Pipe PriceLists/pipe_PriceLists"
 		},
 		"annotations": [
-			"Parent"
+			"Parent",
+			"pipe_PriceLists"
 		]
 	}
 }
