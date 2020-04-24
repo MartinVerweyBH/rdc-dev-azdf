@@ -112,6 +112,8 @@
 		"folder": {
 			"name": "Pipe PriceLists/pipe_PriceLists"
 		},
-		"annotations": []
+		"annotations": [
+			"Parent"
+		]
 	}
 }
