@@ -2446,7 +2446,10 @@
 		"folder": {
 			"name": "Pipe Projects/pipe_Projects_CompareOAC"
 		},
-		"annotations": []
+		"annotations": [
+			"Parent",
+			"From OAC"
+		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
