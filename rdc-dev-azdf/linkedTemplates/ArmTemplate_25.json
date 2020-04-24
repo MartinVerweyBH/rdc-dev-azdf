@@ -1125,7 +1125,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger"
 				},
 				"annotations": [
 					"pipe_GeneralLedger"
@@ -1296,7 +1296,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger"
 				},
 				"annotations": [
 					"pipe_GeneralLedger"
@@ -1926,7 +1926,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger"
 				},
 				"annotations": [
 					"pipe_GeneralLedger"
@@ -2117,7 +2117,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger_Seed"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger_Seed"
 				},
 				"annotations": [
 					"pipe_GeneralLedger"
@@ -2308,7 +2308,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger"
 				},
 				"annotations": [
 					"pipe_GeneralLedger"
@@ -2549,7 +2549,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger"
 				},
 				"annotations": [
 					"pipe_GeneralLedger"
@@ -2820,7 +2820,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger_Seed"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger_Seed"
 				},
 				"annotations": [
 					"pipe_GeneralLedger"
@@ -2903,7 +2903,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger"
 				},
 				"annotations": [
 					"pipe_GeneralLedger"
@@ -3569,7 +3569,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger"
 				},
 				"annotations": [
 					"pipe_GeneralLedger"
@@ -3815,7 +3815,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger"
 				},
 				"annotations": [
 					"pipe_GeneralLedger"

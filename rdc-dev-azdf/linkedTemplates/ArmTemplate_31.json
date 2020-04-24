@@ -1967,7 +1967,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -2403,7 +2403,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -2712,7 +2712,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe SubLedger/pipe_SubLedgers"
+					"name": "Pipe SubLedger/pipe_SubLedgers"
 				},
 				"annotations": [
 					"pipe_SubLedgers"
@@ -2901,7 +2901,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe SubLedger/pipe_SubLedgers"
+					"name": "Pipe SubLedger/pipe_SubLedgers"
 				},
 				"annotations": [
 					"pipe_SubLedgers"
@@ -3732,7 +3732,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedgerJournals"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedgerJournals"
 				},
 				"annotations": [
 					"pipe_GeneralLedgerJournals"
@@ -5637,7 +5637,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe MRTG/pipe_MRTG"
+					"name": "Pipe MRTG/pipe_MRTG"
 				},
 				"annotations": [
 					"pipe_MRTG"

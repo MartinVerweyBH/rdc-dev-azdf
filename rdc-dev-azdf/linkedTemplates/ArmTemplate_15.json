@@ -60,7 +60,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersFromOAC"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersFromOAC"
 				},
 				"annotations": []
 			},
@@ -369,7 +369,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe SubLedger/pipe_SubLedgers_FromOAC"
+					"name": "Pipe SubLedger/pipe_SubLedgers_FromOAC"
 				},
 				"annotations": []
 			},
@@ -628,7 +628,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe SubLedger/pipe_SubLedgers_FromOAC"
+					"name": "Pipe SubLedger/pipe_SubLedgers_FromOAC"
 				},
 				"annotations": []
 			},
@@ -2056,7 +2056,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersFromOAC"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersFromOAC"
 				},
 				"annotations": []
 			},

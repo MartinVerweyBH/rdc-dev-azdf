@@ -3420,7 +3420,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -13685,7 +13685,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger"
 				},
 				"annotations": [
 					"pipe_GeneralLedger"
@@ -13859,7 +13859,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger"
 				},
 				"annotations": [
 					"pipe_GeneralLedger"
@@ -14501,7 +14501,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger"
 				},
 				"annotations": [
 					"pipe_GeneralLedger"
@@ -14695,7 +14695,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger_Seed"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger_Seed"
 				},
 				"annotations": [
 					"pipe_GeneralLedger"
@@ -14889,7 +14889,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger"
 				},
 				"annotations": [
 					"pipe_GeneralLedger"
@@ -15133,7 +15133,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger"
 				},
 				"annotations": [
 					"pipe_GeneralLedger"
@@ -15407,7 +15407,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger_Seed"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger_Seed"
 				},
 				"annotations": [
 					"pipe_GeneralLedger"
@@ -15493,7 +15493,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger"
 				},
 				"annotations": [
 					"pipe_GeneralLedger"
@@ -16165,7 +16165,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger"
 				},
 				"annotations": [
 					"pipe_GeneralLedger"
@@ -16417,7 +16417,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger"
 				},
 				"annotations": [
 					"pipe_GeneralLedger"
@@ -16717,7 +16717,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -17335,7 +17335,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -18616,7 +18616,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -19555,7 +19555,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -19639,7 +19639,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -20050,7 +20050,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -20255,7 +20255,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -20759,7 +20759,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -21123,7 +21123,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -21347,7 +21347,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -21821,7 +21821,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -22135,7 +22135,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -22469,7 +22469,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -22723,7 +22723,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -31118,7 +31118,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe SubLedger/pipe_SubLedgers"
+					"name": "Pipe SubLedger/pipe_SubLedgers"
 				},
 				"annotations": [
 					"pipe_SubLedgers"
@@ -31242,7 +31242,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe SubLedger/pipe_SubLedgers"
+					"name": "Pipe SubLedger/pipe_SubLedgers"
 				},
 				"annotations": [
 					"pipe_SubLedgers"
@@ -31406,7 +31406,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe SubLedger/pipe_SubLedgers"
+					"name": "Pipe SubLedger/pipe_SubLedgers"
 				},
 				"annotations": [
 					"pipe_SubLedgers"
@@ -31690,7 +31690,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe SubLedger/pipe_SubLedgers_Seed"
+					"name": "Pipe SubLedger/pipe_SubLedgers_Seed"
 				},
 				"annotations": []
 			},
@@ -31922,7 +31922,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe SubLedger/pipe_SubLedgers"
+					"name": "Pipe SubLedger/pipe_SubLedgers"
 				},
 				"annotations": [
 					"pipe_SubLedgers"
@@ -32086,7 +32086,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe SubLedger/pipe_SubLedgers_Seed"
+					"name": "Pipe SubLedger/pipe_SubLedgers_Seed"
 				},
 				"annotations": []
 			},
@@ -32359,7 +32359,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe SubLedger/pipe_SubLedgers"
+					"name": "Pipe SubLedger/pipe_SubLedgers"
 				},
 				"annotations": [
 					"pipe_SubLedgers"
@@ -32573,7 +32573,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe SubLedger/pipe_SubLedgers"
+					"name": "Pipe SubLedger/pipe_SubLedgers"
 				},
 				"annotations": [
 					"pipe_SubLedgers"
@@ -37081,7 +37081,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedgerJournals"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedgerJournals"
 				},
 				"annotations": [
 					"pipe_GeneralLedgerJournals"
@@ -37142,7 +37142,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedgerJournals"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedgerJournals"
 				},
 				"annotations": [
 					"pipe_GeneralLedgerJournals"
@@ -37318,7 +37318,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedgerJournals"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedgerJournals"
 				},
 				"annotations": [
 					"pipe_GeneralLedgerJournals"
@@ -37614,7 +37614,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger_Seed"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger_Seed"
 				},
 				"annotations": []
 			},
@@ -38088,7 +38088,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedgerJournals"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedgerJournals"
 				},
 				"annotations": [
 					"pipe_GeneralLedgerJournals"
@@ -38611,7 +38611,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -39644,7 +39644,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -39888,7 +39888,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -39947,7 +39947,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -40273,7 +40273,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -41029,7 +41029,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -41783,7 +41783,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -42550,7 +42550,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -44770,7 +44770,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -45860,7 +45860,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger"
 				},
 				"annotations": [
 					"Parent",
@@ -45985,7 +45985,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedgerJournals"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedgerJournals"
 				},
 				"annotations": [
 					"Parent",
@@ -46022,7 +46022,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe MRTG/pipe_MRTG"
+					"name": "Pipe MRTG/pipe_MRTG"
 				},
 				"annotations": [
 					"Parent",
@@ -46256,7 +46256,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe MRTG/pipe_MRTG_Seed"
+					"name": "Pipe MRTG/pipe_MRTG_Seed"
 				},
 				"annotations": []
 			},
@@ -50771,7 +50771,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": [
 					"Parent",
@@ -50985,7 +50985,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": [
 					"Parent",
@@ -51907,7 +51907,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe SubLedger/pipe_SubLedgers"
+					"name": "Pipe SubLedger/pipe_SubLedgers"
 				},
 				"annotations": [
 					"Parent",
@@ -57281,7 +57281,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger_FromOAC"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger_FromOAC"
 				},
 				"annotations": []
 			},
@@ -58051,7 +58051,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger_FromOAC"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger_FromOAC"
 				},
 				"annotations": []
 			},
@@ -58284,7 +58284,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe MRTG/pipe_MRTG_FromOAC"
+					"name": "Pipe MRTG/pipe_MRTG_FromOAC"
 				},
 				"annotations": []
 			},
@@ -59283,7 +59283,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersFromOAC"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersFromOAC"
 				},
 				"annotations": []
 			},
@@ -59595,7 +59595,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe SubLedger/pipe_SubLedgers_FromOAC"
+					"name": "Pipe SubLedger/pipe_SubLedgers_FromOAC"
 				},
 				"annotations": []
 			},
@@ -59857,7 +59857,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe SubLedger/pipe_SubLedgers_FromOAC"
+					"name": "Pipe SubLedger/pipe_SubLedgers_FromOAC"
 				},
 				"annotations": []
 			},
@@ -61291,7 +61291,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersFromOAC"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersFromOAC"
 				},
 				"annotations": []
 			},
@@ -63423,7 +63423,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -65410,7 +65410,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -65850,7 +65850,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -66163,7 +66163,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe SubLedger/pipe_SubLedgers"
+					"name": "Pipe SubLedger/pipe_SubLedgers"
 				},
 				"annotations": [
 					"pipe_SubLedgers"
@@ -66356,7 +66356,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe SubLedger/pipe_SubLedgers"
+					"name": "Pipe SubLedger/pipe_SubLedgers"
 				},
 				"annotations": [
 					"pipe_SubLedgers"
@@ -67194,7 +67194,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedgerJournals"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedgerJournals"
 				},
 				"annotations": [
 					"pipe_GeneralLedgerJournals"
@@ -69115,7 +69115,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe MRTG/pipe_MRTG"
+					"name": "Pipe MRTG/pipe_MRTG"
 				},
 				"annotations": [
 					"pipe_MRTG"
@@ -112269,6 +112269,62 @@
 				"typeProperties": {}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_Combo_GLandCAMP')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "pipe_GeneralLedger",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_GeneralLedger",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_CAMP",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_GeneralLedger",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_CAMP",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"folder": {
+					"name": "Pipe All Combos"
+				},
+				"annotations": [
+					"Parent",
+					"pipe_GeneralLedger",
+					"pipe_CAMP"
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_GeneralLedger')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_CAMP')]"
+			]
 		}
 	]
 }

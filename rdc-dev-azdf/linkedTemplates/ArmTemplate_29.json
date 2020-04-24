@@ -297,7 +297,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger_Seed"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger_Seed"
 				},
 				"annotations": []
 			},
@@ -768,7 +768,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedgerJournals"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedgerJournals"
 				},
 				"annotations": [
 					"pipe_GeneralLedgerJournals"
@@ -1799,7 +1799,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -2040,7 +2040,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -2363,7 +2363,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -3116,7 +3116,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -3867,7 +3867,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -4631,7 +4631,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -6836,7 +6836,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -7067,7 +7067,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe MRTG/pipe_MRTG_Seed"
+					"name": "Pipe MRTG/pipe_MRTG_Seed"
 				},
 				"annotations": []
 			},

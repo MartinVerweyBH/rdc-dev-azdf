@@ -1286,7 +1286,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe SubLedger/pipe_SubLedgers"
+					"name": "Pipe SubLedger/pipe_SubLedgers"
 				},
 				"annotations": [
 					"pipe_SubLedgers"
@@ -1407,7 +1407,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe SubLedger/pipe_SubLedgers"
+					"name": "Pipe SubLedger/pipe_SubLedgers"
 				},
 				"annotations": [
 					"pipe_SubLedgers"
@@ -1568,7 +1568,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe SubLedger/pipe_SubLedgers"
+					"name": "Pipe SubLedger/pipe_SubLedgers"
 				},
 				"annotations": [
 					"pipe_SubLedgers"
@@ -1849,7 +1849,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe SubLedger/pipe_SubLedgers_Seed"
+					"name": "Pipe SubLedger/pipe_SubLedgers_Seed"
 				},
 				"annotations": []
 			},
@@ -2078,7 +2078,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe SubLedger/pipe_SubLedgers"
+					"name": "Pipe SubLedger/pipe_SubLedgers"
 				},
 				"annotations": [
 					"pipe_SubLedgers"
@@ -2239,7 +2239,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe SubLedger/pipe_SubLedgers_Seed"
+					"name": "Pipe SubLedger/pipe_SubLedgers_Seed"
 				},
 				"annotations": []
 			},
@@ -2509,7 +2509,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe SubLedger/pipe_SubLedgers"
+					"name": "Pipe SubLedger/pipe_SubLedgers"
 				},
 				"annotations": [
 					"pipe_SubLedgers"
@@ -2720,7 +2720,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe SubLedger/pipe_SubLedgers"
+					"name": "Pipe SubLedger/pipe_SubLedgers"
 				},
 				"annotations": [
 					"pipe_SubLedgers"
@@ -5976,7 +5976,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedgerJournals"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedgerJournals"
 				},
 				"annotations": [
 					"pipe_GeneralLedgerJournals"
@@ -6034,7 +6034,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedgerJournals"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedgerJournals"
 				},
 				"annotations": [
 					"pipe_GeneralLedgerJournals"
@@ -6207,7 +6207,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedgerJournals"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedgerJournals"
 				},
 				"annotations": [
 					"pipe_GeneralLedgerJournals"

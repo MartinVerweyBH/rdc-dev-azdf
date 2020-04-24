@@ -1018,7 +1018,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger"
 				},
 				"annotations": [
 					"Parent",
@@ -1131,7 +1131,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedgerJournals"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedgerJournals"
 				},
 				"annotations": [
 					"Parent",
@@ -1162,7 +1162,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe MRTG/pipe_MRTG"
+					"name": "Pipe MRTG/pipe_MRTG"
 				},
 				"annotations": [
 					"Parent",
@@ -2110,7 +2110,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBIA"
 				},
 				"annotations": [
 					"Parent",
@@ -2308,7 +2308,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": [
 					"Parent",
@@ -3186,7 +3186,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe SubLedger/pipe_SubLedgers"
+					"name": "Pipe SubLedger/pipe_SubLedgers"
 				},
 				"annotations": [
 					"Parent",

@@ -1064,7 +1064,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -1120,7 +1120,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
+					"name": "Pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 				},
 				"annotations": [
 					"pipe_PurchaseOrders"
@@ -2997,7 +2997,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger_FromOAC"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger_FromOAC"
 				},
 				"annotations": []
 			},
@@ -3759,7 +3759,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe GeneralLedger/pipe_GeneralLedger_FromOAC"
+					"name": "Pipe GeneralLedger/pipe_GeneralLedger_FromOAC"
 				},
 				"annotations": []
 			},
@@ -3989,7 +3989,7 @@
 					}
 				],
 				"folder": {
-					"name": "pipe MRTG/pipe_MRTG_FromOAC"
+					"name": "Pipe MRTG/pipe_MRTG_FromOAC"
 				},
 				"annotations": []
 			},
