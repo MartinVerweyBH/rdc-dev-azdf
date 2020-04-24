@@ -2,7 +2,9 @@
 	"name": "stage_55_20min",
 	"properties": {
 		"description": "Trigger Every 20 Minutes on the 55",
-		"annotations": [],
+		"annotations": [
+			"20 min"
+		],
 		"runtimeState": "Stopped",
 		"pipelines": [],
 		"type": "ScheduleTrigger",
