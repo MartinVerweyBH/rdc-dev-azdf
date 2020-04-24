@@ -1,0 +1,24 @@
+{
+	"name": "pipe_GeneralLedger_Singles",
+	"properties": {
+		"activities": [
+			{
+				"name": "pipe_BIA_GL_LINES_CAMP_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BIA_GL_LINES_CAMP_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"folder": {
+			"name": "Pipe GeneralLedger/pioe_GeneralLedger_Singles"
+		},
+		"annotations": []
+	}
+}
