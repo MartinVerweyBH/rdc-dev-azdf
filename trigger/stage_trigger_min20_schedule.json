@@ -22,6 +22,12 @@
 					"referenceName": "pipe_GeneralLedgerJournals",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_xCAMP",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
@@ -29,7 +35,7 @@
 			"recurrence": {
 				"frequency": "Minute",
 				"interval": 20,
-				"startTime": "2020-02-05T06:30:00.000Z",
+				"startTime": "2020-02-05T06:20:00.000Z",
 				"timeZone": "UTC"
 			}
 		}
