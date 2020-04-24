@@ -1,0 +1,45 @@
+{
+	"name": "pipe_Combo_GLandCAMP",
+	"properties": {
+		"activities": [
+			{
+				"name": "pipe_GeneralLedger",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_GeneralLedger",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_CAMP",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pipe_GeneralLedger",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_CAMP",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": [
+			"Parent",
+			"pipe_GeneralLedger",
+			"pipe_CAMP"
+		]
+	}
+}
