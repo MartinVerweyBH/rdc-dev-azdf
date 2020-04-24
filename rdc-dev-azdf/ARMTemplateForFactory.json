@@ -111982,10 +111982,10 @@
 					"60 mins",
 					"Purchase Orders"
 				],
-				"runtimeState": "Stopped",
+				"runtimeState": "Started",
 				"pipeline": {
 					"pipelineReference": {
-						"referenceName": "pipe_PurchaseOrders_BIA",
+						"referenceName": "pipe_Combo_AP",
 						"type": "PipelineReference"
 					},
 					"parameters": {}
@@ -112005,7 +112005,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_PurchaseOrders_BIA')]"
+				"[concat(variables('factoryId'), '/pipelines/pipe_Combo_AP')]"
 			]
 		},
 		{
@@ -112201,6 +112201,74 @@
 				"typeProperties": {}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger1')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 1,
+						"startTime": "2020-04-24T19:07:00.000Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_Combo_AP')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "pipe_PurchaseOrders_BIA",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_PurchaseOrders_BIA",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_PurchaseOrders_BICS",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_PurchaseOrders_BICS",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"folder": {
+					"name": "Pipe All Combos"
+				},
+				"annotations": [
+					"Parent",
+					"pipe_PurchaseOrders"
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_PurchaseOrders_BIA')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_PurchaseOrders_BICS')]"
+			]
 		}
 	]
 }

@@ -53,6 +53,172 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/xCAMP_stage_BIA_POWER_KW_ENCL_MONTH_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_dwStageOAC",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Destination xCAMP"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "StageID",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "PERIOD_MONTH",
+						"type": "nvarchar"
+					},
+					{
+						"name": "CLIENT_NAME",
+						"type": "nvarchar"
+					},
+					{
+						"name": "LOC_PATH",
+						"type": "nvarchar"
+					},
+					{
+						"name": "AVG_SQUARE_FEET_INUSE",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "IIC_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "BILL_CONTRACT_LINE_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "OFIN_CUSTOMER_NUMBER",
+						"type": "nvarchar"
+					},
+					{
+						"name": "DSYS_INSTANCE_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "AVG_KW_READING_VALUE",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "KWH",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "DSYS_PROCESS_ID",
+						"type": "decimal",
+						"precision": 12,
+						"scale": 0
+					},
+					{
+						"name": "BILL_TYPE",
+						"type": "nvarchar"
+					},
+					{
+						"name": "DSYS_BATCH_ID",
+						"type": "decimal",
+						"precision": 30,
+						"scale": 0
+					},
+					{
+						"name": "WAREHOUSE",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SF_BUILT",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "ROOM",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ENCLOSURE",
+						"type": "nvarchar"
+					},
+					{
+						"name": "TOTAL_AVG_KW",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "PCT_AVG_KW",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "TOTAL_KWH",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "PCT_KWH",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "TOTAL_SQFT",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "TOTAL_SQFT_PCT",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "BILL_TYPE_REPORTING",
+						"type": "nvarchar"
+					},
+					{
+						"name": "TOTAL_SQFT_OFFICE",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "TOTAL_SQFT_OFFICE_PCT",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					}
+				],
+				"typeProperties": {
+					"schema": "xCAMP",
+					"table": "stage_BIA_POWER_KW_ENCL_MONTH_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/lsEBS')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -3898,216 +4064,6 @@
 					"name": "Pipe CAMP/pipe_CAMP_FromOAC"
 				},
 				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipe_oac_to_aoac_BIA_GL_HEADERS_R11V')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy BIA_GL_HEADERS_R11V",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "AzureSqlSource",
-								"queryTimeout": "02:00:00"
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_GL_HEADERS_R11V",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "JE_HEADER_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "JE_HEADER_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "JE_CATEGORY",
-											"type": "String"
-										},
-										"sink": {
-											"name": "JE_CATEGORY",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "PERIOD_NAME",
-											"type": "String"
-										},
-										"sink": {
-											"name": "PERIOD_NAME",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "NAME",
-											"type": "String"
-										},
-										"sink": {
-											"name": "NAME",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "STATUS",
-											"type": "String"
-										},
-										"sink": {
-											"name": "STATUS",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "JE_BATCH_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "JE_BATCH_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "DESCRIPTION",
-											"type": "String"
-										},
-										"sink": {
-											"name": "DESCRIPTION",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "RUNNING_TOTAL_DR",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "RUNNING_TOTAL_DR",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "RUNNING_TOTAL_CR",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "RUNNING_TOTAL_CR",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "RUNNING_TOTAL_ACCOUNTED_DR",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "RUNNING_TOTAL_ACCOUNTED_DR",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "RUNNING_TOTAL_ACCOUNTED_CR",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "RUNNING_TOTAL_ACCOUNTED_CR",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "LAST_UPDATE_DATE",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "DSYS_INSTANCE_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "DSYS_INSTANCE_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "DSYS_PROCESS_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "DSYS_PROCESS_ID",
-											"type": "Decimal"
-										}
-									},
-									{
-										"source": {
-											"name": "DSYS_BATCH_ID",
-											"type": "Decimal"
-										},
-										"sink": {
-											"name": "DSYS_BATCH_ID",
-											"type": "Decimal"
-										}
-									}
-								]
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "aoac_BIA_GL_HEADERS_R11V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "aoac_BIA_GL_HEADERS_R11V",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"folder": {
-					"name": "Pipe OnceOffs"
-				},
-				"annotations": [
-					"Once OFF"
-				]
 			},
 			"dependsOn": []
 		}
