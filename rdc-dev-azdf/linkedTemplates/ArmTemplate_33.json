@@ -1356,7 +1356,9 @@
 				"annotations": [
 					"20 min",
 					"GeneralLedger",
-					"pipe_Combo_GLandCAMP"
+					"CAMP",
+					"GeneralLedgerJournals",
+					"GeneralLedgerSingles"
 				],
 				"runtimeState": "Started",
 				"pipelines": [
