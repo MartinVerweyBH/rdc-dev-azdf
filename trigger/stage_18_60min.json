@@ -16,6 +16,12 @@
 					"referenceName": "pipe_ServiceContracts",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_FixedAssets",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
