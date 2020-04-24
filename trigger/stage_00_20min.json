@@ -3,7 +3,8 @@
 	"properties": {
 		"description": "Trigger Every 20 Minutes on the 00",
 		"annotations": [
-			"20 min"
+			"20 min",
+			"GeneralLedger"
 		],
 		"runtimeState": "Stopped",
 		"pipelines": [
