@@ -6,7 +6,7 @@
 			"20 min",
 			"GL and CAMP"
 		],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"type": "TumblingWindowTrigger",
 		"typeProperties": {
 			"frequency": "Minute",
