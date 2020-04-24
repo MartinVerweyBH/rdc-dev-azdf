@@ -111786,30 +111786,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/stage_35_120min')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Trigger Every 120 Minutes on the 35",
-				"annotations": [
-					"120 min",
-					"PriceList"
-				],
-				"runtimeState": "Stopped",
-				"pipelines": [],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Minute",
-						"interval": 120,
-						"startTime": "2020-04-24T00:35:00.000Z",
-						"timeZone": "UTC"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/Oracle')]",
 			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
 			"apiVersion": "2018-06-01",
