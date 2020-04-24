@@ -260,7 +260,9 @@
 		"folder": {
 			"name": "pipe SubLedger/pipe_SubLedgers"
 		},
-		"annotations": []
+		"annotations": [
+			"pipe_SubLedgers"
+		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
