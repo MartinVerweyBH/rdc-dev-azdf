@@ -16,6 +16,12 @@
 					"referenceName": "pipe_BudgetForecast",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_PriceLists",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
@@ -23,7 +29,7 @@
 			"recurrence": {
 				"frequency": "Hour",
 				"interval": 6,
-				"startTime": "2020-04-23T20:00:00.000Z",
+				"startTime": "2020-04-23T21:00:00.000Z",
 				"timeZone": "UTC"
 			}
 		}
