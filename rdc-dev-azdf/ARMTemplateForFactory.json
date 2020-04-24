@@ -45068,7 +45068,8 @@
 				"annotations": [
 					"Parent",
 					"pipe_GeneralLedger",
-					"pipe_CAMP"
+					"pipe_CAMP",
+					"pipe_GeneralLedger_Journals"
 				]
 			},
 			"dependsOn": [
