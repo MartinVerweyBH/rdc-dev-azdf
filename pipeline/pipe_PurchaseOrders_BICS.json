@@ -179,7 +179,8 @@
 			"name": "pipe PurchaseOrders/pipe_PurchaseOrdersBICS"
 		},
 		"annotations": [
-			"Parent"
+			"Parent",
+			"pipe_PurchaseOrders"
 		]
 	}
 }
