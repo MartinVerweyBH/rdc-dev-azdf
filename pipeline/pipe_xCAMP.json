@@ -727,7 +727,10 @@
 		"folder": {
 			"name": "Pipe xCAMP/pipe_xCAMP"
 		},
-		"annotations": []
+		"annotations": [
+			"Parent",
+			"From OAC"
+		]
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
