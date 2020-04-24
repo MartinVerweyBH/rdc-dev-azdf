@@ -2749,42 +2749,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/stage_17_60min_TW_SubLedgers')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "SubLedger_60min_TumblingWindow",
-				"annotations": [
-					"60 min",
-					"SubLedgers"
-				],
-				"runtimeState": "Started",
-				"pipeline": {
-					"pipelineReference": {
-						"referenceName": "pipe_SubLedgers",
-						"type": "PipelineReference"
-					},
-					"parameters": {}
-				},
-				"type": "TumblingWindowTrigger",
-				"typeProperties": {
-					"frequency": "Minute",
-					"interval": 60,
-					"startTime": "2020-04-24T18:17:00.000Z",
-					"delay": "00:00:00",
-					"maxConcurrency": 1,
-					"retryPolicy": {
-						"count": 6,
-						"intervalInSeconds": 300
-					},
-					"dependsOn": []
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_SubLedgers')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/stage_18_60min')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
@@ -2940,6 +2904,40 @@
 						"startTime": "2020-04-24T00:35:00.000Z",
 						"timeZone": "UTC"
 					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/TW_hrs_06_MRTG')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "TW_hrs_06_MRTG",
+				"annotations": [
+					"006 hrs",
+					"MRTG"
+				],
+				"runtimeState": "Started",
+				"pipeline": {
+					"pipelineReference": {
+						"referenceName": "pipe_MRTG",
+						"type": "PipelineReference"
+					},
+					"parameters": {}
+				},
+				"type": "TumblingWindowTrigger",
+				"typeProperties": {
+					"frequency": "Hour",
+					"interval": 6,
+					"startTime": "2020-04-24T12:00:00.000Z",
+					"delay": "00:00:00",
+					"maxConcurrency": 1,
+					"retryPolicy": {
+						"count": 5,
+						"intervalInSeconds": 600
+					},
+					"dependsOn": []
 				}
 			},
 			"dependsOn": []
