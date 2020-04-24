@@ -6,7 +6,7 @@
 			"20 min",
 			"GeneralLedger"
 		],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipelines": [
 			{
 				"pipelineReference": {
