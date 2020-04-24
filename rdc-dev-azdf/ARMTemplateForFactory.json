@@ -111683,13 +111683,6 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {}
-					},
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_FixedAssets",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
 					}
 				],
 				"type": "ScheduleTrigger",
@@ -111703,8 +111696,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_BudgetForecast')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_FixedAssets')]"
+				"[concat(variables('factoryId'), '/pipelines/pipe_BudgetForecast')]"
 			]
 		},
 		{
@@ -112324,6 +112316,42 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipe_SubLedgers')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/TW_hrs_02_FixedAssets')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "TW_hrs_02_FixedAssets",
+				"annotations": [
+					"002 hrs",
+					"Fixed Assets"
+				],
+				"runtimeState": "Started",
+				"pipeline": {
+					"pipelineReference": {
+						"referenceName": "pipe_FixedAssets",
+						"type": "PipelineReference"
+					},
+					"parameters": {}
+				},
+				"type": "TumblingWindowTrigger",
+				"typeProperties": {
+					"frequency": "Hour",
+					"interval": 2,
+					"startTime": "2020-04-24T21:13:00.000Z",
+					"delay": "00:00:00",
+					"maxConcurrency": 1,
+					"retryPolicy": {
+						"count": 5,
+						"intervalInSeconds": 300
+					},
+					"dependsOn": []
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_FixedAssets')]"
 			]
 		}
 	]
