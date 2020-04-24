@@ -4,7 +4,7 @@
 		"description": "stage_25_60min_TW_PurchaseOrders",
 		"annotations": [
 			"60 mins",
-			"POs"
+			"Purchase Orders"
 		],
 		"runtimeState": "Stopped",
 		"type": "TumblingWindowTrigger",
