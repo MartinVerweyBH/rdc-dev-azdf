@@ -4,7 +4,7 @@
 		"description": "Trigger Every 120 Minutes on the 35",
 		"annotations": [
 			"120 min",
-			"Projects"
+			"PriceList"
 		],
 		"runtimeState": "Stopped",
 		"pipelines": [
