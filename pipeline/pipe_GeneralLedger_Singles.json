@@ -19,6 +19,9 @@
 		"folder": {
 			"name": "Pipe GeneralLedger/pioe_GeneralLedger_Singles"
 		},
-		"annotations": []
+		"annotations": [
+			"Parent",
+			"pipe_GeneralLedger_Singles"
+		]
 	}
 }
