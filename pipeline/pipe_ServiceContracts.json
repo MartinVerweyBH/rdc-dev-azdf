@@ -129,5 +129,6 @@
 			"Parent",
 			"pipe_ServiceContracts"
 		]
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }

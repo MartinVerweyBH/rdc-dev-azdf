@@ -17,7 +17,7 @@
 		"typeProperties": {
 			"frequency": "Minute",
 			"interval": 60,
-			"startTime": "2020-04-24T22:52:00.000Z",
+			"startTime": "2020-04-24T22:52:00Z",
 			"delay": "00:00:00",
 			"maxConcurrency": 1,
 			"retryPolicy": {

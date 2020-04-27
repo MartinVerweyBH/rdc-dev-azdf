@@ -103,5 +103,6 @@
 			"Parent",
 			"pipe_Expenditures"
 		]
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }

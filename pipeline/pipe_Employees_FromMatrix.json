@@ -61,5 +61,6 @@
 		"annotations": [
 			"Parent"
 		]
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }

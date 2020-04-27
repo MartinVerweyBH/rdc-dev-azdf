@@ -24,5 +24,6 @@
 			"pipe_GeneralLedger_Singles",
 			"pipe_Combo_GLandCAMP"
 		]
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }

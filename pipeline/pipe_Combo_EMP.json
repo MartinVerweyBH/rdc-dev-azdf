@@ -33,5 +33,6 @@
 			"name": "Pipe All Combos"
 		},
 		"annotations": []
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }

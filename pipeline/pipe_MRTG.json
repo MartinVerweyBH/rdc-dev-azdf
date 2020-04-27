@@ -23,5 +23,6 @@
 			"Parent",
 			"pipe_MRTG"
 		]
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }

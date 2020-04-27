@@ -79,5 +79,6 @@
 			"pipe_GeneralLedger_Journals",
 			"pipe_Combo_GLandCAMP"
 		]
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }

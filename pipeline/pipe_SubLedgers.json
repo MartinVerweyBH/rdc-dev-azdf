@@ -175,5 +175,6 @@
 			"Parent",
 			"pipe_SubLedgers"
 		]
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }

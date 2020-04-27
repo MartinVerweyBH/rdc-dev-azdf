@@ -36,5 +36,6 @@
 			"Parent",
 			"pipe_PurchaseOrders"
 		]
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }

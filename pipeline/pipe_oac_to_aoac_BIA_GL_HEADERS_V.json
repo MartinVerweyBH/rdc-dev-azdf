@@ -209,5 +209,6 @@
 			"name": "Pipe GeneralLedger/pipe_GeneralLedger_FromOAC"
 		},
 		"annotations": []
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }

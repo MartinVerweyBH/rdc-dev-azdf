@@ -102,5 +102,6 @@
 			"Parent",
 			"pipe_Employees"
 		]
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }

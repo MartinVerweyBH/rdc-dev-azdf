@@ -295,5 +295,6 @@
 			"Parent",
 			"pipe_Projects"
 		]
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }

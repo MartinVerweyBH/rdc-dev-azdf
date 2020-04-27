@@ -82,5 +82,6 @@
 			"Parent",
 			"pipe_SalesOrders"
 		]
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }

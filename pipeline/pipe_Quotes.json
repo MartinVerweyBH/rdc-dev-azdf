@@ -89,5 +89,6 @@
 			"Parent",
 			"pipe_Quotes"
 		]
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }

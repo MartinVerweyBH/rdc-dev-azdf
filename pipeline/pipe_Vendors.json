@@ -43,5 +43,6 @@
 			"Parent",
 			"pipe_Vendors"
 		]
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }

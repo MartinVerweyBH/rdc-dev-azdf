@@ -82,5 +82,6 @@
 			"Parent",
 			"pipe_FixedAssets"
 		]
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }
