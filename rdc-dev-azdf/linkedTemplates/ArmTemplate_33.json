@@ -13,6 +13,40 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/TW_hrs_06_MRTG')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "TW_hrs_06_MRTG",
+				"annotations": [
+					"006 hrs",
+					"MRTG"
+				],
+				"runtimeState": "Started",
+				"pipeline": {
+					"pipelineReference": {
+						"referenceName": "pipe_MRTG",
+						"type": "PipelineReference"
+					},
+					"parameters": {}
+				},
+				"type": "TumblingWindowTrigger",
+				"typeProperties": {
+					"frequency": "Hour",
+					"interval": 6,
+					"startTime": "2020-04-24T12:00:00Z",
+					"delay": "00:00:00",
+					"maxConcurrency": 1,
+					"retryPolicy": {
+						"count": 5,
+						"intervalInSeconds": 600
+					},
+					"dependsOn": []
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/TW_hrs_12_BudgetAndForecast')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
@@ -35,7 +69,7 @@
 				"typeProperties": {
 					"frequency": "Hour",
 					"interval": 12,
-					"startTime": "2020-04-24T23:55:00.000Z",
+					"startTime": "2020-04-24T23:55:00Z",
 					"delay": "00:00:00",
 					"maxConcurrency": 1,
 					"retryPolicy": {
@@ -69,7 +103,7 @@
 				"typeProperties": {
 					"frequency": "Minute",
 					"interval": 20,
-					"startTime": "2020-04-24T20:23:00.000Z",
+					"startTime": "2020-04-24T20:23:00Z",
 					"delay": "00:00:00",
 					"maxConcurrency": 50,
 					"retryPolicy": {
@@ -102,7 +136,7 @@
 				"typeProperties": {
 					"frequency": "Minute",
 					"interval": 30,
-					"startTime": "2020-04-24T22:34:00.000Z",
+					"startTime": "2020-04-24T22:34:00Z",
 					"delay": "00:00:00",
 					"maxConcurrency": 1,
 					"retryPolicy": {
@@ -136,7 +170,7 @@
 				"typeProperties": {
 					"frequency": "Minute",
 					"interval": 30,
-					"startTime": "2020-04-24T22:07:00.000Z",
+					"startTime": "2020-04-24T22:07:00Z",
 					"delay": "00:00:00",
 					"maxConcurrency": 1,
 					"retryPolicy": {
@@ -170,7 +204,7 @@
 				"typeProperties": {
 					"frequency": "Minute",
 					"interval": 30,
-					"startTime": "2020-04-24T22:22:00.000Z",
+					"startTime": "2020-04-24T22:22:00Z",
 					"delay": "00:00:00",
 					"maxConcurrency": 1,
 					"retryPolicy": {
@@ -204,7 +238,7 @@
 				"typeProperties": {
 					"frequency": "Minute",
 					"interval": 30,
-					"startTime": "2020-04-24T23:05:00.000Z",
+					"startTime": "2020-04-24T23:05:00Z",
 					"delay": "00:00:00",
 					"maxConcurrency": 1,
 					"retryPolicy": {
@@ -238,7 +272,7 @@
 				"typeProperties": {
 					"frequency": "Minute",
 					"interval": 30,
-					"startTime": "2020-04-24T23:27:00.000Z",
+					"startTime": "2020-04-24T23:27:00Z",
 					"delay": "00:00:00",
 					"maxConcurrency": 1,
 					"retryPolicy": {
@@ -272,46 +306,12 @@
 				"typeProperties": {
 					"frequency": "Minute",
 					"interval": 60,
-					"startTime": "2020-04-25T01:27:00.000Z",
+					"startTime": "2020-04-25T01:27:00Z",
 					"delay": "00:00:00",
 					"maxConcurrency": 1,
 					"retryPolicy": {
 						"count": 6,
 						"intervalInSeconds": 120
-					},
-					"dependsOn": []
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/TW_hrs_03_Purchasing')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "TW_hrs_03_Purchasing",
-				"annotations": [
-					"003 hrs",
-					"Purchasing"
-				],
-				"runtimeState": "Started",
-				"pipeline": {
-					"pipelineReference": {
-						"referenceName": "pipe_Purchasing",
-						"type": "PipelineReference"
-					},
-					"parameters": {}
-				},
-				"type": "TumblingWindowTrigger",
-				"typeProperties": {
-					"frequency": "Hour",
-					"interval": 3,
-					"startTime": "2020-04-25T01:35:00.000Z",
-					"delay": "00:00:00",
-					"maxConcurrency": 1,
-					"retryPolicy": {
-						"count": 5,
-						"intervalInSeconds": 300
 					},
 					"dependsOn": []
 				}
@@ -340,7 +340,7 @@
 				"typeProperties": {
 					"frequency": "Hour",
 					"interval": 2,
-					"startTime": "2020-04-24T20:40:00.000Z",
+					"startTime": "2020-04-24T20:40:00Z",
 					"delay": "00:00:00",
 					"maxConcurrency": 1,
 					"retryPolicy": {
@@ -374,7 +374,7 @@
 				"typeProperties": {
 					"frequency": "Hour",
 					"interval": 3,
-					"startTime": "2020-04-24T20:16:00.000Z",
+					"startTime": "2020-04-24T20:16:00Z",
 					"delay": "00:00:00",
 					"maxConcurrency": 1,
 					"retryPolicy": {
@@ -409,7 +409,7 @@
 				"typeProperties": {
 					"frequency": "Minute",
 					"interval": 30,
-					"startTime": "2020-04-24T21:00:00.000Z",
+					"startTime": "2020-04-24T21:00:00Z",
 					"delay": "00:00:00",
 					"maxConcurrency": 1,
 					"retryPolicy": {
@@ -443,7 +443,7 @@
 				"typeProperties": {
 					"frequency": "Minute",
 					"interval": 60,
-					"startTime": "2020-04-24T22:52:00.000Z",
+					"startTime": "2020-04-24T22:52:00Z",
 					"delay": "00:00:00",
 					"maxConcurrency": 1,
 					"retryPolicy": {

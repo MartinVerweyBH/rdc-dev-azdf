@@ -2532,6 +2532,7 @@
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
+				"description": " ",
 				"activities": [
 					{
 						"name": "pipe_PurchaseOrders_BIA",
@@ -2804,7 +2805,7 @@
 				"typeProperties": {
 					"frequency": "Hour",
 					"interval": 2,
-					"startTime": "2020-04-24T21:43:00.000Z",
+					"startTime": "2020-04-24T21:43:00Z",
 					"delay": "00:00:00",
 					"maxConcurrency": 1,
 					"retryPolicy": {
@@ -2840,7 +2841,7 @@
 				"typeProperties": {
 					"frequency": "Hour",
 					"interval": 2,
-					"startTime": "2020-04-24T21:33:00.000Z",
+					"startTime": "2020-04-24T21:33:00Z",
 					"delay": "00:00:00",
 					"maxConcurrency": 1,
 					"retryPolicy": {
@@ -2874,7 +2875,7 @@
 				"typeProperties": {
 					"frequency": "Hour",
 					"interval": 2,
-					"startTime": "2020-04-24T21:13:00.000Z",
+					"startTime": "2020-04-24T21:13:00Z",
 					"delay": "00:00:00",
 					"maxConcurrency": 1,
 					"retryPolicy": {
@@ -2908,7 +2909,7 @@
 				"typeProperties": {
 					"frequency": "Hour",
 					"interval": 2,
-					"startTime": "2020-04-24T21:53:00.000Z",
+					"startTime": "2020-04-24T21:53:00Z",
 					"delay": "00:00:00",
 					"maxConcurrency": 1,
 					"retryPolicy": {
@@ -2923,19 +2924,19 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/TW_hrs_06_MRTG')]",
+			"name": "[concat(parameters('factoryName'), '/TW_hrs_03_Purchasing')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "TW_hrs_06_MRTG",
+				"description": "TW_hrs_03_Purchasing",
 				"annotations": [
-					"006 hrs",
-					"MRTG"
+					"003 hrs",
+					"Purchasing"
 				],
 				"runtimeState": "Started",
 				"pipeline": {
 					"pipelineReference": {
-						"referenceName": "pipe_MRTG",
+						"referenceName": "pipe_Purchasing",
 						"type": "PipelineReference"
 					},
 					"parameters": {}
@@ -2943,18 +2944,20 @@
 				"type": "TumblingWindowTrigger",
 				"typeProperties": {
 					"frequency": "Hour",
-					"interval": 6,
-					"startTime": "2020-04-24T12:00:00.000Z",
+					"interval": 3,
+					"startTime": "2020-04-25T01:35:00Z",
 					"delay": "00:00:00",
 					"maxConcurrency": 1,
 					"retryPolicy": {
 						"count": 5,
-						"intervalInSeconds": 600
+						"intervalInSeconds": 300
 					},
 					"dependsOn": []
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_Purchasing')]"
+			]
 		}
 	]
 }
