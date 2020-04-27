@@ -1,6 +1,7 @@
 {
 	"name": "pipe_Combo_AP",
 	"properties": {
+		"description": " ",
 		"activities": [
 			{
 				"name": "pipe_PurchaseOrders_BIA",
