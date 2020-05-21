@@ -1,0 +1,16 @@
+{
+	"name": "PG",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lsMATRIX_Postgres",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Logan Salesforce"
+		},
+		"annotations": [],
+		"type": "PostgreSqlTable",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

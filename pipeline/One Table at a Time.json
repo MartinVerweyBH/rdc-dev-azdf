@@ -1,0 +1,58 @@
+{
+	"name": "One Table at a Time",
+	"properties": {
+		"activities": [
+			{
+				"name": "COPY SFC One Table at a Time",
+				"description": "Now the most important part :> Copy activity with a lot of parameterized things",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SalesforceServiceCloudSource",
+						"query": {
+							"value": "SELECT * from BusinessHours",
+							"type": "Expression"
+						},
+						"readBehavior": "query"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBatchSize": 10000,
+						"tableOption": "autoCreate",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "SFC",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "IsdwStagePBI",
+						"type": "DatasetReference",
+						"parameters": {
+							"TableName": "BusinessHours"
+						}
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "Logan Pipe Salesforce"
+		},
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

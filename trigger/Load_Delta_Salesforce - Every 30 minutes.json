@@ -1,0 +1,17 @@
+{
+	"name": "Load_Delta_Salesforce - Every 30 minutes",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 30,
+				"startTime": "2020-05-20T07:00:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}

@@ -1,0 +1,17 @@
+{
+	"name": "SFC",
+	"properties": {
+		"description": "Saleforce Dataset",
+		"linkedServiceName": {
+			"referenceName": "IsSFDC",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Logan Salesforce"
+		},
+		"annotations": [],
+		"type": "SalesforceServiceCloudObject",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

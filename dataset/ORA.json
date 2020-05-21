@@ -1,0 +1,16 @@
+{
+	"name": "ORA",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lsEBS",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Logan Salesforce"
+		},
+		"annotations": [],
+		"type": "OracleTable",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
